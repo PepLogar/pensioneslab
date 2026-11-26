@@ -1,0 +1,14 @@
+node_modules/
+*.log
+.DS_Store
+
+# Build (npm run build) and scratch output.
+dist/
+tmp/
+output/
+.claude/settings.local.json
+
+# Copias de documentos de otros: no se publican (data/sources/README.md dice de dónde vienen).
+/data/sources/*
+!/data/sources/README.md
+.openai/

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "airef-estudio-1-2026-fiscal",
+  "purpose": "Comparación externa de la deuda a largo plazo; no modifica ni calibra el motor.",
+  "source": {
+    "institution": "AIReF",
+    "title": "Estudio 1/2026, evaluación de la regla de gasto de pensiones",
+    "publicationDate": "2026-05-29",
+    "snapshot": "data/sources/airef-2026/estudio-1-2026.pdf",
+    "sha256": "a41ffe179cb55e31fed1dba5ac28c83b521eb0f74fe0655d0ed3141c42727787",
+    "tables": "gráficos 2, 3, 19, 20, 22 y 29; cuadro 12, pág. 65"
+  },
+  "scenario": "Escenario a políticas constantes, sin reglas fiscales, con la demografía propia de la AIReF (gasto en pensiones de 2050: 16,4 % del PIB). Recursos y empleos sin PRTR.",
+  "units": "Porcentaje del PIB nominal.",
+  "debtGDP": {
+    "2025": 101,
+    "2030": 95,
+    "2035": 94,
+    "2040": 99,
+    "2050": 123
+  },
+  "primaryGDP": {
+    "2025": 0,
+    "2050": -2.1
+  },
+  "interestGDP": {
+    "2025": 2.4,
+    "2030": 2.8,
+    "2050": 4.4
+  },
+  "revenueGDP": {
+    "2025": 42.1,
+    "2030": 43.3,
+    "2050": 45
+  },
+  "spendingGDP": {
+    "2025": 44.5,
+    "2030": 45.7,
+    "2050": 51.6
+  },
+  "pensions2050": 16.4
+}

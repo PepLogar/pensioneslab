@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pensiones Lab · Riesgo de mercado</title>
+  <meta name="description" content="Bandas de incertidumbre de la deuda y del fondo cuando la rentabilidad de los fondos varía al azar.">
+  <link rel="stylesheet" href="src/graficos.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="gx-bar">
+    <span class="gx-name">Pensiones Lab · Riesgo de mercado</span>
+    <span class="site-beta" data-site-version title="Versión de pruebas: puede tener fallos y cambiar.">Beta</span>
+    <a class="site-feedback" data-site-feedback href="mailto:info@aisolutions.peplogar.com?subject=Pensiones%20Lab%20(beta)%3A%20fallo%20o%20mejora" title="Abre tu correo con la versión, la página y el enlace del escenario ya escritos; puedes cambiarlo antes de enviarlo.">✉ Fallos y mejoras</a>
+    <a class="site-help" href="ayuda.html" target="_blank" title="Las partes de la consola y cómo empezar, en otra pestaña">? Ayuda</a>
+    <a href="consola.html">Volver a la consola</a>
+    <a href="metodologia.html" target="_blank">Metodología</a>
+    <span class="gx-scenario" data-rx-scenario></span>
+    <span class="gx-status" data-rx-status role="status" aria-live="polite"></span>
+  </header>
+  <main class="gx-list">
+    <p class="sx-note">Cada trayectoria suma, cada año desde 2027, una desviación al azar a la rentabilidad real de los fondos, y el motor calcula el escenario entero con ella. Las desviaciones son independientes y de media cero (normales o de colas gruesas, con o sin memoria): sin relación con el crecimiento ni con los tipos de interés. El resultado es el abanico de lo que puede pasar con ese supuesto, no una probabilidad del mundo real. Solo afecta a lo que tiene fondo: el reparto y las cuentas nocionales no cambian.</p>
+    <div class="gx-card">
+      <div class="gx-controls">
+        <span>Sistema</span><div class="gx-row"><select data-rx="system"></select></div>
+        <span>Supuestos</span><div class="gx-row">
+          <label>Volatilidad anual <input type="number" class="gx-years" data-rx="sigma" min="0" max="30" step="1"> %</label>
+          <label>Colas <select data-rx="tails"><option value="normal">normales</option><option value="fat">gruesas (t de Student, 5 g. l.)</option></select></label>
+          <label>Memoria <select data-rx="memory"><option value="-0.3">−0,3 (vuelve a la media)</option><option value="0">ninguna</option><option value="0.3">0,3 (rachas)</option></select></label></div>
+        <span>Cálculo</span><div class="gx-row">
+          <label>Trayectorias <input type="number" class="gx-years" data-rx="paths" min="20" max="1000" step="10"></label>
+          <label>Semilla <input type="number" class="gx-years" data-rx="seed" min="1" step="1"></label>
+          <button type="button" data-rx-run>Calcular</button>
+          <button type="button" data-rx-rerun hidden title="El resultado viene guardado de una visita anterior: calcularlo de nuevo">Recalcular</button>
+          <button type="button" data-rx-svg disabled>Exportar SVG</button>
+          <button type="button" data-rx-csv disabled>Exportar CSV</button></div>
+      </div>
+      <div data-rx-summary></div>
+      <div class="gx-svg" data-rx-fund></div>
+      <div class="gx-svg" data-rx-debt></div>
+    </div>
+  </main>
+  <p class="gx-foot">Simulación con supuestos: no es una previsión oficial. La misma semilla da siempre las mismas trayectorias.</p>
+  <p class="gx-foot site-credits" data-site-credits>Pensiones Lab · Demarquía Planetaria · Cabeza Propia. Desarrollo: <a href="https://aisolutions.peplogar.com/">Pep Logar AI Solutions</a> · <a href="mailto:info@aisolutions.peplogar.com">info@aisolutions.peplogar.com</a>. Código <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0</a>; textos, gráficos y resultados <a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>. No es asesoramiento financiero. <a href="metodologia.html#aviso">Aviso legal y privacidad</a>.</p>
+  <script type="module" src="src/pages/riesgo.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pensiones Lab · Consola</title>
+  <meta name="description" content="Consola de trabajo del simulador de pensiones de España: todos los ajustes del motor y el resultado a la vista.">
+  <link rel="stylesheet" href="src/consola.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="cx-bar" role="toolbar" aria-label="Escenario">
+    <span class="cx-name">Pensiones Lab</span>
+    <span class="site-beta" data-site-version title="Versión de pruebas: puede tener fallos y cambiar.">Beta</span>
+    <a class="site-feedback" data-site-feedback href="mailto:info@aisolutions.peplogar.com?subject=Pensiones%20Lab%20(beta)%3A%20fallo%20o%20mejora" title="Abre tu correo con la versión, la página y el enlace del escenario ya escritos; puedes cambiarlo antes de enviarlo.">✉ Fallos y mejoras</a>
+    <a class="site-help" href="ayuda.html" target="_blank" title="Las partes de la consola y cómo empezar, en otra pestaña">? Ayuda</a>
+    <label>Sistema <select data-cx-system></select></label>
+    <label>Año <input type="number" data-cx-year min="2026" max="2070" step="1"></label>
+    <button type="button" data-cx-undo title="Deshacer (Ctrl+Z)">Deshacer</button>
+    <button type="button" data-cx-redo title="Rehacer (Ctrl+Y)">Rehacer</button>
+    <button type="button" data-cx-reset title="Vuelve a la configuración de partida (España 2026, reglas de hoy)">Reglas de hoy</button>
+    <span class="cx-sep"></span>
+    <label>Guardados <select data-cx-saved></select></label>
+    <button type="button" data-cx-open>Abrir</button>
+    <button type="button" data-cx-delete>Borrar</button>
+    <input type="text" data-cx-name maxlength="60" placeholder="Nombre" aria-label="Nombre para guardar">
+    <button type="button" data-cx-save title="Guarda el escenario en este navegador. Con el mismo nombre, lo sustituye.">Guardar</button>
+    <span class="cx-sep"></span>
+    <span class="cx-io" data-cx-io>
+      <button type="button" data-export="series" title="Series anuales de este escenario, en formato largo">CSV</button>
+      <button type="button" data-export="seriesAll" title="Series anuales de este escenario y de cada sistema con estos ajustes">CSV sistemas</button>
+      <button type="button" data-export="dictionary" title="Variables y unidades de los CSV">Diccionario</button>
+      <button type="button" data-export="excel" title="Libro con parámetros, medidas y series; se puede editar e importar">Excel</button>
+      <button type="button" data-export="json" title="El escenario completo; «Importar» lo vuelve a abrir">JSON</button>
+      <button type="button" data-export="import" title="Abre un escenario desde un .json, .xlsx o .csv">Importar</button>
+      <button type="button" data-export="link" title="Copia un enlace con los ajustes, sin tus límites ni el año">Enlace</button>
+    </span>
+    <input type="file" data-cx-file accept=".json,.xlsx,.csv,.tsv,application/json" hidden>
+    <button type="button" class="cx-keys" data-tip="Alt+← y Alt+→: año anterior y siguiente. Alt+↑ y Alt+↓: pestaña anterior y siguiente. Alt+V: año a año o todos los sistemas. /: buscar un ajuste. Ctrl+Z y Ctrl+Y: deshacer y rehacer. Esc: cerrar esta ayuda." aria-label="Atajos de teclado">Atajos</button>
+    <a href="sensibilidad.html" target="_blank" title="Qué supuesto decide el resultado de tu escenario, en otra pestaña">Sensibilidad</a>
+    <a href="riesgo.html" target="_blank" title="Bandas de incertidumbre de la deuda y del fondo con la rentabilidad de los fondos al azar, en otra pestaña">Riesgo</a>
+    <a href="graficos.html" target="_blank" title="Gráficos de tu escenario y de cada sistema, exportables en SVG, en otra pestaña">Gráficos</a>
+    <a href="metodologia.html" target="_blank" title="Supuestos, valores de partida y fuentes, en otra pestaña">Metodología</a>
+    <span class="cx-status" data-cx-status role="status" aria-live="polite"></span>
+  </div>
+  <main class="cx-main">
+    <section class="cx-panel" data-cx-panel aria-label="Ajustes">
+      <input type="search" class="cx-search" data-cx-search placeholder="Buscar un ajuste (/)" aria-label="Buscar un ajuste">
+      <div class="cx-tabs" role="tablist" aria-label="Capítulos" data-cx-tabs></div>
+      <div class="cx-scroll" data-cx-body></div>
+    </section>
+    <section class="cx-road" aria-label="Resultado">
+      <p class="cx-verdict" data-cx-verdict aria-live="polite">Calculando…</p>
+      <div class="cx-charts" data-cx-charts></div>
+      <p class="cx-legend" data-cx-legend></p>
+      <div class="cx-views" role="tablist" aria-label="Vista">
+        <button type="button" role="tab" data-view="years" aria-selected="true">Año a año</button>
+        <button type="button" role="tab" data-view="systems" aria-selected="false">Todos los sistemas</button>
+      </div>
+      <div class="cx-scroll cx-years cx-systems" data-cx-systems hidden></div>
+      <div class="cx-scroll cx-years" data-cx-years>
+        <table class="cx-table cx-yeartable">
+          <thead><tr><th scope="col">Año</th><th scope="col">Deuda % PIB</th><th scope="col">Pensión €/mes</th><th scope="col" title="La que se podría pagar si el sistema se rompe: congelada desde el rescate y recortada desde la quita (ajustes «Pensión pagable», capítulo 4). Igual a la pensión mientras no hay rescate.">Pagable €/mes</th><th scope="col">% salario</th><th scope="col">Falta % PIB</th><th scope="col">Intereses % PIB</th><th scope="col">Fondo % PIB</th><th scope="col">Gasto en pensiones % PIB</th></tr></thead>
+          <tbody data-cx-table></tbody>
+        </table>
+      </div>
+    </section>
+    <div class="cx-tooltip" data-cx-tooltip role="tooltip" hidden></div>
+  </main>
+  <p class="cx-foot">Simulación con supuestos y calibración agregada: no es una previsión oficial ni un derecho legal.</p>
+  <p class="cx-foot site-credits" data-site-credits>Pensiones Lab · Demarquía Planetaria · Cabeza Propia. Desarrollo: <a href="https://aisolutions.peplogar.com/">Pep Logar AI Solutions</a> · <a href="mailto:info@aisolutions.peplogar.com">info@aisolutions.peplogar.com</a>. Código <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0</a>; textos, gráficos y resultados <a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>. No es asesoramiento financiero. <a href="metodologia.html#aviso">Aviso legal y privacidad</a>.</p>
+  <script type="module" src="src/pages/consola.js"></script>
+  <script>if (location.protocol === 'file:') document.querySelector('[data-cx-verdict]').textContent = 'Esta página necesita el servidor del proyecto: npm run dev y abre http://127.0.0.1:5180/';</script>
+</body>
+</html>

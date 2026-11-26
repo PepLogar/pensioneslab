@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-22",
+  "siteUrl": "[dirección privada del Site de prueba]",
+  "siteVersion": 3,
+  "engineVersion": "1.64.0",
+  "calibration": "es-current-2026-10-18-v8",
+  "originalStorage": {
+    "storageEqual": true,
+    "beforeHash": "bba0bf4cc86daa58c1dc25c5959bdfafdbb4ac5975f9bafcaa3563cd95f2fdb7",
+    "afterHash": "bba0bf4cc86daa58c1dc25c5959bdfafdbb4ac5975f9bafcaa3563cd95f2fdb7",
+    "keyCount": 9,
+    "verification": "same Chrome profile, same origin, fresh read-only tab"
+  },
+  "originalSavedEntries": 0,
+  "isolatedBrowser": "Codex in-app browser; original Chrome profile unchanged",
+  "referenceSimulations": 3,
+  "numericalCases": 3,
+  "csvDataRowsCompared": 9585,
+  "uiCellsCompared": 1080,
+  "activeExcelSheetCellsCompared": 1395,
+  "economicConfigKeys": 101,
+  "economicRoundTrips": [
+    "JSON: reparto base",
+    "CSV: reparto 67",
+    "XLSX: progresivo"
+  ],
+  "confirmedDefects": [
+    "Visible year differs from stored/exported year",
+    "JSON import ignores its limits; XLSX/CSV do not transport limits"
+  ],
+  "historicalLibraryRetention": "Not proven: original library was empty",
+  "invalidJsonLeavesStateIntact": true,
+  "codeChanges": false,
+  "deploymentChanges": false,
+  "accessPolicyChanged": false,
+  "testSessionCleanup": "Unverified: browser tool blocked on confirmation dialog; synthetic records may remain in separate IAB storage",
+  "evidence": [
+    "output/sites/qa-io-2026-11-22/reparto/live-contrast.json",
+    "output/sites/qa-io-2026-11-22/progresivo/live-comparison.json",
+    "output/sites/qa-io-2026-11-22/progresivo/live-excel-comparison.json",
+    "output/sites/qa-io-2026-11-22/progresivo/live-persistence-comparison.json",
+    "output/sites/qa-io-2026-11-22/live/observations.json"
+  ]
+}

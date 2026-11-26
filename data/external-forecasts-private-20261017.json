@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "informationCutoff": "2026-10-17",
+  "retrievedOn": "2026-10-17",
+  "country": "Spain",
+  "purpose": "Published private forecasts for comparison; not integrated into the simulator",
+  "organizationsReviewed": ["Funcas", "FEDEA"],
+  "extraction": {
+    "method": "Direct transcription of Funcas PDF table 2, page 9, and labelled figure 7, page 8; narrative points retain their qualifier and period.",
+    "visualPagesReviewed": [8, 9],
+    "annualCellsInterpolated": false,
+    "unlabelledGraphValuesDigitized": false,
+    "secondaryPressUsed": false,
+    "modelOrTestsExecuted": false
+  },
+  "sources": {
+    "funcas_report_20261015": {
+      "organization": "Funcas",
+      "title": "Economía española. Previsiones 2026-2028",
+      "publicationDate": "2026-10-15",
+      "url": "https://www.funcas.es/wp-content/uploads/2026/10/PIB2610.pdf",
+      "snapshot": "data/sources/external-forecasts/funcas-PIB2610-20261015.pdf",
+      "sha256": "5e6ded644e5a38acf45c9a705f82fd34add258c9724974b435da79a48118d50a",
+      "pages": 9,
+      "tableImage": "data/sources/external-forecasts/funcas-PIB2610-table-p9.png",
+      "scenarioImage": "data/sources/external-forecasts/funcas-PIB2610-scenarios-p8.png",
+      "primaryPublication": true
+    },
+    "funcas_release_20261015": {
+      "organization": "Funcas",
+      "publicationDate": "2026-10-15",
+      "url": "https://www.funcas.es/prensa/funcas-espera-una-desaceleracion-de-la-economia-espanola-desde-el-25-este-ano-hasta-el-18-en-2027-y-el-17-en-2028/",
+      "snapshot": null,
+      "primaryPublication": true,
+      "role": "Publication-date confirmation and discrepancy record; the PDF table controls annual values."
+    },
+    "fedea_accounts_20260122": {
+      "organization": "FEDEA",
+      "title": "Las cuentas de la Seguridad Social Ampliada. Series 2005-2025, v1.3",
+      "publicationDate": "2026-01-22",
+      "documentMonth": "2026-01",
+      "url": "https://documentos.fedea.net/documento/ap2026-03/texto",
+      "publicationDateSource": "https://fedea.net/category/pensiones/",
+      "snapshot": null,
+      "primaryPublication": true,
+      "coverage": "Final accounts through 2024 and an estimate for 2025 based on execution through November2025; not an annual2026-2030 forecast."
+    },
+    "fedea_models_20260925": {
+      "organization": "FEDEA",
+      "title": "Modelos contables de proyección del gasto en pensiones: estructura, limitaciones y propuestas para seguir avanzando",
+      "publicationDate": "2026-09-25",
+      "url": "https://documentos.fedea.net/pubs/dt/2026/dt2026-08.pdf",
+      "publicationDateSource": "https://fedea.net/modelos-contables-de-proyeccion-del-gasto-en-pensiones/",
+      "snapshot": null,
+      "primaryPublication": true,
+      "coverage": "Methodological review of public-sector projection models; no annual private2026-2030 numerical forecast extracted."
+    }
+  },
+  "units": {
+    "growthPct": "Annual percentage change, not a fraction",
+    "nominalGDPBillionEUR": "Current-price billionEUR, as printed; not derived from rounded growth rates",
+    "compensationPerEmployeeFTEGrowthPct": "Nominal compensation per employee expressed in full-time equivalents; not net take-home salary",
+    "employmentEPAGrowthPct": "EPA employment annual change; not full-time-equivalent employment or SocialSecurity affiliation",
+    "unemploymentRatePct": "EPA unemployed as percent of active population, annual table value",
+    "generalGovernmentBalanceGDPpct": "Net lending positive / net borrowing negative, percentGDP",
+    "generalGovernmentDebtGDPpct": "PDE debt, percentGDP",
+    "tenYearGovernmentBondYieldPct": "Annual-average nominal market yield; not the effective rate on the outstanding debt stock",
+    "euribor12MonthPct": "Annual-average nominal12-month Euribor",
+    "nominalInterestPaymentsMillionEUR": "Current-price millionEUR"
+  },
+  "centralForecast": {
+    "sourceId": "funcas_report_20261015",
+    "locator": "Table2, page9, Previsiones Funcas columns2026/2027/2028",
+    "scenarioType": "central_conditional_forecast",
+    "assumptions": [
+      "Persistent MiddleEast conflict with contained commodity-market effects",
+      "Broadly unchanged macroeconomic policies and fiscal inertia, including already approved mitigation measures",
+      "No probability is assigned to the central or alternative scenarios"
+    ],
+    "years": [
+      {
+        "year": 2026,
+        "status": "current_year_forecast_not_observation",
+        "realGDPGrowthPct": 2.5,
+        "nominalGDPBillionEUR": 1783.7,
+        "nominalGDPGrowthPct": 5.5,
+        "gdpDeflatorGrowthPct": 3.0,
+        "cpiAnnualAverageGrowthPct": 3.7,
+        "compensationPerEmployeeFTEGrowthPct": 3.8,
+        "employmentEPAGrowthPct": 2.3,
+        "employmentFTEGrowthPct": null,
+        "unemploymentRatePct": 9.9,
+        "generalGovernmentBalanceGDPpct": -2.5,
+        "generalGovernmentDebtGDPpct": 98.1,
+        "tenYearGovernmentBondYieldPct": 3.70,
+        "euribor12MonthPct": 2.80,
+        "effectiveOutstandingDebtInterestRatePct": null,
+        "pensionSpendingMillionEUR": null,
+        "socialSecurityContributionsMillionEUR": null,
+        "stateTransfersToSocialSecurityMillionEUR": null,
+        "stateLoansToSocialSecurityMillionEUR": null
+      },
+      {
+        "year": 2027,
+        "status": "forecast",
+        "realGDPGrowthPct": 1.8,
+        "nominalGDPBillionEUR": 1868.7,
+        "nominalGDPGrowthPct": 4.8,
+        "gdpDeflatorGrowthPct": 2.9,
+        "cpiAnnualAverageGrowthPct": 3.1,
+        "compensationPerEmployeeFTEGrowthPct": 3.1,
+        "employmentEPAGrowthPct": 1.6,
+        "employmentFTEGrowthPct": null,
+        "unemploymentRatePct": 9.3,
+        "generalGovernmentBalanceGDPpct": -2.7,
+        "generalGovernmentDebtGDPpct": 96.8,
+        "tenYearGovernmentBondYieldPct": 4.00,
+        "euribor12MonthPct": 3.00,
+        "effectiveOutstandingDebtInterestRatePct": null,
+        "pensionSpendingMillionEUR": null,
+        "socialSecurityContributionsMillionEUR": null,
+        "stateTransfersToSocialSecurityMillionEUR": null,
+        "stateLoansToSocialSecurityMillionEUR": null
+      },
+      {
+        "year": 2028,
+        "status": "forecast",
+        "realGDPGrowthPct": 1.7,
+        "nominalGDPBillionEUR": 1945.0,
+        "nominalGDPGrowthPct": 4.1,
+        "gdpDeflatorGrowthPct": 2.4,
+        "cpiAnnualAverageGrowthPct": 2.5,
+        "compensationPerEmployeeFTEGrowthPct": 2.6,
+        "employmentEPAGrowthPct": 1.0,
+        "employmentFTEGrowthPct": null,
+        "unemploymentRatePct": 9.0,
+        "generalGovernmentBalanceGDPpct": -2.9,
+        "generalGovernmentDebtGDPpct": 96.3,
+        "tenYearGovernmentBondYieldPct": 3.75,
+        "euribor12MonthPct": 2.75,
+        "effectiveOutstandingDebtInterestRatePct": null,
+        "pensionSpendingMillionEUR": null,
+        "socialSecurityContributionsMillionEUR": null,
+        "stateTransfersToSocialSecurityMillionEUR": null,
+        "stateLoansToSocialSecurityMillionEUR": null
+      }
+    ]
+  },
+  "mediumTermScenarios": {
+    "sourceId": "funcas_report_20261015",
+    "locator": "Figure7, page8; direct printed labels, not digitized curves",
+    "growthPeriod": [2027, 2030],
+    "debtYear": 2030,
+    "rows": [
+      {"scenario": "central", "averageRealGDPGrowthPct": 1.7, "debtGDPpct2030": 96.0},
+      {"scenario": "financial_tension", "averageRealGDPGrowthPct": 1.6, "debtGDPpct2030": 96.8},
+      {"scenario": "adverse_demography", "averageRealGDPGrowthPct": 1.5, "debtGDPpct2030": 97.8}
+    ],
+    "annualTrajectoriesAvailable": false,
+    "interpretation": "Period-average growth and endpoint debt; never assign the average mechanically to every year. Alternative scenarios are not the central forecast."
+  },
+  "publishedNarrativePoints": [
+    {"sourceId": "funcas_report_20261015", "locator": "pages5-6", "scenario": "central", "metric": "cpiAnnualAverageGrowthPct", "yearsExplicit": [2029,2030], "value": 2.0, "status": "scenario_assumption_from2029"},
+    {"sourceId": "funcas_report_20261015", "locator": "page6", "scenario": "central", "metric": "realGDPGrowthPct", "yearsExplicit": [2028,2029,2030], "value": 1.7, "status": "scenario_assumption_from2028_not_a_full_annual_table"},
+    {"sourceId": "funcas_report_20261015", "locator": "page6", "scenario": "central", "metric": "tenYearGovernmentBondYieldPct", "year": 2030, "value": 3.0, "status": "scenario_endpoint_assumption"},
+    {"sourceId": "funcas_report_20261015", "locator": "page6", "scenario": "central", "metric": "generalGovernmentDebtGDPpct", "year": 2029, "value": 96.0, "status": "scenario_endpoint_statement"},
+    {"sourceId": "funcas_report_20261015", "locator": "page6", "scenario": "central", "metric": "nominalInterestPaymentsMillionEUR", "year": 2026, "value": 43500, "approximate": true},
+    {"sourceId": "funcas_report_20261015", "locator": "page6", "scenario": "central", "metric": "nominalInterestPaymentsMillionEUR", "year": 2031, "value": 63700, "approximate": false, "precisionNote": "Published rounded number, not euro-level precision"},
+    {"sourceId": "funcas_report_20261015", "locator": "page6", "scenario": "central", "metric": "deficitGDPpct", "fromYear": 2030, "relation": ">", "value": 3.0},
+    {"sourceId": "funcas_report_20261015", "locator": "page7", "scenario": "financial_tension", "metric": "deficitGDPpct", "fromYear": 2030, "relation": ">", "value": 3.5}
+  ],
+  "sourceDiscrepancies": [
+    {
+      "metric": "unemploymentRatePct2027",
+      "selectedValue": 9.3,
+      "selectedSource": "funcas_report_20261015 table2 page9",
+      "otherValue": 9.1,
+      "otherSource": "funcas_release_20261015 headlinebullet",
+      "decision": "Use the dated numerical table; retain the discrepancy, do not average."
+    },
+    {
+      "metric": "financial_tension_growth",
+      "selectedValue": 1.6,
+      "selectedPeriod": "average2027-2030",
+      "selectedSource": "funcas_report_20261015 figure7 page8",
+      "otherValue": 1.5,
+      "otherSource": "funcas_release_20261015 narrative, period not separately specified",
+      "decision": "Use the explicitly labelled period average; no annual value inferred from the release."
+    },
+    {
+      "metric": "financial_tension_interest_bill",
+      "reportText": "Page7 says above70000 millionEUR without a single explicit year in that sentence; figure4 extends to2031.",
+      "releaseText": "The release highlights above65000 millionEUR with its2030 discussion.",
+      "decision": "Do not manufacture an exact annual2027-2030 interest table from prose or unlabelled curves."
+    }
+  ],
+  "unavailableRequestedData": {
+    "funcas": [
+      "Full-time-equivalent employment annual growth or levels",
+      "Effective interest rate on the outstanding public-debt portfolio",
+      "Exact annual nominal interest bills2027-2030",
+      "Annual pension spending, SS contributions, State transfers and State loans to SS2026-2030",
+      "Complete annual macro/fiscal table2029-2030"
+    ],
+    "fedea": {
+      "status": "not_found_in_bounded_primary_source_search",
+      "annualForecast2026to2030": null,
+      "scopeChecked": ["2026 pension publication catalogue", "ap2026-03", "dt2026-08"],
+      "reason": "The account update ends in an estimated2025; the September document critiques models rather than publishing its own annual forecast table.",
+      "absenceClaimIsExhaustive": false
+    },
+    "ivie": {"status": "not_searched_to_respect_two_organization_limit"},
+    "missingValueMeaning": "null means not published or not located in the sources and scope identified; never zero"
+  },
+  "integrationCautions": [
+    "This file supplies external forecasts, not observed outcomes or new simulator parameters.",
+    "Do not replace FTE employment with EPA employment silently.",
+    "Do not replace wage growth with compensation-per-FTE-employee growth without a documented bridge.",
+    "CPI and GDP deflator are distinct; real wages and nominal GDP require the appropriate price concept.",
+    "A ten-year bond yield is a marginal market yield, not a uniform cost of the entire debt stock.",
+    "PDE debt and net lending cover all general government; no SS borrowing or transfers can be derived as residuals.",
+    "No pension/cotisation/transfer/loan series is fabricated to fill the private-source gaps."
+  ]
+}

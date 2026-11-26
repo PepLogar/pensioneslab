@@ -1,0 +1,24 @@
+{
+  "name": "pensioneslabs3",
+  "version": "1.87.2",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "author": "Todo en Tinta Pep Logar S.L. (Pep Logar AI Solutions) <info@aisolutions.peplogar.com>",
+  "type": "module",
+  "description": "Motor y consola de Pensiones Lab (simulador experimental de pensiones de España), como herramienta de trabajo de escritorio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.mjs tests/*.test.js",
+    "sim": "node scripts/sim.mjs",
+    "sites": "node scripts/prepare-sites-package.mjs",
+    "hostinger": "node scripts/prepare-hostinger-package.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "vite": "6.4.5"
+  }
+}

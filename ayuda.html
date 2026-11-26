@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pensiones Lab · Ayuda</title>
+  <meta name="description" content="Cómo usar Pensiones Lab: empezar una partida nueva, las partes de la consola, cambiar de sistema de pensiones, escenarios guardados y primeros pasos.">
+  <meta name="theme-color" content="#0d3b4c">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="src/inicio.css">
+  <link rel="stylesheet" href="src/ayuda.css">
+</head>
+<body>
+  <header class="lp-top">
+    <div class="lp-wrap lp-top-in">
+      <a class="lp-brand" href="index.html"><img src="/favicon.svg" alt="" width="28" height="28"> Pensiones Lab</a>
+      <nav class="ay-topnav" aria-label="Páginas">
+        <span class="site-beta" data-site-version title="Versión de pruebas: puede tener fallos y cambiar.">Beta</span>
+        <a href="consola.html">Consola</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="lp-wrap ay-main">
+    <h1>Ayuda</h1>
+    <p class="ay-lead">La consola es un laboratorio: cambias decisiones y miras qué pasa con las pensiones y las cuentas del Estado hasta 2070. Aquí están sus partes y cómo empezar. Cada ajuste tiene además su propia ayuda en el botón «?» de su fila.</p>
+
+    <nav class="ay-toc" aria-label="En esta página">
+      <a href="#nueva">Empezar una partida nueva</a>
+      <a href="#partes">Las partes de la consola</a>
+      <a href="#sistema">Cambiar de sistema</a>
+      <a href="#supuestos">De qué supuestos parte cada sistema</a>
+      <a href="#guardados">Guardados y «Supuestos de otros»</a>
+      <a href="#pasos">Primeros pasos</a>
+      <a href="#veredicto">Cómo leer el veredicto</a>
+      <a href="#herramientas">Las otras herramientas</a>
+      <a href="#glosario">Glosario</a>
+      <a href="#problemas">Si algo no va</a>
+    </nav>
+
+    <section id="nueva" class="ay-sec ay-key">
+      <h2>Empezar una partida nueva</h2>
+      <p>Para probar algo nuevo sin arrastrar lo que cambiaste antes, pulsa <b class="ay-btn">Reglas de hoy</b>, en la barra de arriba de la consola.</p>
+      <ul>
+        <li>Devuelve <b>todos</b> los ajustes a España en 2026, con las leyes de hoy: sistema, edad, impuestos, recortes, partidas del Estado, calendario, deuda y supuestos del mundo.</li>
+        <li>No toca tus escenarios guardados ni tus límites (pestaña «Límites y mezcla»). Si quieres también los límites de partida, devuélvelos a mano en esa pestaña.</li>
+        <li>Si el botón está apagado, ya estás en las reglas de hoy.</li>
+        <li>¿Te has equivocado? <b class="ay-btn">Deshacer</b> (Ctrl+Z) recupera el escenario anterior.</li>
+      </ul>
+      <p class="ay-tip">Consejo: antes de empezar de cero, guarda lo que tengas si te interesa conservarlo (escribe un nombre y pulsa <b class="ay-btn">Guardar</b>). Y para comparar una decisión con otra, cambia una sola cosa cada vez.</p>
+      <p>Cada fila de ajustes tiene una columna <b>Hoy</b> con su valor de partida: así ves qué has cambiado.</p>
+    </section>
+
+    <section id="partes" class="ay-sec">
+      <h2>Las partes de la consola</h2>
+      <figure class="ay-map">
+        <svg viewBox="0 0 640 360" role="img" aria-label="Esquema de la consola: barra arriba, ajustes a la izquierda; veredicto, gráficos y tabla a la derecha.">
+          <rect x="4" y="4" width="632" height="352" rx="12" class="m-frame"/>
+          <rect x="16" y="16" width="608" height="40" rx="6" class="m-zone"/>
+          <rect x="16" y="66" width="270" height="278" rx="6" class="m-zone"/>
+          <rect x="298" y="66" width="326" height="50" rx="6" class="m-zone"/>
+          <rect x="298" y="126" width="326" height="110" rx="6" class="m-zone"/>
+          <rect x="298" y="246" width="326" height="98" rx="6" class="m-zone"/>
+          <g class="m-num"><circle cx="40" cy="36" r="13"/><text x="40" y="41">1</text></g>
+          <text x="62" y="41" class="m-txt">Barra: sistema, año, deshacer, reglas de hoy, guardados, exportar</text>
+          <g class="m-num"><circle cx="40" cy="90" r="13"/><text x="40" y="95">2</text></g>
+          <text x="62" y="95" class="m-txt">Ajustes</text>
+          <g class="m-lines"><path d="M32 122H270M32 146H270M32 170H270M32 194H270M32 218H270M32 242H270M32 266H270M32 290H270M32 314H270"/></g>
+          <g class="m-num"><circle cx="322" cy="91" r="13"/><text x="322" y="96">3</text></g>
+          <text x="344" y="96" class="m-txt">Veredicto: aguanta o se rompe</text>
+          <g class="m-num"><circle cx="322" cy="150" r="13"/><text x="322" y="155">4</text></g>
+          <text x="344" y="155" class="m-txt">Gráficos</text>
+          <path class="m-chart" d="M344 220 C400 214 440 196 480 182 S560 150 604 138"/>
+          <path class="m-chart m-dash" d="M344 220 C420 218 480 214 530 210 S590 204 604 202"/>
+          <g class="m-num"><circle cx="322" cy="270" r="13"/><text x="322" y="275">5</text></g>
+          <text x="344" y="275" class="m-txt">Tabla: año a año o todos los sistemas</text>
+          <g class="m-lines"><path d="M344 296H604M344 314H604M344 332H604"/></g>
+        </svg>
+      </figure>
+      <ol class="ay-parts">
+        <li><b>La barra de arriba.</b> El <b>Sistema</b> de pensiones y el <b>Año</b> que miras. <b>Deshacer</b>, <b>Rehacer</b> y <b>Reglas de hoy</b>. <b>Guardados</b>, con Abrir, Borrar, Nombre y Guardar. Los botones para exportar e importar (CSV, Excel, JSON, Importar, Enlace). <b>Atajos</b> de teclado. Y los enlaces a Sensibilidad, Riesgo, Gráficos y Metodología.</li>
+        <li><b>Los ajustes</b>, a la izquierda. Un buscador (tecla <kbd>/</kbd>), siete capítulos (El sistema, Las pensiones, Los ingresos, La deuda y las crisis, El mundo, Cómo responde la economía, La vara de medir) y cuatro pestañas propias: Ricos y empresas, Partidas del Estado, Calendario, y Límites y mezcla. Cada fila tiene su valor, su unidad, el valor de hoy y su ayuda «?». Los ajustes que no cambian nada con tu escenario quedan plegados al final de cada capítulo: «Ajustes de otros sistemas» y «Sin efecto con tu escenario». Se abren con un clic, conservan su valor y el buscador también los encuentra.</li>
+        <li><b>El veredicto</b>, arriba a la derecha: «Aguanta» o «Se rompe en…», con la deuda de 2050 y 2070, la pensión, lo que falta para pagarla, el fondo y el año en que sales de tus límites.</li>
+        <li><b>Los gráficos</b>: deuda, pensión frente al salario, lo que falta para pensiones e intereses. La línea continua es tu escenario; la discontinua, las reglas de hoy; la raya roja, el año en que se rompe.</li>
+        <li><b>La tabla</b>: «Año a año» (pulsar una fila elige ese año) o «Todos los sistemas», que compara todos con tus mismos ajustes.</li>
+      </ol>
+    </section>
+
+    <section id="sistema" class="ay-sec ay-key">
+      <h2>Cambiar de sistema de pensiones</h2>
+      <p>Elige el sistema en el desplegable <b class="ay-btn">Sistema</b> de la barra de arriba (es también el primer ajuste del capítulo «El sistema»). El cambio actúa desde 2027: lo ganado hasta 2026 se respeta en todos.</p>
+      <dl class="ay-systems">
+        <div><dt>Reparto (hoy)</dt><dd>El sistema actual: las cotizaciones de cada año pagan las pensiones de ese año.</dd></div>
+        <div><dt>Cuentas nocionales</dt><dd>Cada persona tiene una cuenta virtual con lo que cotiza. Su pensión depende de lo acumulado y de cuántos años vivirá. El dinero sigue pagando las pensiones del momento.</dd></div>
+        <div><dt>Mixto progresivo</dt><dd>Una parte de la cotización de los más jóvenes va, poco a poco, a un fondo común invertido; el resto sigue siendo público, sobre todo nocional.</dd></div>
+        <div><dt>Mixto con ahorro propio</dt><dd>La cotización se reparte, poco a poco y igual a todas las edades, entre reparto, cuentas nocionales y una cuenta de ahorro propia invertida.</dd></div>
+        <div><dt>Experimento desde 1985</dt><dd>Qué habría pasado si el mixto progresivo hubiera empezado en 1985. Es un contrafactual: llega a 2026 por otro camino.</dd></div>
+      </dl>
+      <ul>
+        <li>Cambiar de sistema <b>conserva el resto de tus ajustes</b> (impuestos, recortes, edad…). Para comparar sistemas en limpio, pulsa primero <b class="ay-btn">Reglas de hoy</b> y luego elige el sistema.</li>
+        <li>La vista <b>Todos los sistemas</b>, en la tabla, los compara con tus mismos ajustes. Su botón <b class="ay-btn">Usar</b> te pasa a ese sistema. Los que se rompen enseguida (por ejemplo, capitalización de golpe) salen sin botón.</li>
+        <li>Cómo se hace la transición (edad de corte, años, parte de la cuota que va al fondo, dónde se invierte) está en el capítulo «El sistema».</li>
+      </ul>
+    </section>
+
+    <section id="supuestos" class="ay-sec ay-key">
+      <h2>De qué supuestos parte cada sistema</h2>
+      <p>Es lo primero que conviene mirar. La ficha completa de cada sistema, con tablas año a año y por edad, está en <a href="metodologia.html#sistemas">Metodología › Los sistemas y sus supuestos</a>.</p>
+      <h3>Lo que comparten todos</h3>
+      <ul>
+        <li><b>La misma España de 2026</b> y el mismo mundo: población, empleo, productividad, inflación y mercados.</li>
+        <li><b>Lo ganado se respeta:</b> las pensiones de hoy y los derechos hasta 2026 se pagan igual en todos. Un sistema nuevo solo cambia lo que se cotiza desde 2027.</li>
+        <li><b>Se cotiza lo mismo.</b> Lo que cambia es a dónde va la parte de jubilación: a reparto, a cuentas nocionales o a un fondo.</li>
+        <li><b>Sin fondo puente:</b> si parte de la cotización deja de pagar las pensiones de hoy, lo que falta lo pagan los impuestos y la deuda.</li>
+        <li><b>La edad</b> sube igual en todos, como prevén el Ageing Report y la AIReF.</li>
+        <li><b>El freno de 2023</b> (subir el MEI si el gasto pasa del 13,3 % del PIB) solo actúa por defecto en Reparto, porque es la ley de hoy.</li>
+      </ul>
+      <h3>Cómo los maneja cada uno</h3>
+      <dl class="ay-systems">
+        <div><dt>Reparto (hoy)</dt><dd>Toda la cotización paga las pensiones del año. La primera pensión sigue la tasa de las altas del Ageing Report y sube con el IPC.</dd></div>
+        <div><dt>Cuentas nocionales</dt><dd>Toda la cotización se anota en una cuenta virtual que crece con la masa salarial; la pensión es el saldo dividido entre los años que se espera cobrar. El dinero sigue pagando las pensiones del momento.</dd></div>
+        <div><dt>Mixto progresivo</dt><dd>Al final, la mitad de la cotización va a un fondo común (cartera global de dividendos); del resto, el 85 % a nocionales. El fondo crece a medida que fallecen los pensionistas de hoy, y entra más quien es más joven en 2026.</dd></div>
+        <div><dt>Mixto con ahorro propio</dt><dd>Un tercio de la cotización acaba en una cuenta propia invertida (cartera equilibrada), igual a todas las edades, subiendo poco a poco en 24 años; el resto, entre reparto y nocionales.</dd></div>
+        <div><dt>Experimento desde 1985</dt><dd>Un contrafactual: el 65 % al fondo desde 1985. Llega a 2026 por otro camino, así que no parte de la misma foto.</dd></div>
+      </dl>
+      <p class="ay-tip">Elegir un sistema fija algunos ajustes del capítulo «El sistema» (cómo se hace el cambio, qué parte va al fondo, dónde se invierte). Puedes cambiarlos después; la ficha de Metodología dice cuáles son.</p>
+    </section>
+
+    <section id="guardados" class="ay-sec ay-key">
+      <h2>Escenarios guardados y «Supuestos de otros»</h2>
+      <p>El desplegable <b class="ay-btn">Guardados</b> tiene dos grupos.</p>
+      <h3>En este navegador: tus escenarios</h3>
+      <ul>
+        <li><b>Guardar:</b> escribe un nombre y pulsa <b class="ay-btn">Guardar</b>. Con el mismo nombre, sustituye al anterior.</li>
+        <li><b>Volver a uno:</b> elígelo y pulsa <b class="ay-btn">Abrir</b>.</li>
+        <li><b>Borrar:</b> elígelo y pulsa <b class="ay-btn">Borrar</b>. No se puede deshacer.</li>
+        <li>Se guardan solo en este navegador. Para llevarlos a otro equipo, usa <b class="ay-btn">JSON</b>: el archivo lleva el escenario entero, con tus límites y el año.</li>
+        <li><b class="ay-btn">Enlace</b> copia una dirección con los ajustes, sin tus límites ni el año. Quien la abre ve los ajustes con sus propios límites.</li>
+      </ul>
+      <h3>Supuestos de otros: escenarios preparados</h3>
+      <p>Son puntos de partida ya configurados con los supuestos de otras instituciones: <b>la AIReF</b> (Estudio 1/2026) y <b>el Ageing Report 2024</b> de la Comisión Europea. Son aproximaciones del simulador, no previsiones de esas instituciones.</p>
+      <ul>
+        <li><b>Para qué sirven:</b> para ver qué sale con lo que suponen otros, y para partir de sus supuestos y cambiar lo que quieras.</li>
+        <li><b>Cómo se usan:</b> elige uno en «Guardados» y pulsa <b class="ay-btn">Abrir</b>. Al abrirlo, la barra de estado explica qué supone.</li>
+      </ul>
+      <p class="ay-tip">Abrir un escenario guardado o un supuesto de otros sustituye todos los ajustes, como una partida nueva desde ese punto. <b class="ay-btn">Deshacer</b> te devuelve a lo que tenías.</p>
+    </section>
+
+    <section id="pasos" class="ay-sec">
+      <h2>Primeros pasos</h2>
+      <p>Cinco pruebas para aprender a mirar. No hay respuesta correcta: la idea es entender qué mueve cada decisión.</p>
+      <ol class="ay-steps">
+        <li><b>Mira el punto de partida.</b> Con las reglas de hoy, ¿aguanta el sistema? ¿En qué año se rompe? Mira qué gráfico cruza primero.</li>
+        <li><b>Cambia una sola cosa.</b> Sube la edad de jubilación (capítulo «Las pensiones») y mira qué se mueve. La línea discontinua sigue siendo el punto de partida.</li>
+        <li><b>Recorta una partida.</b> En «Partidas del Estado», recorta sanidad. ¿Baja la deuda tanto como esperabas? El recorte también frena la economía y los ingresos.</li>
+        <li><b>Compara sistemas.</b> Abre «Todos los sistemas» en la tabla y mira cuáles aguantan con tus mismos ajustes.</li>
+        <li><b>Guarda y comparte.</b> Ponle nombre, guárdalo y pulsa <b class="ay-btn">Enlace</b>: copia una dirección que abre tus ajustes a quien se la mandes.</li>
+      </ol>
+      <p>Para la siguiente prueba, vuelve a <b class="ay-btn">Reglas de hoy</b>.</p>
+    </section>
+
+    <section id="veredicto" class="ay-sec">
+      <h2>Cómo leer el veredicto</h2>
+      <ul>
+        <li><b>Aguanta hasta 2070:</b> ni la deuda entra en riesgo alto de forma sostenida ni la pensión baja de lo suficiente.</li>
+        <li><b>Aguanta hasta 2070, con avisos:</b> hay años en que la deuda da un aviso de riesgo, pero no llega a romperse.</li>
+        <li><b>Se rompe en…:</b> el primer año en que la deuda está en riesgo alto varios años seguidos, o en que la pensión media baja del mínimo suficiente. La frase dice cuál de los dos.</li>
+        <li><b>Al filo:</b> el año anterior se quedó muy cerca del umbral. Un cambio pequeño puede mover el año.</li>
+        <li><b>Fuera de los límites:</b> tus propias alarmas, que pones en la pestaña «Límites y mezcla». No cambian el veredicto.</li>
+      </ul>
+      <p>Al pasar el ratón por el veredicto, la consola explica por qué. Las reglas del veredicto se pueden cambiar en el capítulo «La vara de medir». No es una previsión: es lo que pasa con los supuestos elegidos.</p>
+    </section>
+
+    <section id="herramientas" class="ay-sec">
+      <h2>Las otras herramientas</h2>
+      <p>Se abren en otra pestaña desde la barra de la consola y usan el escenario que tengas abierto.</p>
+      <dl class="ay-systems">
+        <div><dt>Gráficos</dt><dd>Gráficos a medida de tu escenario y de cada sistema, para guardar como imagen.</dd></div>
+        <div><dt>Sensibilidad</dt><dd>Qué supuesto decide más el resultado: mueve cada uno arriba y abajo y los ordena.</dd></div>
+        <div><dt>Riesgo</dt><dd>Repite el escenario con la rentabilidad de los fondos al azar (hasta mil veces) y dibuja el abanico de resultados.</dd></div>
+        <div><dt>Metodología</dt><dd>Cómo calcula, ecuación a ecuación, con cada supuesto, sus valores de partida y sus fuentes.</dd></div>
+      </dl>
+    </section>
+
+    <section id="glosario" class="ay-sec">
+      <h2>Glosario</h2>
+      <dl class="ay-glos">
+        <div><dt>PIB</dt><dd>Todo lo que produce el país en un año. Deuda, gastos e ingresos se miden en porcentaje del PIB.</dd></div>
+        <div><dt>Déficit</dt><dd>Lo que el Estado gasta en un año por encima de lo que ingresa. Se cubre con deuda.</dd></div>
+        <div><dt>Deuda pública</dt><dd>Lo que debe el Estado, acumulado año tras año.</dd></div>
+        <div><dt>Prima de riesgo</dt><dd>El interés extra que piden los inversores a un país que ven arriesgado. Con más deuda, más interés.</dd></div>
+        <div><dt>Cotización</dt><dd>La parte del salario que va a la Seguridad Social y genera derecho a pensión.</dd></div>
+        <div><dt>Reparto</dt><dd>Las cotizaciones de hoy pagan las pensiones de hoy.</dd></div>
+        <div><dt>Cuentas nocionales</dt><dd>Reparto con una cuenta virtual por persona que decide su pensión.</dd></div>
+        <div><dt>Capitalización</dt><dd>Lo cotizado se invierte en un fondo y paga la pensión de quien lo ahorró (o de todos, en un fondo común).</dd></div>
+        <div><dt>Rescate</dt><dd>Préstamo de otros países o instituciones cuando el Estado ya no consigue financiarse, con condiciones.</dd></div>
+        <div><dt>Quita</dt><dd>El Estado deja de pagar una parte de su deuda a quienes se la prestaron.</dd></div>
+      </dl>
+    </section>
+
+    <section id="problemas" class="ay-sec">
+      <h2>Si algo no va</h2>
+      <ul>
+        <li><b>«No se ha podido calcular este escenario».</b> Algún ajuste tiene un valor con el que el simulador no sabe hacer las cuentas. El aviso dice qué has cambiado y ofrece volver a las reglas de hoy; también puedes usar Deshacer.</li>
+        <li><b>«Calculando…» tarda.</b> La primera vez puede tardar unos segundos; las siguientes, menos.</li>
+        <li><b>Mis escenarios han desaparecido.</b> Se guardan en el navegador: si se borran los datos del sitio, o usas una ventana privada, no están. Guarda copia en JSON.</li>
+        <li><b>En el móvil no se ve bien.</b> La consola está pensada para ordenador; esta ayuda y la portada sí se leen en el teléfono.</li>
+        <li><b>Otra cosa:</b> <a class="site-feedback" data-site-feedback href="mailto:info@aisolutions.peplogar.com?subject=Pensiones%20Lab%20(beta)%3A%20fallo%20o%20mejora">escríbenos</a>.</li>
+      </ul>
+    </section>
+
+    <p class="ay-back"><a class="lp-cta" href="consola.html">Abrir la consola <span aria-hidden="true">→</span></a></p>
+  </main>
+
+  <footer class="lp-foot">
+    <div class="lp-wrap">
+      <p class="lp-foot-p site-credits" data-site-credits>Pensiones Lab · Demarquía Planetaria · Cabeza Propia. Desarrollo: <a href="https://aisolutions.peplogar.com/">Pep Logar AI Solutions</a> · <a href="mailto:info@aisolutions.peplogar.com">info@aisolutions.peplogar.com</a>. Código <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0</a>; textos, gráficos y resultados <a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>. No es asesoramiento financiero. <a href="metodologia.html#aviso">Aviso legal y privacidad</a>.</p>
+    </div>
+  </footer>
+  <script type="module" src="src/pages/ayuda.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+{
+  "id": "mutuas-v7-income-research-20261018",
+  "evidenceCutoff": "2026-10-17",
+  "retrievedAt": "2026-10-18",
+  "scope": "Official Spanish Social Security budget aggregates; not an ESA/SEC reconciliation",
+  "periods": [
+    {
+      "periodEnd": "2025-12-31",
+      "monthsAccumulated": 12,
+      "publicationDate": "2026-03-25",
+      "unit": "million current EUR",
+      "measure": "budget recognized net rights; cash shown separately",
+      "status": "provisional budget execution",
+      "files": {
+        "SISTEMA": "ResSISTEMA_DiciembreProvisional_2025.xlsx",
+        "ENTIDAD": "ResENTIDAD_DiciembreProvisional_2025.xlsx",
+        "MUTUAS": "ResMUTUAS_DiciembreProvisional_2025.xlsx"
+      },
+      "contributions": {
+        "SISTEMA": {
+          "recognizedNetMEUR": 176918.38,
+          "cashNetMEUR": 175676.48
+        },
+        "ENTIDAD": {
+          "recognizedNetMEUR": 153858.97,
+          "cashNetMEUR": 152752.65
+        },
+        "MUTUAS": {
+          "recognizedNetMEUR": 23059.41,
+          "cashNetMEUR": 22923.83
+        }
+      },
+      "mutuasContributionBreakdown": [
+        {
+          "key": "commonGeneral",
+          "label": "RÉGIMEN GENERAL",
+          "recognizedNetMEUR": 9243.57,
+          "cashNetMEUR": 9222.56,
+          "previousSamePeriodRecognizedNetMEUR": 6716.88,
+          "sourceCells": "ResumenPICap4!F12,G12,M12"
+        },
+        {
+          "key": "commonSelfEmployed",
+          "label": "RÉGIMEN ESPECIAL TRABAJADORES AUTÓNOMOS",
+          "recognizedNetMEUR": 1147.38,
+          "cashNetMEUR": 1121.49,
+          "previousSamePeriodRecognizedNetMEUR": 833.75,
+          "sourceCells": "ResumenPICap4!F13,G13,M13"
+        },
+        {
+          "key": "commonAgrarianLegacy",
+          "label": "RÉGIMEN ESPECIAL AGRARIO",
+          "recognizedNetMEUR": 0.01,
+          "cashNetMEUR": 0.01,
+          "previousSamePeriodRecognizedNetMEUR": 0.01,
+          "sourceCells": "ResumenPICap4!F14,G14,M14"
+        },
+        {
+          "key": "commonSea",
+          "label": "RÉGIMEN ESPECIAL TRABAJADORES DEL MAR",
+          "recognizedNetMEUR": 26.9,
+          "cashNetMEUR": 26.88,
+          "previousSamePeriodRecognizedNetMEUR": 19.55,
+          "sourceCells": "ResumenPICap4!F15,G15,M15"
+        },
+        {
+          "key": "commonCoal",
+          "label": "RÉGIMEN ESPECIAL MINERÍA DEL CARBÓN",
+          "recognizedNetMEUR": 0.7,
+          "cashNetMEUR": 0.7,
+          "previousSamePeriodRecognizedNetMEUR": 0.51,
+          "sourceCells": "ResumenPICap4!F16,G16,M16"
+        },
+        {
+          "key": "professionalContingencies",
+          "label": "ACCIDENTES TRABAJO ENFERMEDADES PROFESIONALES",
+          "recognizedNetMEUR": 12256.67,
+          "cashNetMEUR": 12177.78,
+          "previousSamePeriodRecognizedNetMEUR": 11488.28,
+          "sourceCells": "ResumenPICap4!F17,G17,M17"
+        },
+        {
+          "key": "cessationSelfEmployed",
+          "label": "CESE ACTIVIDAD TRABAJADORES AUTÓNOMOS",
+          "recognizedNetMEUR": 384.18,
+          "cashNetMEUR": 374.42,
+          "previousSamePeriodRecognizedNetMEUR": 369.4,
+          "sourceCells": "ResumenPICap4!F18,G18,M18"
+        }
+      ],
+      "mutuasIncomeChapters": {
+        "1": {
+          "recognizedNetMEUR": 23059.41,
+          "cashNetMEUR": 22923.83,
+          "sourceCells": "ResumenPI!F13,G13"
+        },
+        "3": {
+          "recognizedNetMEUR": 230.27,
+          "cashNetMEUR": 204.78,
+          "sourceCells": "ResumenPI!F14,G14"
+        },
+        "4": {
+          "recognizedNetMEUR": 71.42,
+          "cashNetMEUR": 71.33,
+          "sourceCells": "ResumenPI!F15,G15"
+        },
+        "5": {
+          "recognizedNetMEUR": 24.14,
+          "cashNetMEUR": 23.18,
+          "sourceCells": "ResumenPI!F16,G16"
+        },
+        "6": {
+          "recognizedNetMEUR": 1.55,
+          "cashNetMEUR": 0.78,
+          "sourceCells": "ResumenPI!F19,G19"
+        },
+        "7": {
+          "recognizedNetMEUR": 3.68,
+          "cashNetMEUR": 3.68,
+          "sourceCells": "ResumenPI!F20,G20"
+        },
+        "8": {
+          "recognizedNetMEUR": 128.75,
+          "cashNetMEUR": 128.69,
+          "sourceCells": "ResumenPI!F24,G24"
+        }
+      },
+      "mutuasCurrentTransfersReceived": {
+        "fromSocialSecurityMEUR": 70.84,
+        "fromRegionsMEUR": 0.58,
+        "sourceCells": "ResumenPICap4!F21:F22"
+      },
+      "systemInternalSocialSecurityTransfersRecognizedMEUR": 5131.63,
+      "tgssInternalSocialSecurityTransfersRecognizedMEUR": 5060.79,
+      "reconciliationResidualMEUR": 0.0
+    },
+    {
+      "periodEnd": "2026-08-31",
+      "monthsAccumulated": 8,
+      "publicationDate": "2026-09-25",
+      "unit": "million current EUR",
+      "measure": "budget recognized net rights; cash shown separately",
+      "status": "provisional budget execution",
+      "files": {
+        "SISTEMA": "ResSISTEMA_Agosto_2026.xlsx",
+        "ENTIDAD": "ResENTIDAD_Agosto_2026.xlsx",
+        "MUTUAS": "ResMUTUAS_Agosto_2026.xlsx"
+      },
+      "contributions": {
+        "SISTEMA": {
+          "recognizedNetMEUR": 126032.44,
+          "cashNetMEUR": 125014.89
+        },
+        "ENTIDAD": {
+          "recognizedNetMEUR": 112429.04,
+          "cashNetMEUR": 111519.04
+        },
+        "MUTUAS": {
+          "recognizedNetMEUR": 13603.4,
+          "cashNetMEUR": 13495.85
+        }
+      },
+      "mutuasContributionBreakdown": [
+        {
+          "key": "commonGeneral",
+          "label": "RÉGIMEN GENERAL",
+          "recognizedNetMEUR": 4008.87,
+          "cashNetMEUR": 3980.31,
+          "previousSamePeriodRecognizedNetMEUR": 4691.26,
+          "sourceCells": "ResumenPICap4!F12,G12,M12"
+        },
+        {
+          "key": "commonSelfEmployed",
+          "label": "RÉGIMEN ESPECIAL TRABAJADORES AUTÓNOMOS",
+          "recognizedNetMEUR": 580.58,
+          "cashNetMEUR": 568.58,
+          "previousSamePeriodRecognizedNetMEUR": 582.31,
+          "sourceCells": "ResumenPICap4!F13,G13,M13"
+        },
+        {
+          "key": "commonAgrarianLegacy",
+          "label": "RÉGIMEN ESPECIAL AGRARIO",
+          "recognizedNetMEUR": null,
+          "cashNetMEUR": null,
+          "previousSamePeriodRecognizedNetMEUR": 0.01,
+          "sourceCells": "ResumenPICap4!F14,G14,M14"
+        },
+        {
+          "key": "commonSea",
+          "label": "RÉGIMEN ESPECIAL TRABAJADORES DEL MAR",
+          "recognizedNetMEUR": 10.5,
+          "cashNetMEUR": 10.44,
+          "previousSamePeriodRecognizedNetMEUR": 13.65,
+          "sourceCells": "ResumenPICap4!F15,G15,M15"
+        },
+        {
+          "key": "commonCoal",
+          "label": "RÉGIMEN ESPECIAL MINERÍA DEL CARBÓN",
+          "recognizedNetMEUR": 0.14,
+          "cashNetMEUR": 0.13,
+          "previousSamePeriodRecognizedNetMEUR": 0.36,
+          "sourceCells": "ResumenPICap4!F16,G16,M16"
+        },
+        {
+          "key": "professionalContingencies",
+          "label": "ACCIDENTES TRABAJO ENFERMEDADES PROFESIONALES",
+          "recognizedNetMEUR": 8730.67,
+          "cashNetMEUR": 8671.32,
+          "previousSamePeriodRecognizedNetMEUR": 8130.32,
+          "sourceCells": "ResumenPICap4!F17,G17,M17"
+        },
+        {
+          "key": "cessationSelfEmployed",
+          "label": "CESE ACTIVIDAD TRABAJADORES AUTÓNOMOS",
+          "recognizedNetMEUR": 272.64,
+          "cashNetMEUR": 265.06,
+          "previousSamePeriodRecognizedNetMEUR": 256.87,
+          "sourceCells": "ResumenPICap4!F18,G18,M18"
+        }
+      ],
+      "mutuasIncomeChapters": {
+        "1": {
+          "recognizedNetMEUR": 13603.4,
+          "cashNetMEUR": 13495.85,
+          "sourceCells": "ResumenPI!F13,G13"
+        },
+        "3": {
+          "recognizedNetMEUR": 127.51,
+          "cashNetMEUR": 103.93,
+          "sourceCells": "ResumenPI!F14,G14"
+        },
+        "4": {
+          "recognizedNetMEUR": 40.13,
+          "cashNetMEUR": 40.3,
+          "sourceCells": "ResumenPI!F15,G15"
+        },
+        "5": {
+          "recognizedNetMEUR": 13.02,
+          "cashNetMEUR": 12.89,
+          "sourceCells": "ResumenPI!F16,G16"
+        },
+        "6": {
+          "recognizedNetMEUR": 0.33,
+          "cashNetMEUR": 0.33,
+          "sourceCells": "ResumenPI!F19,G19"
+        },
+        "7": {
+          "recognizedNetMEUR": 0.77,
+          "cashNetMEUR": 0.77,
+          "sourceCells": "ResumenPI!F20,G20"
+        },
+        "8": {
+          "recognizedNetMEUR": 4.23,
+          "cashNetMEUR": 4.25,
+          "sourceCells": "ResumenPI!F24,G24"
+        }
+      },
+      "mutuasCurrentTransfersReceived": {
+        "fromSocialSecurityMEUR": 40.01,
+        "fromRegionsMEUR": 0.12,
+        "sourceCells": "ResumenPICap4!F21:F22"
+      },
+      "systemInternalSocialSecurityTransfersRecognizedMEUR": 3473.55,
+      "tgssInternalSocialSecurityTransfersRecognizedMEUR": 3433.54,
+      "reconciliationResidualMEUR": 0.0
+    }
+  ],
+  "bridge2026": {
+    "status": "proposed allocation of the existing opening estimate, not observed full-year income",
+    "systemEstimateMEUR": 190173.35267629754,
+    "systemEstimateFormula": "176918 * 126032.44 / 117247.80; retains the existing rounded 2025 anchor",
+    "mutuasShareObservedJanAug": 0.10793570290315731,
+    "mutuasEstimateMEUR": 20526.494494566206,
+    "tgssEstimateMEUR": 169646.8581817313,
+    "tgssOrdinaryRGShare": 0.8557106915557366,
+    "tgssOrdinaryRETAShare": 0.07498265644797594,
+    "tgssOrdinaryDenominatorJanAugMEUR": 108354.39,
+    "mutuasCommonRGShare": 0.29469617889645233,
+    "mutuasCessationShare": 0.02004204831145155,
+    "mutuasProfessionalShare": 0.641800579266948,
+    "tgssDenominatorExcludesRubric120MEIAndSolidarity": true,
+    "allocationCreatesAdditionalConsolidatedRevenue": false,
+    "note": "MEI and solidarity are kept in TGSS and must retain their existing distinct treatment. No blanket RG ceiling is identified for professional-contingency receipts."
+  },
+  "classificationDecisions": [
+    "The aggregate system contribution total equals TGSS plus mutual collaborating institutions exactly at published precision in both periods.",
+    "Rubric 1282, contributions paid by mutual institutions for beneficiaries, is not the contribution income assigned to mutual institutions.",
+    "Common-contingency fractions assigned to mutual institutions fund temporary incapacity; cessation contributions are not pension contributions.",
+    "Professional-contingency receipts also finance permanent-disability and survivor pension capital costs/reinsurance. They cannot all be treated as disposable retirement contributions or as unrelated to public pensions.",
+    "Transfers from Social Security and transfers between public subsectors are internal at the appropriate consolidation boundary; do not add them to AAPP revenue.",
+    "Budget category 8 is a financial transaction, not new nonfinancial revenue.",
+    "The system summary is labelled aggregated and retains internal Social Security transfers; its total revenue is not a consolidated ESA/SEC total."
+  ],
+  "limitations": [
+    "No exact per-contingency bridge from these budget receipts to consolidated ESA/SEC social contributions is supplied.",
+    "No breakdown of professional-contingency contribution bases by RG/RETA/Sea/Coal is present in the summary.",
+    "Blank cells are stored as null, not fabricated zero; the published total remains authoritative.",
+    "2025 common-contingency mutual receipts include a sharp within-year change; neither a permanent future trend nor a specific cause is inferred.",
+    "2026 annual figures are a declared allocation of an existing estimate; the observed period is only January through August.",
+    "Mutual transfers to TGSS and the corresponding TGSS recognized income can differ because of accounting timing/perimeter. Differences must not become invented flows."
+  ],
+  "sources": [
+    {
+      "path": "data/sources/mutuas-v7-income/catalog2026.html",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/InformacionEconomicoFinanciera/393/394/7176e17a-7290-405f-b877-8d71a8d4d018?changeLanguage=es",
+      "sha256": "81d14494b8de0a64f61dc307ca6f5848f8002a7ac864a545c56fcc6390536ccc",
+      "downloadedAt": "2026-10-18"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/catalog2025December.html",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/InformacionEconomicoFinanciera/393/394/bfe1d970-2455-4344-a550-035771dbbf49/97159cc8-9601-4727-b054-5ac9cff182be?changeLanguage=es",
+      "sha256": "be42ee3ab1f08ec3896a4353dc0e1615cdeea2465c0ad583258fba66afa0df79",
+      "downloadedAt": "2026-10-18"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/catalog2026August.html",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/InformacionEconomicoFinanciera/393/394/7176e17a-7290-405f-b877-8d71a8d4d018/90f008f7-221e-44d2-a928-290f9b7b5634?changeLanguage=es",
+      "sha256": "2e5d1e91c52704be04ce3e61d5419e6f529e005213f3103e4c7166948e1f7912",
+      "downloadedAt": "2026-10-18"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResSISTEMA_Agosto_2026.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResSISTEMA_Agosto_2026.xlsx",
+      "sha256": "e38611ff1973335c9d4eca25ee924ab1342cbc13ce345240dc37ad597a02634c",
+      "downloadedAt": "2026-10-18",
+      "bytes": 276229,
+      "publicationDate": "2026-09-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResENTIDAD_Agosto_2026.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResENTIDAD_Agosto_2026.xlsx",
+      "sha256": "e70497e1a38417b4104f8b86dcee4c1a6c88e165732cdd8c5a213bb7982ca55a",
+      "downloadedAt": "2026-10-18",
+      "bytes": 275664,
+      "publicationDate": "2026-09-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResMUTUAS_Agosto_2026.xlsx",
+      "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+      "downloadedAt": "2026-10-18",
+      "bytes": 268452,
+      "publicationDate": "2026-09-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.pdf",
+      "url": "https://www.seg-social.es/descarga/es/ResMUTUAS_Agosto_2026.pdf",
+      "sha256": "3e4c10568d6a08315068e80ac7b5bd8e2187e7c3e2970b2647d3be80575b5e4d",
+      "downloadedAt": "2026-10-18",
+      "bytes": 1173561,
+      "publicationDate": "2026-09-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResSISTEMA_DiciembreProvisional_2025.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResSISTEMA_DiciembreProvisional_2025.xlsx",
+      "sha256": "1d88b58ea4819e30c6605aa04d67ddfcb2eca4de96e93b32b13aa29ecf98e94d",
+      "downloadedAt": "2026-10-18",
+      "bytes": 276309,
+      "publicationDate": "2026-03-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResENTIDAD_DiciembreProvisional_2025.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResENTIDAD_DiciembreProvisional_2025.xlsx",
+      "sha256": "bfff75382d039859af04fe389bfa998d94d276d65c95e08ecddc1cecbdf8b92a",
+      "downloadedAt": "2026-10-18",
+      "bytes": 275760,
+      "publicationDate": "2026-03-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+      "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+      "downloadedAt": "2026-10-18",
+      "bytes": 268595,
+      "publicationDate": "2026-03-25"
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.pdf",
+      "url": "https://www.seg-social.es/descarga/es/ResMUTUAS_DiciembreProvisional_2025.pdf",
+      "sha256": "2ce1e26bbff5726ba38ca4a2e289c66db214d7acc46305eb225f3d5fcebfdf67",
+      "downloadedAt": "2026-10-18",
+      "bytes": 1174999,
+      "publicationDate": "2026-03-25"
+    }
+  ]
+}

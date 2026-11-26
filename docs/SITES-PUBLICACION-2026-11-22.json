@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-22",
+  "project_id": "[identificador privado]",
+  "url": "[dirección privada del Site de prueba]",
+  "version_number": 3,
+  "version_id": "[identificador privado]~[identificador privado]",
+  "deployment_id": "[identificador privado]",
+  "status": "succeeded",
+  "updated_at": "2026-11-22T18:04:29.033694+00:00",
+  "source_commit": "b72df9db3bcb7c940bd50860509b197b6297c000",
+  "archive": {
+    "hash": "sha256:fca48bfc6ce9c91c99377c9a28ec101070dfe24469b00e9c9560c59ca77d869a",
+    "file_count": 6,
+    "size_bytes": 1730560
+  },
+  "access": {
+    "before_revision": 1,
+    "after_revision": 1,
+    "access_mode": "custom",
+    "ownerOnly": true,
+    "editorCount": 0,
+    "groupCount": 0,
+    "externalVisitorCount": 0
+  },
+  "checks": {
+    "anonymousHTTP": 401,
+    "loadedTitle": "Pensiones Lab 3 · Consola",
+    "hostedCalculation": "Reparto, 2050: Se rompe en 2042; deuda 144% PIB; pensión 2224 €/mes",
+    "screenshot": "Tool timed out; no screenshot proof",
+    "appConsoleErrorsObserved": 0
+  },
+  "previous": {
+    "version_number": 2,
+    "version_id": "[identificador privado]~[identificador privado]",
+    "source_commit": "c44d45a79d8f41ff625397cbe164d4ea05a80169"
+  }
+}

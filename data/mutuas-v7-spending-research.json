@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "id": "mutuas-v7-spending-research-20261018",
+  "cutoff": "2026-10-18",
+  "scope": "Agregado de Mutuas Colaboradoras con la Seguridad Social; budget execution, not an ESA consolidated account.",
+  "accounting": {
+    "spending": "obligaciones reconocidas",
+    "income": "derechos reconocidos netos",
+    "unit": "million current EUR unless explicitly EUR/thousand EUR",
+    "financialAssets": "financing transactions; excluded from nonfinancial balance",
+    "noForecast": true,
+    "noModelExecution": true
+  },
+  "periods": [
+    {
+      "period": "2025",
+      "months": 12,
+      "status": "provisional full year",
+      "publicationDate": "2026-03-25",
+      "spending": {
+        "personnel": {
+          "value": 1224.56,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G12"
+        },
+        "goodsServices": {
+          "value": 1000.26,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G13"
+        },
+        "financialExpense": {
+          "value": 2.18,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G14"
+        },
+        "currentTransfersGross": {
+          "value": 19103.38,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G15"
+        },
+        "realInvestment": {
+          "value": 93.57,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G18"
+        },
+        "capitalTransfersRecipientNotDisaggregated": {
+          "value": 183.73,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G19"
+        },
+        "nonfinancialGross": {
+          "value": 21607.68,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G21"
+        },
+        "financialAssetsAcquired": {
+          "value": 49.16,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G23"
+        },
+        "total": {
+          "value": 21656.84,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPG",
+          "cell": "G26"
+        },
+        "familyAid": {
+          "value": 0.57,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G11"
+        },
+        "temporaryDisability": {
+          "value": 12699.57,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G12"
+        },
+        "birthCareAndRisk": {
+          "value": 718.17,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G17"
+        },
+        "lumpSumBenefits": {
+          "value": 62.91,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G18"
+        },
+        "socialBenefits": {
+          "value": 10.3,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G19"
+        },
+        "otherBenefits": {
+          "value": 437.02,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G20"
+        },
+        "pharmacy": {
+          "value": 43.79,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G24"
+        },
+        "subsidiesAndOtherBenefitsQ": {
+          "value": 13972.33,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G25"
+        },
+        "currentTransfersToSocialSecurity": {
+          "value": 5124.77,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G27"
+        },
+        "currentTransfersPrivateAndOther": {
+          "value": 6.28,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPGCap4",
+          "cell": "G28"
+        }
+      },
+      "revenues": {
+        "socialContributions": {
+          "value": 23059.41,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F13"
+        },
+        "feesAndOther": {
+          "value": 230.27,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F14"
+        },
+        "currentTransfersGross": {
+          "value": 71.42,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F15"
+        },
+        "propertyIncome": {
+          "value": 24.14,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F16"
+        },
+        "assetDisposals": {
+          "value": 1.55,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F19"
+        },
+        "capitalTransfersOriginNotDisaggregated": {
+          "value": 3.68,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F20"
+        },
+        "nonfinancialGross": {
+          "value": 23390.47,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F22"
+        },
+        "financialAssetsRealized": {
+          "value": 128.75,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPI",
+          "cell": "F24"
+        },
+        "transfersFromSS": {
+          "value": 70.84,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPICap4",
+          "cell": "F21"
+        },
+        "transfersFromRegionalGovernments": {
+          "value": 0.58,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+          "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+          "sheet": "ResumenPICap4",
+          "cell": "F22"
+        }
+      },
+      "systemReferences": {
+        "pensionsP": {
+          "value": 182526.29,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResSISTEMA_DiciembreProvisional_2025.xlsx",
+          "sha256": "1d88b58ea4819e30c6605aa04d67ddfcb2eca4de96e93b32b13aa29ecf98e94d",
+          "sheet": "ResumenPGCap4",
+          "cell": "G17"
+        },
+        "subsidiesAndOtherBenefits": {
+          "value": 23833.3,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResSISTEMA_DiciembreProvisional_2025.xlsx",
+          "sha256": "1d88b58ea4819e30c6605aa04d67ddfcb2eca4de96e93b32b13aa29ecf98e94d",
+          "sheet": "ResumenPGCap4",
+          "cell": "G35"
+        },
+        "entitySubsidiesAndOtherBenefits": {
+          "value": 9860.97,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResENTIDAD_DiciembreProvisional_2025.xlsx",
+          "sha256": "bfff75382d039859af04fe389bfa998d94d276d65c95e08ecddc1cecbdf8b92a",
+          "sheet": "ResumenPGCap4",
+          "cell": "G33"
+        }
+      },
+      "derivedMillionEUR": {
+        "currentTransfersExcludingExplicitToSS": 13978.61,
+        "nonfinancialExcludingExplicitCurrentToSS": 16482.91,
+        "identifiedSpendingExcludingAllPendingCapitalTransfers": 16299.18,
+        "identifiedPrimarySpendingExcludingAllPendingCapitalTransfers": 16297.0,
+        "grossBudgetNonfinancialBalance": 1782.79,
+        "systemContributiveBenefitsB": 206359.59,
+        "systemContributiveBenefitsExcludingMutuasQ": 192387.26,
+        "pensionShareAfterRemovingMutuaQ": 0.9487441632049856,
+        "subsidyAggregationResidual": 0.0
+      },
+      "derivedUnitsException": {
+        "pensionShareAfterRemovingMutuaQ": "unitless ratio"
+      }
+    },
+    {
+      "period": "2026-01/08",
+      "months": 8,
+      "status": "partial year",
+      "publicationDate": "2026-09-25",
+      "spending": {
+        "personnel": {
+          "value": 859.78,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G12"
+        },
+        "goodsServices": {
+          "value": 626.63,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G13"
+        },
+        "financialExpense": {
+          "value": 0.71,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G14"
+        },
+        "currentTransfersGross": {
+          "value": 12820.84,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G15"
+        },
+        "realInvestment": {
+          "value": 38.62,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G18"
+        },
+        "capitalTransfersRecipientNotDisaggregated": {
+          "value": 185.07,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G19"
+        },
+        "nonfinancialGross": {
+          "value": 14531.65,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G21"
+        },
+        "financialAssetsAcquired": {
+          "value": 5.61,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G23"
+        },
+        "total": {
+          "value": 14537.26,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPG",
+          "cell": "G26"
+        },
+        "familyAid": {
+          "value": 0.36,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G11"
+        },
+        "temporaryDisability": {
+          "value": 8694.05,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G12"
+        },
+        "birthCareAndRisk": {
+          "value": 514.85,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G17"
+        },
+        "lumpSumBenefits": {
+          "value": 38.65,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G18"
+        },
+        "socialBenefits": {
+          "value": 6.65,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G19"
+        },
+        "otherBenefits": {
+          "value": 282.99,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G20"
+        },
+        "pharmacy": {
+          "value": 28.64,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G24"
+        },
+        "subsidiesAndOtherBenefitsQ": {
+          "value": 9566.19,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G25"
+        },
+        "currentTransfersToSocialSecurity": {
+          "value": 3252.51,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G27"
+        },
+        "currentTransfersPrivateAndOther": {
+          "value": 2.14,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPGCap4",
+          "cell": "G28"
+        }
+      },
+      "revenues": {
+        "socialContributions": {
+          "value": 13603.4,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F13"
+        },
+        "feesAndOther": {
+          "value": 127.51,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F14"
+        },
+        "currentTransfersGross": {
+          "value": 40.13,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F15"
+        },
+        "propertyIncome": {
+          "value": 13.02,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F16"
+        },
+        "assetDisposals": {
+          "value": 0.33,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F19"
+        },
+        "capitalTransfersOriginNotDisaggregated": {
+          "value": 0.77,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F20"
+        },
+        "nonfinancialGross": {
+          "value": 13785.16,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F22"
+        },
+        "financialAssetsRealized": {
+          "value": 4.23,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPI",
+          "cell": "F24"
+        },
+        "transfersFromSS": {
+          "value": 40.01,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPICap4",
+          "cell": "F21"
+        },
+        "transfersFromRegionalGovernments": {
+          "value": 0.12,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+          "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+          "sheet": "ResumenPICap4",
+          "cell": "F22"
+        }
+      },
+      "systemReferences": {
+        "pensionsP": {
+          "value": 123761.93,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResSISTEMA_Agosto_2026.xlsx",
+          "sha256": "e38611ff1973335c9d4eca25ee924ab1342cbc13ce345240dc37ad597a02634c",
+          "sheet": "ResumenPGCap4",
+          "cell": "G17"
+        },
+        "subsidiesAndOtherBenefits": {
+          "value": 16966.81,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResSISTEMA_Agosto_2026.xlsx",
+          "sha256": "e38611ff1973335c9d4eca25ee924ab1342cbc13ce345240dc37ad597a02634c",
+          "sheet": "ResumenPGCap4",
+          "cell": "G35"
+        },
+        "entitySubsidiesAndOtherBenefits": {
+          "value": 7400.62,
+          "unit": "million current EUR",
+          "sourcePath": "data/sources/mutuas-v7-income/ResENTIDAD_Agosto_2026.xlsx",
+          "sha256": "e70497e1a38417b4104f8b86dcee4c1a6c88e165732cdd8c5a213bb7982ca55a",
+          "sheet": "ResumenPGCap4",
+          "cell": "G33"
+        }
+      },
+      "derivedMillionEUR": {
+        "currentTransfersExcludingExplicitToSS": 9568.33,
+        "nonfinancialExcludingExplicitCurrentToSS": 11279.14,
+        "identifiedSpendingExcludingAllPendingCapitalTransfers": 11094.07,
+        "identifiedPrimarySpendingExcludingAllPendingCapitalTransfers": 11093.36,
+        "grossBudgetNonfinancialBalance": -746.49,
+        "systemContributiveBenefitsB": 140728.74,
+        "systemContributiveBenefitsExcludingMutuasQ": 131162.55,
+        "pensionShareAfterRemovingMutuaQ": 0.94357672979063,
+        "subsidyAggregationResidual": 0.0
+      },
+      "derivedUnitsException": {
+        "pensionShareAfterRemovingMutuaQ": "unitless ratio"
+      }
+    }
+  ],
+  "capitalCost2025Memo": {
+    "sourcePath": "data/sources/mutuas-v7-spending/SIOMUTUAS_DICIEMBRE_2025.pdf",
+    "sha256": "be57aa1e9394bc8345f5c63878bbd18b3a4d075b56e3a7a5850d7db6884fc899",
+    "pdfPage": 138,
+    "program": "11.05",
+    "sourceUnit": "thousand EUR",
+    "permanentDisability": {
+      "indicator": 19,
+      "sourceValue": 1530662.63,
+      "millionEUR": 1530.66263
+    },
+    "death": {
+      "indicator": 22,
+      "sourceValue": 176271.51,
+      "millionEUR": 176.27151
+    },
+    "combinedMillionEUR": 1706.93414,
+    "programTransfersThousandEUR": 5065909.67,
+    "classification": "actuarial present-value capital cost; not annual pension benefit and not an additional consolidated revenue",
+    "use": "memo only; no projected available pension contribution",
+    "publicationDate": null,
+    "pdfCreationDate": "2026-01-28T10:17:12+01:00"
+  },
+  "capitalTransfers2025Unresolved": {
+    "budgetMillionEUR": 183.73,
+    "budgetSource": "ResMUTUAS_DiciembreProvisional_2025.xlsx / ResumenPG!G19",
+    "sioProgram": "41.64 Administración del patrimonio",
+    "sioPdfPage": 142,
+    "sioThousandEUR": 183727.64,
+    "recipient2025ExplicitlyIdentified": false,
+    "contextOnly": "2024 memory identifies its corresponding capital transfers as to TGSS. This is not used as proof of the 2025 recipient."
+  },
+  "memory2024": {
+    "sourcePath": "data/sources/mutuas-v7-spending/memoria-mutuas-2024.pdf",
+    "sha256": "6db10a16e9a8525a52b67e9dba865cac8887cf3ca11eb74b3b633be2f85a77cb",
+    "publicationDate": "2025-10-31",
+    "internalTransfersEUR": {
+      "pdfPage": 173,
+      "table": 48,
+      "commonServices": 1565313105.04,
+      "reinsurance": 1598930698.81,
+      "capitalCostIP": 1593848295.6,
+      "capitalCostDeath": 212501562.52
+    },
+    "capitalTransfersToTGSSEUR": {
+      "pdfPage": 174,
+      "program": "41.64",
+      "value": 306996410.19
+    },
+    "healthAreaEUR": {
+      "pdfPage": 173,
+      "value": 1627963907.31,
+      "notAdditiveToEconomicChapters": true
+    },
+    "administrationCostEUR": {
+      "pdfPage": 70,
+      "value": 732992389.71,
+      "notAdditiveToEconomicChapters": true
+    },
+    "stabilizationReservesAfterAllocationEUR": {
+      "pdfPage": 169,
+      "table": 45,
+      "professional": 2638720420.02,
+      "common": 407780277.15,
+      "cessation": 72722305.78
+    },
+    "balanceSheetEUR": {
+      "pdfPage": 148,
+      "table": 34,
+      "totalAssets": 9424234390.72,
+      "cash": 470661577.56,
+      "receivables": 6859230915.07,
+      "longFinancialInvestments": 470171552.39,
+      "shortFinancialInvestments": 212402370.41
+    },
+    "limitations": [
+      "Reserves are not cash and not private pension assets.",
+      "No 2026 reserve stock or future reserve path is inferred.",
+      "Counterparty detail is insufficient to estimate external AAPP assets or a stock-flow adjustment."
+    ]
+  },
+  "recommendedModelTreatment": {
+    "allocationRatio": "P_2025 / (B_2025 - Q_mutuas_2025)",
+    "ratioReason": "Full-year homogeneous pension and non-pension contributive benefits; avoids mixing pension extra-payment seasonality with eight-month IT.",
+    "allocationLimit": "Assignment proxy, not a legal hypothecation of every TGSS contribution.",
+    "capitalCost": "Observed memo only; no additional revenue, annual pension expense, funded/NDC contribution, automatic asset or debt repayment.",
+    "mutuaBudgetMemo": "Final decision: observed institutional memo only. Do not create a projected mutua spending, balance or reserve path; preserve existing consolidated AAPP spending exactly.",
+    "noForecastRule": "Do not infer an official future spending path, free reserves or current cash from these observations.",
+    "otherIncome": "Do not scale chapters 3/5 or add them to consolidated income without an ESA counterparty bridge."
+  },
+  "unresolved": [
+    "2025/2026 capital-transfer recipient not specified by the summary; 2024 correspondence is insufficient proof.",
+    "Property income/fees may contain AAPP counterparties; no full ESA consolidation bridge is published in these summaries.",
+    "SIO transfers and economic-budget transfers have different totals; their difference is not assigned to an invented category.",
+    "ResSISTEMA is the sum of ENTIDAD and MUTUAS and retains internal transfers; it must not replace consolidated AAPP totals.",
+    "Capital cost IP/death is identified but 2025 common-services/reinsurance split remains unknown."
+  ],
+  "sources": [
+    {
+      "file": "memoria-mutuas-2024.pdf",
+      "url": "https://www.seg-social.es/wps/wcm/connect/wss/74740f69-046c-49b4-8c89-86d328749979/000.%2BMEMORIA%2BECON%C3%93MICO-FINANCIERA%2BY%2BDE%2BGESTI%C3%93N%2BDE%2BLAS%2BMUTUAS%2BCOLABORADORAS%2BCON%2BLA%2BSS%2B2024.pdf?MOD=AJPERES",
+      "sha256": "6db10a16e9a8525a52b67e9dba865cac8887cf3ca11eb74b3b633be2f85a77cb",
+      "bytes": 2952745,
+      "retrievedAt": "2026-10-18",
+      "publicationDate": "2025-10-31"
+    },
+    {
+      "file": "memoria-catalogue.html",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/PresupuestosEstudios/24658/1725?changeLanguage=es",
+      "sha256": "7e1c48eb47dd296ad974f30cf95d99f58e309ce44fab10850204b2d0398dcd2f",
+      "bytes": 129617,
+      "retrievedAt": "2026-10-18"
+    },
+    {
+      "file": "lgss-cutoff-20261018.html",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724&p=20261018&tn=1",
+      "sha256": "d66d761519f1c540ac87320836b2ac16b13a041287d010803685f1492befda30",
+      "bytes": 2609836,
+      "retrievedAt": "2026-10-18"
+    },
+    {
+      "file": "SIOMUTUAS_DICIEMBRE_2025.pdf",
+      "url": "https://www.seg-social.es/wps/wcm/connect/wss/70f58867-3ade-49d0-a117-c20ef0fe1ea8/SIOMUTUAS_DICIEMBRE_2025.pdf?MOD=AJPERES",
+      "sha256": "be57aa1e9394bc8345f5c63878bbd18b3a4d075b56e3a7a5850d7db6884fc899",
+      "bytes": 883114,
+      "retrievedAt": "2026-10-18",
+      "publicationDate": null,
+      "pdfCreationDate": "2026-01-28T10:17:12+01:00",
+      "publicationDateNote": "PDF metadata is not a publication date; official document available at retrieval."
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResSISTEMA_Agosto_2026.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResSISTEMA_Agosto_2026.xlsx",
+      "sha256": "e38611ff1973335c9d4eca25ee924ab1342cbc13ce345240dc37ad597a02634c",
+      "downloadedAt": "2026-10-18",
+      "bytes": 276229,
+      "publicationDate": "2026-09-25",
+      "sharedSource": true
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResENTIDAD_Agosto_2026.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResENTIDAD_Agosto_2026.xlsx",
+      "sha256": "e70497e1a38417b4104f8b86dcee4c1a6c88e165732cdd8c5a213bb7982ca55a",
+      "downloadedAt": "2026-10-18",
+      "bytes": 275664,
+      "publicationDate": "2026-09-25",
+      "sharedSource": true
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResMUTUAS_Agosto_2026.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResMUTUAS_Agosto_2026.xlsx",
+      "sha256": "58418f020b2875add49011d1ef98eba32b15564c43e8ca4416337eae789612f4",
+      "downloadedAt": "2026-10-18",
+      "bytes": 268452,
+      "publicationDate": "2026-09-25",
+      "sharedSource": true
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResSISTEMA_DiciembreProvisional_2025.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResSISTEMA_DiciembreProvisional_2025.xlsx",
+      "sha256": "1d88b58ea4819e30c6605aa04d67ddfcb2eca4de96e93b32b13aa29ecf98e94d",
+      "downloadedAt": "2026-10-18",
+      "bytes": 276309,
+      "publicationDate": "2026-03-25",
+      "sharedSource": true
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResENTIDAD_DiciembreProvisional_2025.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResENTIDAD_DiciembreProvisional_2025.xlsx",
+      "sha256": "bfff75382d039859af04fe389bfa998d94d276d65c95e08ecddc1cecbdf8b92a",
+      "downloadedAt": "2026-10-18",
+      "bytes": 275760,
+      "publicationDate": "2026-03-25",
+      "sharedSource": true
+    },
+    {
+      "path": "data/sources/mutuas-v7-income/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+      "url": "https://www.seg-social.es/descarga/es/ResMUTUAS_DiciembreProvisional_2025.xlsx",
+      "sha256": "c7d1090bc366d02b82c0cd8641328090faab1dfb3ae4383795eb7e8e3a14ce76",
+      "downloadedAt": "2026-10-18",
+      "bytes": 268595,
+      "publicationDate": "2026-03-25",
+      "sharedSource": true
+    }
+  ]
+}

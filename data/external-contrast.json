@@ -1,0 +1,2066 @@
+{
+ "app": "1.87.2",
+ "methodology": "common-fund-1.79.0",
+ "generatedAt": "2026-11-26T20:23:13.271Z",
+ "sources": {
+  "ageingReport": {
+   "snapshot": "data/sources/2024_Ageing_Report-Statistical_annex_all_countryfiches.xlsx",
+   "sha256": "8453dfda8db0ad253d3965cd85490c30e4b5d0598eb6c2ffa4adbf23ab45bb7f"
+  },
+  "international": "data/external-forecasts-international-20261017.json",
+  "private": "data/external-forecasts-private-20261017.json",
+  "airefMediumTerm": "data/external-forecasts-airef-pfemp-20260514.json"
+ },
+ "longRun": [
+  {
+   "id": "spending",
+   "label": "Gasto público en pensiones, % del PIB",
+   "arRow": "ESb:7",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 13.031987408714437,
+     "ar": 13.8096
+    },
+    {
+     "year": 2030,
+     "sim": 13.367059222794342,
+     "ar": 14.3281
+    },
+    {
+     "year": 2040,
+     "sim": 14.809530472016188,
+     "ar": 16.2047
+    },
+    {
+     "year": 2050,
+     "sim": 16.07310654008197,
+     "ar": 17.2792
+    },
+    {
+     "year": 2060,
+     "sim": 15.963154625412743,
+     "ar": 16.8584
+    },
+    {
+     "year": 2070,
+     "sim": 15.694183576413712,
+     "ar": 16.702
+    }
+   ]
+  },
+  {
+   "id": "oldAge",
+   "label": "Pensiones de jubilación, % del PIB",
+   "arRow": "ESb:8",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 9.630016563771447,
+     "ar": 10.4593
+    },
+    {
+     "year": 2030,
+     "sim": 9.968668075865256,
+     "ar": 11.0173
+    },
+    {
+     "year": 2040,
+     "sim": 11.477605609831743,
+     "ar": 13.0166
+    },
+    {
+     "year": 2050,
+     "sim": 12.96467093227907,
+     "ar": 14.3349
+    },
+    {
+     "year": 2060,
+     "sim": 12.87764843461782,
+     "ar": 13.9175
+    },
+    {
+     "year": 2070,
+     "sim": 12.683173803745971,
+     "ar": 13.8351
+    }
+   ]
+  },
+  {
+   "id": "benefitRatio",
+   "label": "Pensión media / salario medio, % (definiciones distintas)",
+   "arRow": "ESb:23",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 75.01528870901357,
+     "ar": 69.259
+    },
+    {
+     "year": 2030,
+     "sim": 76.54020083678998,
+     "ar": 68.9618
+    },
+    {
+     "year": 2040,
+     "sim": 70.35682215217508,
+     "ar": 63.8379
+    },
+    {
+     "year": 2050,
+     "sim": 62.79629189721133,
+     "ar": 56.4868
+    },
+    {
+     "year": 2060,
+     "sim": 57.20502359583378,
+     "ar": 52.145
+    },
+    {
+     "year": 2070,
+     "sim": 54.47633989621232,
+     "ar": 51.3975
+    }
+   ]
+  },
+  {
+   "id": "dependency",
+   "label": "Mayores de 65 / población de 20 a 64, %",
+   "arRow": "ESa:70",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 34.63086161954753,
+     "ar": 36.0073
+    },
+    {
+     "year": 2030,
+     "sim": 37.55911336290436,
+     "ar": 39.8623
+    },
+    {
+     "year": 2040,
+     "sim": 48.17251848047278,
+     "ar": 52.5903
+    },
+    {
+     "year": 2050,
+     "sim": 58.710945827756944,
+     "ar": 63.8538
+    },
+    {
+     "year": 2060,
+     "sim": 60.964833673045646,
+     "ar": 63.9518
+    },
+    {
+     "year": 2070,
+     "sim": 63.32203071250588,
+     "ar": 64.4747
+    }
+   ]
+  },
+  {
+   "id": "inflation",
+   "label": "Inflación, %",
+   "arRow": "ESa:31",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": null,
+     "ar": 2.239
+    },
+    {
+     "year": 2030,
+     "sim": 2.0000000000000018,
+     "ar": 2
+    },
+    {
+     "year": 2040,
+     "sim": 2.0000000000000018,
+     "ar": 2
+    },
+    {
+     "year": 2050,
+     "sim": 2.0000000000000018,
+     "ar": 2
+    },
+    {
+     "year": 2060,
+     "sim": 2.0000000000000018,
+     "ar": 2
+    },
+    {
+     "year": 2070,
+     "sim": 2.0000000000000018,
+     "ar": 2
+    }
+   ]
+  },
+  {
+   "id": "realGrowth",
+   "label": "Crecimiento del PIB real, %",
+   "arRow": "ESa:23",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": null,
+     "ar": 1.3824
+    },
+    {
+     "year": 2030,
+     "sim": 1.7050601770233653,
+     "ar": 0.8423
+    },
+    {
+     "year": 2040,
+     "sim": 1.938350433965863,
+     "ar": 1.6417
+    },
+    {
+     "year": 2050,
+     "sim": 1.4730118434650885,
+     "ar": 1.3359
+    },
+    {
+     "year": 2060,
+     "sim": 1.2903290832397607,
+     "ar": 1.2981
+    },
+    {
+     "year": 2070,
+     "sim": 0.7363191321671181,
+     "ar": 0.8197
+    }
+   ]
+  },
+  {
+   "id": "perWorker",
+   "label": "Crecimiento del PIB por ocupado, %",
+   "arRow": "ESa:30",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": null,
+     "ar": 0.6492
+    },
+    {
+     "year": 2030,
+     "sim": 0.20215800000000783,
+     "ar": 0.807
+    },
+    {
+     "year": 2040,
+     "sim": 1.8010000000000081,
+     "ar": 1.801
+    },
+    {
+     "year": 2050,
+     "sim": 1.7602999999999813,
+     "ar": 1.7603
+    },
+    {
+     "year": 2060,
+     "sim": 1.4971000000000068,
+     "ar": 1.4971
+    },
+    {
+     "year": 2070,
+     "sim": 1.2400000000000189,
+     "ar": 1.24
+    }
+   ]
+  },
+  {
+   "id": "employment",
+   "label": "Crecimiento del empleo, %",
+   "arRow": "ESa:24",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": null,
+     "ar": 0.7285
+    },
+    {
+     "year": 2030,
+     "sim": 1.4998700696878808,
+     "ar": 0.035
+    },
+    {
+     "year": 2040,
+     "sim": 0.13492051548200656,
+     "ar": -0.1565
+    },
+    {
+     "year": 2050,
+     "sim": -0.28231850391056135,
+     "ar": -0.417
+    },
+    {
+     "year": 2060,
+     "sim": -0.20372100952662509,
+     "ar": -0.196
+    },
+    {
+     "year": 2070,
+     "sim": -0.4975117224742198,
+     "ar": -0.4152
+    }
+   ]
+  },
+  {
+   "id": "interest",
+   "label": "Tipo de interés nominal medio de la deuda, %",
+   "arRow": "ESa:32",
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 2.445904079607011,
+     "ar": 3.7125
+    },
+    {
+     "year": 2030,
+     "sim": 2.9275198866523833,
+     "ar": 4.2092
+    },
+    {
+     "year": 2040,
+     "sim": 3.4938506235361153,
+     "ar": 4.2745
+    },
+    {
+     "year": 2050,
+     "sim": 3.638347346962414,
+     "ar": 4.0458
+    },
+    {
+     "year": 2060,
+     "sim": 3.886046546873159,
+     "ar": 4
+    },
+    {
+     "year": 2070,
+     "sim": 4.2398524487785565,
+     "ar": 4
+    }
+   ]
+  },
+  {
+   "id": "pensioners",
+   "label": "Pensionistas, índice 2026 = 100 (simulador: jubilación; AR: todas)",
+   "arRow": "ESb:20",
+   "index": true,
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 100,
+     "ar": 100
+    },
+    {
+     "year": 2030,
+     "sim": 109.18515883562193,
+     "ar": 105.99628262525144
+    },
+    {
+     "year": 2040,
+     "sim": 141.82756966379011,
+     "ar": 128.4197342635171
+    },
+    {
+     "year": 2050,
+     "sim": 176.17530165749363,
+     "ar": 148.52297513024365
+    },
+    {
+     "year": 2060,
+     "sim": 187.32081723561822,
+     "ar": 152.27102058086436
+    },
+    {
+     "year": 2070,
+     "sim": 187.6722669367994,
+     "ar": 148.82533923652423
+    }
+   ]
+  },
+  {
+   "id": "contributors",
+   "label": "Cotizantes, índice 2026 = 100",
+   "arRow": "ESb:27",
+   "index": true,
+   "cells": [
+    {
+     "year": 2026,
+     "sim": 100,
+     "ar": 100
+    },
+    {
+     "year": 2030,
+     "sim": 106.97500806030774,
+     "ar": 101.56002344286368
+    },
+    {
+     "year": 2040,
+     "sim": 110.89440717917196,
+     "ar": 99.99336772336491
+    },
+    {
+     "year": 2050,
+     "sim": 108.7832797570292,
+     "ar": 93.42751788711861
+    },
+    {
+     "year": 2060,
+     "sim": 106.10001273284526,
+     "ar": 90.49320382712466
+    },
+    {
+     "year": 2070,
+     "sim": 102.82713024795461,
+     "ar": 87.96790173067157
+    }
+   ]
+  }
+ ],
+ "exitAge": [
+  {
+   "year": 2026,
+   "ar": 65.0208
+  },
+  {
+   "year": 2030,
+   "ar": 65.6074
+  },
+  {
+   "year": 2040,
+   "ar": 66.3919
+  },
+  {
+   "year": 2050,
+   "ar": 66.3919
+  },
+  {
+   "year": 2060,
+   "ar": 66.3918
+  },
+  {
+   "year": 2070,
+   "ar": 66.3918
+  }
+ ],
+ "pensionersGap": {
+  "from": 2026,
+  "to": 2070,
+  "factors": {
+   "simulator": {
+    "total": 1.876722669367994,
+    "population65": 1.6656817289599761,
+    "coverage": 1.1266994388776712
+   },
+   "ageingReport": {
+    "total": 1.4882533923652423,
+    "population65": 1.4900327635067414,
+    "coverage": 1.0975522401058984,
+    "allOver65": 0.9100303210557237
+   }
+  },
+  "split": {
+   "demography": 1.1178826196008274,
+   "coverage": 1.0265565480226806,
+   "definition": 1.0988644849106817
+  },
+  "population65": {
+   "simulator": [
+    10436193,
+    17383376
+   ],
+   "ageingReport": [
+    10601743.7553,
+    15796945.545699999
+   ]
+  },
+  "exitAge": [
+   65.0208,
+   66.3918
+  ]
+ },
+ "levelGap": {
+  "years": [
+   2022,
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "ageingReport": [
+   13.0866,
+   13.5672,
+   13.655,
+   13.7153,
+   13.8096
+  ],
+  "observed": [
+   12.64339970261084,
+   12.83112367146331,
+   12.91415356705527,
+   12.97116817317264,
+   null
+  ],
+  "simulator": [
+   null,
+   null,
+   null,
+   null,
+   13.031987408714437
+  ],
+  "arPotentialGrowth": [
+   1.2048,
+   1.5496,
+   1.5095,
+   1.3824
+  ]
+ },
+ "withArAssumptions": {
+  "profile": "ref:ageing-report-2024",
+  "contributorsTarget2070": 87.96790173067157,
+  "employmentTarget2070": 92.43476323533507,
+  "updateScale": 0.9457444002809009,
+  "rows": [
+   {
+    "label": "Reglas de hoy (EUROPOP2025, senda de edad del Ageing Report, empleo de la AIReF hasta 2030)",
+    "patch": {},
+    "spending": [
+     13.031987408714437,
+     13.367059222794342,
+     14.809530472016188,
+     16.07310654008197,
+     15.963154625412743,
+     15.694183576413712
+    ],
+    "contributorsIndex2070": 102.82713024795461,
+    "debt2070": 199.11881423439547
+   },
+   {
+    "label": "Supuestos del Ageing Report 2024",
+    "patch": {
+     "europop2023": 1,
+     "retirementAgeExitPath": 1,
+     "exitPathNoExtraPension": 1,
+     "airefShortRunEmployment": 0
+    },
+    "spending": [
+     13.031987408714437,
+     13.601750667039333,
+     15.404810950285789,
+     16.978726986018636,
+     16.713035841375522,
+     15.893340154126035
+    ],
+    "contributorsIndex2070": 92.43476323533478,
+    "debt2070": 245.22857942414666
+   },
+   {
+    "label": "Ageing Report 2024, actualizado como la regla",
+    "spending": [
+     13.06035187011913,
+     13.550720341664775,
+     15.325504283231913,
+     16.341706641333744,
+     15.94373739769554,
+     15.795822973491608
+    ],
+    "contributorsIndex2070": 92.43476323533507
+   },
+   {
+    "label": "Ageing Report 2024, publicado",
+    "spending": [
+     13.8096,
+     14.3281,
+     16.2047,
+     17.2792,
+     16.8584,
+     16.702
+    ],
+    "contributorsIndex2070": 92.43476323533507
+   }
+  ]
+ },
+ "sensitivities": [
+  {
+   "id": "longevity",
+   "label": "Esperanza de vida +2 años al nacer en 2070",
+   "arRow": "ESb:30",
+   "ar": [
+    0.1895,
+    0.3887,
+    0.8372
+   ],
+   "sim": [
+    {
+     "how": "longevityGain 0.0255: +1,6 años de cobro a los 65 en 2070 [S]",
+     "patch": {
+      "longevityGain": 0.025543975830078124
+     },
+     "cells": [
+      0.06657476989534494,
+      0.17285582332082328,
+      0.45377318007656164
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fertility",
+   "label": "Fecundidad −20 %",
+   "arRow": "ESb:33",
+   "ar": [
+    -0.0173,
+    0.1847,
+    1.1053
+   ],
+   "sim": [
+    {
+     "how": "targetFertility 0.97: 0,8 × 1.22, la de 2050 en EUROPOP2025",
+     "patch": {
+      "targetFertility": 0.97
+     },
+     "cells": [
+      0,
+      0.07113026257928823,
+      0.9582207533481419
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tfpUp",
+   "label": "Productividad total de los factores +0,2 puntos",
+   "arRow": "ESb:35",
+   "ar": [
+    0.0007,
+    -0.0836,
+    -0.5548
+   ],
+   "sim": [
+    {
+     "how": "productivityGrowth +0,2 puntos",
+     "patch": {
+      "productivityGrowth": 0.002
+     },
+     "cells": [
+      -0.22704710897617808,
+      -0.5078544191071064,
+      -0.974193307461114
+     ]
+    },
+    {
+     "how": "productivityGrowth +0,3 puntos (0,2 / 0,65)",
+     "patch": {
+      "productivityGrowth": 0.003
+     },
+     "cells": [
+      -0.33871427131196796,
+      -0.753906932166915,
+      -1.4321867998994957
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tfpDown",
+   "label": "Productividad total de los factores −0,2 puntos",
+   "arRow": "ESb:36",
+   "ar": [
+    0.1621,
+    0.5786,
+    1.0054
+   ],
+   "sim": [
+    {
+     "how": "productivityGrowth −0,2 puntos",
+     "patch": {
+      "productivityGrowth": -0.002
+     },
+     "cells": [
+      0.23209751805947398,
+      0.5296387402364005,
+      1.057445028214131
+     ]
+    },
+    {
+     "how": "productivityGrowth −0,3 puntos",
+     "patch": {
+      "productivityGrowth": -0.003
+     },
+     "cells": [
+      0.3500784304005329,
+      0.8029319895890659,
+      1.6196441632518042
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ageLink",
+   "label": "Edad de jubilación ligada a la esperanza de vida",
+   "arRow": "ESb:37",
+   "ar": [
+    0.0157,
+    -0.4639,
+    -1.8597
+   ],
+   "sim": [
+    {
+     "how": "retirementAgeLink 2/3",
+     "patch": {
+      "retirementAgeLink": 0.667
+     },
+     "cells": [
+      -0.5902590834099772,
+      -0.6742202243469695,
+      -1.0760326108726908
+     ]
+    },
+    {
+     "how": "retirementAgeLink 1",
+     "patch": {
+      "retirementAgeLink": 1
+     },
+     "cells": [
+      -0.7571986821539749,
+      -1.135496853628812,
+      -1.5779018693528162
+     ]
+    }
+   ]
+  },
+  {
+   "id": "age",
+   "label": "Edad de jubilación constante (la de 2022), frente a su línea base que la sube 2,4 años hasta 2040",
+   "arRow": "ESb:38",
+   "ar": [
+    2.888,
+    2.5721,
+    2.1341
+   ],
+   "sim": [
+    {
+     "how": "Senda de edad apagada frente a encendida, sin el freno de 2023 (EUROPOP2025, empleo del Ageing Report)",
+     "patch": {
+      "retirementAgeExitPath": 0,
+      "closingClause": "off",
+      "airefShortRunEmployment": 0
+     },
+     "from": {
+      "retirementAgeExitPath": 1,
+      "exitPathNoExtraPension": 1,
+      "closingClause": "off",
+      "airefShortRunEmployment": 0
+     },
+     "cells": [
+      1.2453380444420894,
+      1.0758753982083906,
+      0.7265420671201763
+     ]
+    },
+    {
+     "how": "Lo mismo con el perfil del Ageing Report (EUROPOP2023)",
+     "patch": {
+      "europop2023": 1,
+      "retirementAgeExitPath": 0,
+      "exitPathNoExtraPension": 1,
+      "airefShortRunEmployment": 0,
+      "closingClause": "off"
+     },
+     "from": {
+      "europop2023": 1,
+      "retirementAgeExitPath": 1,
+      "exitPathNoExtraPension": 1,
+      "airefShortRunEmployment": 0,
+      "closingClause": "off"
+     },
+     "cells": [
+      1.3343862814433365,
+      1.1731010228882433,
+      0.7106762872005223
+     ]
+    }
+   ]
+  }
+ ],
+ "prtr": {
+  "2026": 1.25,
+  "2027": 0.3,
+  "2028": 0.2,
+  "2029": 0.1,
+  "2030": 0,
+  "2031": 0
+ },
+ "imf": [
+  {
+   "year": 2026,
+   "sim": {
+    "realGrowth": null,
+    "inflation": null,
+    "employmentGrowth": null,
+    "nominalGDPbn": 1782.96266,
+    "debtGDP": 97.81287287306398,
+    "balanceGDP": -2.404775824076987,
+    "primaryGDP": -0.012366776093895578,
+    "interestGDP": 2.392409047983091,
+    "revenueGDP": 43.3878607962547,
+    "spendingGDP": 45.79263662033169,
+    "taxesGDP": 24.74881835158567
+   },
+   "ref": {
+    "realGrowth": 2.1,
+    "inflation": 3,
+    "employmentGrowth": 1.5,
+    "nominalGDPbn": 1774.3,
+    "debtGDP": 98.6,
+    "balanceGDP": -2.3,
+    "primaryGDP": 0.20000000000000018,
+    "interestGDP": 2.5,
+    "revenueGDP": 43.8,
+    "spendingGDP": 46.1,
+    "taxesGDP": 24.9
+   }
+  },
+  {
+   "year": 2027,
+   "sim": {
+    "realGrowth": 1.9968941640517102,
+    "inflation": 2.6000000000000023,
+    "employmentGrowth": 1.8999139270191145,
+    "nominalGDPbn": 1865.8492672746847,
+    "debtGDP": 95.95233986391281,
+    "balanceGDP": -2.484607470540473,
+    "primaryGDP": -0.10601433768612815,
+    "interestGDP": 2.378593132854345,
+    "revenueGDP": 42.53584725373945,
+    "spendingGDP": 45.02045472427992,
+    "taxesGDP": 24.769106129377242
+   },
+   "ref": {
+    "realGrowth": 1.8,
+    "inflation": 2.3,
+    "employmentGrowth": 0.6,
+    "nominalGDPbn": 1860.1,
+    "debtGDP": 96.6,
+    "balanceGDP": -2.3,
+    "primaryGDP": 0.30000000000000027,
+    "interestGDP": 2.6,
+    "revenueGDP": 43.9,
+    "spendingGDP": 46.2,
+    "taxesGDP": 25
+   }
+  },
+  {
+   "year": 2028,
+   "sim": {
+    "realGrowth": 1.8973945453153895,
+    "inflation": 2.299999999999991,
+    "employmentGrowth": 1.8001849785982849,
+    "nominalGDPbn": 1944.9805806541642,
+    "debtGDP": 94.3601248740323,
+    "balanceGDP": -2.3115950279613844,
+    "primaryGDP": 0.1421588133968582,
+    "interestGDP": 2.4537538413582425,
+    "revenueGDP": 42.55053740023873,
+    "spendingGDP": 44.86213242820011,
+    "taxesGDP": 24.77842352728994
+   },
+   "ref": {
+    "realGrowth": 1.8,
+    "inflation": 2.5,
+    "employmentGrowth": 0.5,
+    "nominalGDPbn": 1949.1,
+    "debtGDP": 94.6,
+    "balanceGDP": -2.2,
+    "primaryGDP": 0.5,
+    "interestGDP": 2.7,
+    "revenueGDP": 43.6,
+    "spendingGDP": 45.7,
+    "taxesGDP": 25.1
+   }
+  },
+  {
+   "year": 2029,
+   "sim": {
+    "realGrowth": 1.7968220489294584,
+    "inflation": 2.0999999999999908,
+    "employmentGrowth": 1.600175295725248,
+    "nominalGDPbn": 2021.5069174068242,
+    "debtGDP": 93.18266985477389,
+    "balanceGDP": -2.394649844669734,
+    "primaryGDP": 0.13677156572102,
+    "interestGDP": 2.531421410390754,
+    "revenueGDP": 42.576048132886704,
+    "spendingGDP": 44.97069797755644,
+    "taxesGDP": 24.792991397087434
+   },
+   "ref": {
+    "realGrowth": 1.7,
+    "inflation": 2,
+    "employmentGrowth": 0.5,
+    "nominalGDPbn": 2027.7,
+    "debtGDP": 93.4,
+    "balanceGDP": -2.2,
+    "primaryGDP": 0.5,
+    "interestGDP": 2.7,
+    "revenueGDP": 43.8,
+    "spendingGDP": 46,
+    "taxesGDP": 25.3
+   }
+  },
+  {
+   "year": 2030,
+   "sim": {
+    "realGrowth": 1.7050601770233653,
+    "inflation": 2.0000000000000018,
+    "employmentGrowth": 1.4998700696878808,
+    "nominalGDPbn": 2097.094323367927,
+    "debtGDP": 92.36175065636623,
+    "balanceGDP": -2.5377453196195794,
+    "primaryGDP": 0.07790540279955772,
+    "interestGDP": 2.615650722419137,
+    "revenueGDP": 42.572172933598964,
+    "spendingGDP": 45.109918253218545,
+    "taxesGDP": 24.81682665434449
+   },
+   "ref": {
+    "realGrowth": 1.7,
+    "inflation": 2,
+    "employmentGrowth": 0.5,
+    "nominalGDPbn": 2110.6,
+    "debtGDP": 92.1,
+    "balanceGDP": -2.1,
+    "primaryGDP": 0.6999999999999997,
+    "interestGDP": 2.8,
+    "revenueGDP": 44,
+    "spendingGDP": 46.2,
+    "taxesGDP": 25.5
+   }
+  },
+  {
+   "year": 2031,
+   "sim": {
+    "realGrowth": 1.1481867151204694,
+    "inflation": 2.0000000000000018,
+    "employmentGrowth": 0.31367723420909766,
+    "nominalGDPbn": 2163.5963394282303,
+    "debtGDP": 92.18258732918902,
+    "balanceGDP": -2.6597408221663703,
+    "primaryGDP": 0.040655738820094586,
+    "interestGDP": 2.7003965609864653,
+    "revenueGDP": 42.75601688602729,
+    "spendingGDP": 45.41575770819365,
+    "taxesGDP": 24.882962833685216
+   },
+   "ref": {
+    "realGrowth": 1.7,
+    "inflation": 2,
+    "employmentGrowth": 0.5,
+    "nominalGDPbn": 2196.5,
+    "debtGDP": 90.7,
+    "balanceGDP": -2.1,
+    "primaryGDP": 0.6999999999999997,
+    "interestGDP": 2.8,
+    "revenueGDP": 44.2,
+    "spendingGDP": 46.2,
+    "taxesGDP": 25.6
+   }
+  }
+ ],
+ "funcas": [
+  {
+   "year": 2026,
+   "sim": {
+    "realGrowth": null,
+    "inflation": null,
+    "employmentGrowth": null,
+    "nominalGDPbn": 1782.96266,
+    "debtGDP": 97.81287287306398,
+    "balanceGDP": -2.404775824076987,
+    "primaryGDP": -0.012366776093895578,
+    "interestGDP": 2.392409047983091,
+    "revenueGDP": 43.3878607962547,
+    "spendingGDP": 45.79263662033169,
+    "taxesGDP": 24.74881835158567
+   },
+   "ref": {
+    "realGrowth": 2.5,
+    "inflation": 3.7,
+    "employmentGrowth": 2.3,
+    "nominalGDPbn": 1783.7,
+    "debtGDP": 98.1,
+    "balanceGDP": -2.5
+   }
+  },
+  {
+   "year": 2027,
+   "sim": {
+    "realGrowth": 1.9968941640517102,
+    "inflation": 2.6000000000000023,
+    "employmentGrowth": 1.8999139270191145,
+    "nominalGDPbn": 1865.8492672746847,
+    "debtGDP": 95.95233986391281,
+    "balanceGDP": -2.484607470540473,
+    "primaryGDP": -0.10601433768612815,
+    "interestGDP": 2.378593132854345,
+    "revenueGDP": 42.53584725373945,
+    "spendingGDP": 45.02045472427992,
+    "taxesGDP": 24.769106129377242
+   },
+   "ref": {
+    "realGrowth": 1.8,
+    "inflation": 3.1,
+    "employmentGrowth": 1.6,
+    "nominalGDPbn": 1868.7,
+    "debtGDP": 96.8,
+    "balanceGDP": -2.7
+   }
+  },
+  {
+   "year": 2028,
+   "sim": {
+    "realGrowth": 1.8973945453153895,
+    "inflation": 2.299999999999991,
+    "employmentGrowth": 1.8001849785982849,
+    "nominalGDPbn": 1944.9805806541642,
+    "debtGDP": 94.3601248740323,
+    "balanceGDP": -2.3115950279613844,
+    "primaryGDP": 0.1421588133968582,
+    "interestGDP": 2.4537538413582425,
+    "revenueGDP": 42.55053740023873,
+    "spendingGDP": 44.86213242820011,
+    "taxesGDP": 24.77842352728994
+   },
+   "ref": {
+    "realGrowth": 1.7,
+    "inflation": 2.5,
+    "employmentGrowth": 1,
+    "nominalGDPbn": 1945,
+    "debtGDP": 96.3,
+    "balanceGDP": -2.9
+   }
+  }
+ ],
+ "debtGap": {
+  "years": [
+   2026,
+   2027,
+   2028,
+   2029,
+   2030,
+   2031
+  ],
+  "paths": [
+   {
+    "label": "Simulador",
+    "values": [
+     97.81287287306398,
+     95.95233986391275,
+     94.36012487403227,
+     93.18266985477389,
+     92.36175065636623,
+     92.182587329189
+    ]
+   },
+   {
+    "label": "Con el saldo primario del FMI",
+    "values": [
+     97.81287287306398,
+     95.54632552622662,
+     93.61278799682441,
+     92.10039579128646,
+     90.69639134689658,
+     89.90907156539892
+    ]
+   },
+   {
+    "label": "Con el PIB nominal del FMI",
+    "values": [
+     97.81287287306398,
+     95.78570974390074,
+     93.72352807122738,
+     92.48516055317161,
+     91.3902801692671,
+     90.47595995499366
+    ]
+   },
+   {
+    "label": "Con los intereses del FMI",
+    "values": [
+     97.81287287306398,
+     96.1737467310584,
+     94.81876998664937,
+     93.79253104884563,
+     93.13397936728326,
+     93.03068364392713
+    ]
+   },
+   {
+    "label": "Con los tres",
+    "values": [
+     97.81287287306398,
+     95.60110227336025,
+     93.43575513759038,
+     92.0138927546863,
+     90.49977747497272,
+     89.0605419251889
+    ]
+   },
+   {
+    "label": "Y con la deuda de partida del FMI",
+    "values": [
+     98.6,
+     96.35192193968065,
+     94.15229080088244,
+     92.7026532524535,
+     91.16148488581443,
+     89.69637150011378
+    ]
+   },
+   {
+    "label": "FMI, publicado",
+    "values": [
+     98.6,
+     96.6,
+     94.6,
+     93.4,
+     92.1,
+     90.7
+    ]
+   }
+  ],
+  "primarySpending": {
+   "sim": [
+    43.4002275723486,
+    42.64186159142558,
+    42.40837858684187,
+    42.439276567165685,
+    42.494267530799405,
+    42.71536114720719
+   ],
+   "imf": [
+    43.6,
+    43.6,
+    43,
+    43.3,
+    43.400000000000006,
+    43.400000000000006
+   ]
+  }
+ },
+ "airef": {
+  "source": "AIReF, Estudio 1/2026 (29/05/2026)",
+  "year": 2028,
+  "rows": [
+   {
+    "label": "Gasto bruto medio en pensiones 2022–2050, % del PIB",
+    "sim": 14.31734032280306,
+    "ref": 14.6
+   },
+   {
+    "label": "Impacto medio de las medidas de ingresos, % del PIB",
+    "sim": 1.600000000000001,
+    "ref": 1.6
+   },
+   {
+    "label": "Gasto neto medio, % del PIB (tope: 13,3 %)",
+    "sim": 12.717340322803059,
+    "ref": 13
+   }
+  ]
+ },
+ "airefDebt": {
+  "source": "AIReF, Estudio 1/2026 (29/05/2026), gráficos 2, 3, 19, 20, 22 y 29; cuadro 12, pág. 65",
+  "years": [
+   2030,
+   2035,
+   2040,
+   2050
+  ],
+  "rows": [
+   {
+    "key": "debtGDP",
+    "label": "Deuda, % del PIB",
+    "sim": [
+     92.36175065636623,
+     92.13997018960029,
+     95.25015593986679,
+     115.85152726977358
+    ],
+    "ref": [
+     95,
+     94,
+     99,
+     123
+    ]
+   },
+   {
+    "key": "revenueGDP",
+    "label": "Ingresos, % del PIB (sin PRTR)",
+    "sim": [
+     42.572172933598964,
+     43.26549785280073,
+     43.35237913369523,
+     44.024622174234636
+    ],
+    "ref": [
+     43.3,
+     null,
+     null,
+     45
+    ]
+   },
+   {
+    "key": "spendingGDP",
+    "label": "Gastos, % del PIB (intereses incluidos, sin PRTR)",
+    "sim": [
+     45.109918253218545,
+     46.616187238096,
+     47.877044855193844,
+     50.63885233605225
+    ],
+    "ref": [
+     45.7,
+     null,
+     null,
+     51.6
+    ]
+   },
+   {
+    "key": "interestGDP",
+    "label": "Intereses, % del PIB",
+    "sim": [
+     2.615650722419137,
+     2.977943187307329,
+     3.237806075172582,
+     4.086437487965215
+    ],
+    "ref": [
+     2.8,
+     null,
+     null,
+     4.4
+    ]
+   },
+   {
+    "key": "primaryGDP",
+    "label": "Saldo primario, % del PIB",
+    "sim": [
+     0.07790540279955772,
+     -0.37274619798794373,
+     -1.2868596463260298,
+     -2.527792673852394
+    ],
+    "ref": [
+     null,
+     null,
+     null,
+     -2.1
+    ]
+   }
+  ],
+  "pensions": [
+   13.367059222794342,
+   14.161835742783602,
+   14.809530472016188,
+   16.07310654008197
+  ],
+  "pensions2050Airef": 16.4,
+  "identity": [
+   {
+    "label": "Con el saldo primario del simulador",
+    "values": [
+     92.36175065636625,
+     92.1399701896003,
+     95.25015593986672,
+     115.85152726977367
+    ]
+   },
+   {
+    "label": "Con el saldo primario de la AIReF (de 0 % en 2025 a −2,1 % en 2050)",
+    "values": [
+     93.7752555123606,
+     96.21111250760227,
+     100.26707293519856,
+     117.7675343684627
+    ]
+   },
+   {
+    "label": "AIReF, publicado",
+    "values": [
+     95,
+     94,
+     99,
+     123
+    ]
+   }
+  ]
+ },
+ "airefMediumTerm": {
+  "source": "AIReF, Informe de seguimiento 2026 del Plan Fiscal y Estructural de Medio Plazo 2025-2028 (Informe 24/26) (14/05/2026)",
+  "tables": "cuadros 3, 17, 19 y 20, págs. 16, 67, 68 y 72",
+  "years": [
+   2026,
+   2027,
+   2028,
+   2029,
+   2030
+  ],
+  "rows": [
+   {
+    "label": "Ingresos (sin PRTR)",
+    "sim": [
+     42.1378607962547,
+     42.23584725373945,
+     42.35053740023873,
+     42.4760481328867,
+     42.572172933598964
+    ],
+    "ref": [
+     42.5,
+     43,
+     42.9,
+     43.2,
+     43.3
+    ]
+   },
+   {
+    "label": "Gastos (intereses incluidos, sin PRTR)",
+    "sim": [
+     44.54263662033169,
+     44.720454724279925,
+     44.66213242820011,
+     44.87069797755644,
+     45.109918253218545
+    ],
+    "ref": [
+     45,
+     45.2,
+     45.2,
+     45.5,
+     45.7
+    ]
+   },
+   {
+    "label": "Saldo",
+    "sim": [
+     -2.4047758240769888,
+     -2.4846074705404733,
+     -2.3115950279613804,
+     -2.3946498446697384,
+     -2.5377453196195803
+    ],
+    "ref": [
+     -2.6,
+     -2.2,
+     -2.3,
+     -2.3,
+     -2.4
+    ]
+   },
+   {
+    "label": "Intereses",
+    "sim": [
+     2.392409047983091,
+     2.378593132854345,
+     2.4537538413582425,
+     2.531421410390754,
+     2.615650722419137
+    ],
+    "ref": [
+     2.5,
+     2.5,
+     2.7,
+     2.7,
+     2.8
+    ]
+   },
+   {
+    "label": "IRPF",
+    "sim": [
+     9.550228045718018,
+     9.585212463879115,
+     9.623240143631055,
+     9.660880431866216,
+     9.698950907408474
+    ],
+    "ref": [
+     9.9,
+     10.2,
+     10.4,
+     10.6,
+     10.8
+    ]
+   },
+   {
+    "label": "Cotizaciones sociales",
+    "sim": [
+     13.208781949477283,
+     13.286480629170448,
+     13.391853377757046,
+     13.50279624060752,
+     13.575085784062727
+    ],
+    "ref": [
+     13.4,
+     13.6,
+     13.6,
+     13.6,
+     13.6
+    ]
+   },
+   {
+    "label": "Pensiones (simulador) · prestaciones en efectivo (AIReF)",
+    "sim": [
+     13.031987408714437,
+     13.17039355010058,
+     13.207470278836798,
+     13.274968259160612,
+     13.367059222794342
+    ],
+    "ref": [
+     17.1,
+     17.2,
+     17.3,
+     17.4,
+     17.5
+    ]
+   }
+  ],
+  "growth": {
+   "years": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031
+   ],
+   "sim": [
+    null,
+    5.1245943003660255,
+    3.9124140543228103,
+    4.256880495526794,
+    4.118918284615369,
+    3.7079400939386
+   ],
+   "plan": [
+    3.5,
+    3.2,
+    3,
+    3,
+    2.5,
+    2.4
+   ],
+   "airef": [
+    5.8,
+    5.2,
+    4.2,
+    4,
+    3.9,
+    3.8
+   ]
+  },
+  "adjustment": {
+   "page": 22,
+   "text": "Cumplir la senda del plan pediría un ajuste medio de siete décimas de PIB anuales de 2026 a 2031 respecto al escenario a políticas constantes."
+  },
+  "macro": {
+   "years": [
+    2027,
+    2028,
+    2029,
+    2030
+   ],
+   "simNominal": [
+    4.648813412317043,
+    4.241034619857631,
+    3.9345553119569665,
+    3.739161380563849
+   ],
+   "airefNominal": [
+    4.6,
+    4.2,
+    3.9,
+    3.8
+   ],
+   "simEmployment": [
+    1.8999139270191145,
+    1.8001849785982849,
+    1.600175295725248,
+    1.4998700696878808
+   ],
+   "airefEmployment": [
+    1.9,
+    1.8,
+    1.6,
+    1.5
+   ],
+   "cumulative": {
+    "sim": 17.61852171194245,
+    "airef": 17.547204322400024
+   },
+   "primarySpendingEuros": {
+    "sim": 15.163288484432913,
+    "airef": 18.449258303999994
+   },
+   "pensionsEuros": {
+    "sim": 20.642669158022976,
+    "airef": 21.13643193529775
+   },
+   "spending2030WithAirefGdp": 45.137287016523786
+  },
+  "withoutOption": {
+   "balance": [
+    -2.4047758240769888,
+    -2.4075261907776646,
+    -2.2986501408157447,
+    -2.408068578091609,
+    -2.592178575801605
+   ],
+   "debt2050": 119.66520628021885,
+   "debt2050Base": 115.85152726977358,
+   "debt2070": 209.00493821235077,
+   "debt2070Base": 199.11881423439547
+  }
+ },
+ "systems": [
+  {
+   "key": "payg",
+   "label": "Reparto",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    },
+    {
+     "year": 2030,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    },
+    {
+     "year": 2035,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    },
+    {
+     "year": 2040,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    },
+    {
+     "year": 2050,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    },
+    {
+     "year": 2060,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    },
+    {
+     "year": 2070,
+     "payg": 1,
+     "ndc": 0,
+     "funded": 0
+    }
+   ],
+   "byAge": null,
+   "fund": null,
+   "outcome": {
+    "debt2050": 115.85152726977358,
+    "debt2070": 199.11881423439547,
+    "fund2070": 0,
+    "replacement2050": 0.6279629189721133
+   }
+  },
+  {
+   "key": "ndc",
+   "label": "Cuentas nocionales",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    },
+    {
+     "year": 2030,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    },
+    {
+     "year": 2035,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    },
+    {
+     "year": 2040,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    },
+    {
+     "year": 2050,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    },
+    {
+     "year": 2060,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    },
+    {
+     "year": 2070,
+     "payg": 0,
+     "ndc": 1,
+     "funded": 0
+    }
+   ],
+   "byAge": null,
+   "fund": null,
+   "outcome": {
+    "debt2050": 103.95489612817028,
+    "debt2070": 135.24204289292086,
+    "fund2070": 0,
+    "replacement2050": 0.5451556267109606
+   }
+  },
+  {
+   "key": "funded",
+   "label": "Capitalización de golpe",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    },
+    {
+     "year": 2030,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    },
+    {
+     "year": 2035,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    },
+    {
+     "year": 2040,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    },
+    {
+     "year": 2050,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    },
+    {
+     "year": 2060,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    },
+    {
+     "year": 2070,
+     "payg": 0,
+     "ndc": 0,
+     "funded": 1
+    }
+   ],
+   "byAge": null,
+   "fund": {
+    "style": "balanced-standard",
+    "realReturn": 0.03,
+    "feeRate": 0.005,
+    "netActive": 0.025,
+    "annuityRate": 0.025
+   },
+   "outcome": {
+    "debt2050": 264.9750370019584,
+    "debt2070": 536.7867291051166,
+    "fund2070": 238.79436233305688,
+    "replacement2050": 0.5685014851631686
+   }
+  },
+  {
+   "key": "mixed",
+   "label": "Mixto de golpe",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2030,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2035,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2040,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2050,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2060,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2070,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    }
+   ],
+   "byAge": null,
+   "fund": {
+    "style": "balanced-standard",
+    "realReturn": 0.03,
+    "feeRate": 0.005,
+    "netActive": 0.025,
+    "annuityRate": 0.025
+   },
+   "outcome": {
+    "debt2050": 157.48516013442227,
+    "debt2070": 258.87597619138273,
+    "fund2070": 78.8021395699079,
+    "replacement2050": 0.5810142393689822
+   }
+  },
+  {
+   "key": "progressive",
+   "label": "Mixto progresivo",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 0.15,
+     "ndc": 0.85,
+     "funded": 0
+    },
+    {
+     "year": 2030,
+     "payg": 0.1436,
+     "ndc": 0.8136,
+     "funded": 0.0429
+    },
+    {
+     "year": 2035,
+     "payg": 0.1313,
+     "ndc": 0.7439,
+     "funded": 0.1248
+    },
+    {
+     "year": 2040,
+     "payg": 0.117,
+     "ndc": 0.6631,
+     "funded": 0.2198
+    },
+    {
+     "year": 2050,
+     "payg": 0.0888,
+     "ndc": 0.5032,
+     "funded": 0.408
+    },
+    {
+     "year": 2060,
+     "payg": 0.0768,
+     "ndc": 0.435,
+     "funded": 0.4883
+    },
+    {
+     "year": 2070,
+     "payg": 0.0751,
+     "ndc": 0.4256,
+     "funded": 0.4993
+    }
+   ],
+   "byAge": [
+    {
+     "age": 25,
+     "payg": 0.075,
+     "ndc": 0.425,
+     "funded": 0.5
+    },
+    {
+     "age": 30,
+     "payg": 0.075,
+     "ndc": 0.425,
+     "funded": 0.5
+    },
+    {
+     "age": 35,
+     "payg": 0.075,
+     "ndc": 0.425,
+     "funded": 0.5
+    },
+    {
+     "age": 40,
+     "payg": 0.075,
+     "ndc": 0.425,
+     "funded": 0.5
+    },
+    {
+     "age": 44,
+     "payg": 0.0945,
+     "ndc": 0.5355,
+     "funded": 0.37
+    },
+    {
+     "age": 48,
+     "payg": 0.114,
+     "ndc": 0.646,
+     "funded": 0.24
+    },
+    {
+     "age": 52,
+     "payg": 0.1212,
+     "ndc": 0.6868,
+     "funded": 0.192
+    },
+    {
+     "age": 56,
+     "payg": 0.1284,
+     "ndc": 0.7276,
+     "funded": 0.144
+    },
+    {
+     "age": 60,
+     "payg": 0.129,
+     "ndc": 0.731,
+     "funded": 0.14
+    }
+   ],
+   "fund": {
+    "style": "common-fund",
+    "realReturn": 0.03,
+    "feeRate": 0.005,
+    "netActive": 0.041,
+    "annuityRate": 0.0385
+   },
+   "outcome": {
+    "debt2050": 135.98956584251349,
+    "debt2070": 243.57411929894965,
+    "fund2070": 113.41366564632693,
+    "replacement2050": 0.561253867868323
+   }
+  },
+  {
+   "key": "mixedGradual",
+   "label": "Mixto con ahorro propio",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 0.4874,
+     "ndc": 0.473,
+     "funded": 0.0396
+    },
+    {
+     "year": 2030,
+     "payg": 0.4796,
+     "ndc": 0.4654,
+     "funded": 0.055
+    },
+    {
+     "year": 2035,
+     "payg": 0.4447,
+     "ndc": 0.4316,
+     "funded": 0.1238
+    },
+    {
+     "year": 2040,
+     "payg": 0.4098,
+     "ndc": 0.3977,
+     "funded": 0.1925
+    },
+    {
+     "year": 2050,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2060,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "year": 2070,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    }
+   ],
+   "byAge": [
+    {
+     "age": 25,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 30,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 35,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 40,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 44,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 48,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 52,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 56,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    },
+    {
+     "age": 60,
+     "payg": 0.34,
+     "ndc": 0.33,
+     "funded": 0.33
+    }
+   ],
+   "fund": {
+    "style": "balanced-standard",
+    "realReturn": 0.03,
+    "feeRate": 0.005,
+    "netActive": 0.025,
+    "annuityRate": 0.025
+   },
+   "outcome": {
+    "debt2050": 135.4632440787624,
+    "debt2070": 237.78462038626694,
+    "fund2070": 64.25547765568166,
+    "replacement2050": 0.5843440139742758
+   }
+  },
+  {
+   "key": "retro1985",
+   "label": "⏳ Si el mixto progresivo hubiera empezado en 1985",
+   "weights": [
+    {
+     "year": 2027,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    },
+    {
+     "year": 2030,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    },
+    {
+     "year": 2035,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    },
+    {
+     "year": 2040,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    },
+    {
+     "year": 2050,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    },
+    {
+     "year": 2060,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    },
+    {
+     "year": 2070,
+     "payg": 0.035,
+     "ndc": 0.315,
+     "funded": 0.65
+    }
+   ],
+   "byAge": null,
+   "fund": {
+    "style": "dividend-endowment",
+    "realReturn": 0.03,
+    "feeRate": 0.005,
+    "netActive": 0.041,
+    "annuityRate": 0.0385
+   },
+   "outcome": {
+    "debt2050": 60.85578292143359,
+    "debt2070": 12.08156282629227,
+    "fund2070": 232.83044305157557,
+    "replacement2050": 0.5559590392467514
+   }
+  }
+ ]
+}
