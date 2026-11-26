@@ -1,6 +1,6 @@
 ## 5 · El contrafactual de 1985 y la comparación de sistemas
 
-Esta sección describe tres piezas: el experimento retrospectivo que arranca en 1984, la forma en que la consola compara los sistemas con los mismos ajustes, y la foto de partida de 2026 de la que salen todas las demás vías. Todas las afirmaciones salen del código de pensioneslabs3. Las cifras de ejemplo se han leído con `node` sobre la configuración por defecto (22/11/2026). Son salidas del simulador (S), no previsiones.
+Esta sección describe tres piezas: el experimento retrospectivo que arranca en 1984, la forma en que la consola compara los sistemas con los mismos ajustes, y la foto de partida de 2026 de la que salen todas las demás vías. Todas las afirmaciones salen del código del simulador. Las cifras de ejemplo se han leído con `node` sobre la configuración por defecto (22/11/2026). Son salidas del simulador (S), no previsiones.
 
 ### 5.1 Qué es el contrafactual de 1985
 
@@ -322,7 +322,7 @@ r_0 = (1 + 0,03432) / 1,02 − 1                                                
 - Identidades: `otherRevenue = totalRevenue − pensionContributions` y `otherPrimarySpending = totalSpending − interest − publicPensionBenefits` se recalculan en cada fábrica. Si `otherRevenue < assignedStateResources` o `otherPrimarySpending < 0`, la apertura se rechaza (`src/model-current-v10.js:49-51`).
 - v7 y v8 conservan el total consolidado de ingresos y gastos. Reclasifican partidas, no crean ingresos (`data/current-spain-v7.js:26`; `data/current-spain-v8.js:16`).
 - Contraste con previsiones externas: `createCurrentModelV10({ macroRows, opening, ... })` acepta de 2 a 6 filas macro desde 2026 (`src/external-macro-path-v2.js:7-25`). En ese modo fija la macro y la demografía, apaga la cláusula de cierre y nunca usa como objetivo un saldo, una deuda ni un gasto futuro (`src/model-current-v10.js:112`, `:211-215`, `:279`).
-- En pensioneslabs3 no hay llamadas a ese modo en `src/` ni en `tests/`. El contraste externo de este proyecto es `scripts/contrast-external.mjs` → `data/external-contrast.json`: compara `simulate` y los perfiles de referencia con el Ageing Report, la AIReF, el FMI y Funcas, sin usar ese modo. Su antecedente está en pensiones_lab_2 (`scripts/contrast-external-1.64.mjs`, documentado en `docs/CONTRASTE-PREVISIONES-2026-11-08.md`).
+- En este proyecto no hay llamadas a ese modo en `src/` ni en `tests/`. El contraste externo de este proyecto es `scripts/contrast-external.mjs` → `data/external-contrast.json`: compara `simulate` y los perfiles de referencia con el Ageing Report, la AIReF, el FMI y Funcas, sin usar ese modo. Su antecedente está en pensiones_lab_2 (`scripts/contrast-external-1.64.mjs`, documentado en `docs/CONTRASTE-PREVISIONES-2026-11-08.md`).
 
 ### Límites y simplificaciones
 

@@ -1,6 +1,6 @@
 ## 4 · Deuda, intereses y veredicto
 
-Esta sección describe cómo pasa el motor del saldo público del año a la deuda, a los intereses y al veredicto «aguanta / se rompe». Los ingresos y las pensiones solo aparecen como entradas (el saldo primario y la tasa de sustitución). Todas las referencias `ruta:línea` son relativas a `pensioneslabs3`. Clave: O = observación, R = reconstrucción, S = supuesto del simulador.
+Esta sección describe cómo pasa el motor del saldo público del año a la deuda, a los intereses y al veredicto «aguanta / se rompe». Los ingresos y las pensiones solo aparecen como entradas (el saldo primario y la tasa de sustitución). Todas las referencias `ruta:línea` son relativas a la raíz del código. Clave: O = observación, R = reconstrucción, S = supuesto del simulador.
 
 Convenciones del motor. Los stocks y flujos se guardan en euros reales de 2026. Cada año se pasan a nominales con el índice de precios `P_t` para hacer las cuentas de deuda y se devuelven a reales al cerrar (`src/current-fiscal-v13.js:192-195`, `:255-259`). Los ratios sobre el PIB salen de cocientes reales (`src/current-simulation-core-v10.js:97-100`), que dan el mismo valor que los nominales.
 

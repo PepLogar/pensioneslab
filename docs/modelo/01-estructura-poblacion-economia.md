@@ -2,7 +2,7 @@
 
 Esta sección describe el armazón del motor (versión de metodología `common-fund-1.69.0`, calibración `es-current-2026-10-18-v8`): el bucle anual, las cohortes, el empleo, los salarios, el PIB, la edad de jubilación, la automatización y el gasto en sanidad y dependencia por envejecimiento. Los impuestos, las pensiones (conversión en renta, revalorización, cuentas nocionales, capitalización) y la deuda solo se sitúan en el bucle; los describen otras secciones.
 
-Marcas: (O) observación, (R) reconstrucción, (S) supuesto del simulador. Las rutas son relativas a `pensioneslabs3`.
+Marcas: (O) observación, (R) reconstrucción, (S) supuesto del simulador. Las rutas son relativas a la raíz del código.
 
 ### 1.1 Cadena de llamadas y horizonte
 

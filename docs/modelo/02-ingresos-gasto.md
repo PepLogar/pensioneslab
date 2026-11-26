@@ -1,6 +1,6 @@
 ## 2 · Ingresos y gasto público
 
-Esta sección describe cómo el motor obtiene cada año los ingresos públicos distintos de las prestaciones y el gasto primario no destinado a pensiones. Las pensiones, la deuda y su financiación se tratan en sus propias secciones. Las rutas son relativas a `pensioneslabs3`. Marcas: (O) observación, (R) reconstrucción, (S) supuesto del simulador.
+Esta sección describe cómo el motor obtiene cada año los ingresos públicos distintos de las prestaciones y el gasto primario no destinado a pensiones. Las pensiones, la deuda y su financiación se tratan en sus propias secciones. Las rutas son relativas a la raíz del código. Marcas: (O) observación, (R) reconstrucción, (S) supuesto del simulador.
 
 Convenciones. `t` es el año. `P_t` es el índice de precios (`(1 + inflationRate)^(t−2026)`, por defecto `inflationRate` = 0,02; `src/model-current-v10.js:129`). Los ingresos fiscales se calculan en euros **nominales** dentro de `src/revenue-bases-v10.js` y se devuelven en euros reales de 2026 al dividir por `P_t` (`src/fiscal-composition-v10.js:131`). El subíndice 0 indica el valor de apertura en 2026.
 
@@ -288,7 +288,7 @@ Solo responde el PIB: el empleo, los salarios y las cotizaciones no cambian.
 
 Desglose por partidas (`src/budget-partitioner.js`). Es descriptivo y no forma parte del bucle. Divide el gasto antes del recorte en 7 grupos COFOG de 2024 con sus pesos. El tope de cada grupo es el mayor recorte observado en 2010–2014 (O). El punto de fricción, la mitad de ese tope, es un supuesto (S). El tope agregado es `Σ peso·tope` ≈ 18,9 % (`:89-106`). En la consola, el recorte ponderado `Σ peso·k_i` se convierte en `k = Σ peso·k_i · antes/elegible` (`src/domain/consola-measures.js:78-82`). Los umbrales de los avisos (38 %, 11 % y 65 %) son supuestos (`:223-263`).
 
-El diagnóstico del desglose usa como transferencia de referencia `(GTR_t − IMP_t − MUT_t) · a0`, con `a0` = `pensionBudgetShare` de partida, 0,11459 (`src/budget-partitioner.js:175-183`). En 2026 da los 66.069 M€ asignados. El gasto elegible es el del motor, también en un año sin recorte (`otherSpendingEligibleOf`, `src/payment-spending-adjustment.js:31-35`; `src/budget-partitioner.js:158-159`). Hasta el lote 2 de pensioneslabs3 se usaban 0,095895 y 0,57 del gasto, sin fuente; eran anteriores al historial de git (pensiones_lab_2 1.20) y no coinciden con ningún calibrado v1–v8. Con los datos de hoy, el elegible es 0,609 del gasto antes del recorte.
+El diagnóstico del desglose usa como transferencia de referencia `(GTR_t − IMP_t − MUT_t) · a0`, con `a0` = `pensionBudgetShare` de partida, 0,11459 (`src/budget-partitioner.js:175-183`). En 2026 da los 66.069 M€ asignados. El gasto elegible es el del motor, también en un año sin recorte (`otherSpendingEligibleOf`, `src/payment-spending-adjustment.js:31-35`; `src/budget-partitioner.js:158-159`). Hasta el lote 2 de este proyecto se usaban 0,095895 y 0,57 del gasto, sin fuente; eran anteriores al historial de git (pensiones_lab_2 1.20) y no coinciden con ningún calibrado v1–v8. Con los datos de hoy, el elegible es 0,609 del gasto antes del recorte.
 
 ### 2.11 Inversión pública y capital público
 
