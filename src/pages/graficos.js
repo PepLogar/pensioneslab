@@ -15,6 +15,10 @@ import { REFERENCE_PROFILES, profileConfig } from '../domain/reference-profiles.
 import { SERIES_VARIABLES, SERIES_UNITS } from '../domain/series-dictionary.js';
 import { VARIABLES, VIEWS, viewsFor, chartLines } from '../domain/chart-data.js';
 import { chartSvg, PALETTE } from '../views/chart-svg.js';
+import { autoTitle, settleTitle, changeVariables, variablesLine } from '../domain/chart-title.js';
+
+// Changing the variables replaces a title the reader wrote (1.94); the notice says which, so it can be written again.
+const droppedNotice = (old, now) => `Has cambiado las variables. El título «${old}» pasa a ser ${now ? `«${now}»` : 'el de las variables'}; si quieres otro, escríbelo.`;
 import { mountSiteHeader } from '../shared/site-header.js';
 
 mountSiteHeader();
@@ -41,7 +45,7 @@ const fresh = s => ({ title: s.title, variables: [...s.variables], systems: s.sy
 function loadCharts() {
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) ?? 'null');
-    if (Array.isArray(saved)) return saved.filter(c => c && Array.isArray(c.variables)).map(c => ({ ...fresh({ title: '', variables: [], systems: null, view: 'native' }), ...c, variables: c.variables.filter(v => VARIABLES.has(v)) }));
+    if (Array.isArray(saved)) return saved.filter(c => c && Array.isArray(c.variables)).map(c => settleTitle({ ...fresh({ title: '', variables: [], systems: null, view: 'native' }), ...c, variables: c.variables.filter(v => VARIABLES.has(v)) }, STARTERS));
   } catch { /* the starters */ }
   return STARTERS.map(fresh);
 }
@@ -56,6 +60,9 @@ const variableOptions = unit => GROUPS.map(g => `<optgroup label="${esc(g)}">${S
 function svgOf(chart) {
   const systems = systemsOf(chart);
   const data = chartLines(runs, { ...chart, systems });
+  // The variables shown, under a title that does not name them (1.94): a capture always says what it shows.
+  const named = variablesLine(chart);
+  if (named) data.axis = data.axis ? `${named} · ${data.axis}` : named;
   const state = getState();
   const stamp = exportStamp(state.config);
   const scenario = scenarioSystemName(state.config);
@@ -113,7 +120,9 @@ list.addEventListener('change', event => {
     if (unit && VARIABLES.get(id).unit !== unit) { say('Un gráfico lleva variables de una sola unidad.'); return; }
     const variables = [...chart.variables, id];
     const view = viewsFor(VARIABLES.get(id).unit).includes(chart.view) ? chart.view : 'native';
-    update(i, { variables, view, title: chart.title || VARIABLES.get(id).name });
+    const { chart: changed, dropped } = changeVariables(chart, variables, STARTERS);
+    update(i, { ...changed, view });
+    if (dropped) say(droppedNotice(dropped, changed.title));
     return;
   }
   if (t.matches('[data-system]')) {
@@ -132,14 +141,23 @@ list.addEventListener('change', event => {
     const from = field === 'from' ? Math.min(year, chart.to - 1) : chart.from;
     const to = field === 'to' ? Math.max(year, chart.from + 1) : chart.to;
     update(i, { from, to });
-  } else if (field === 'title') update(i, { title: t.value.trim() });
+  } else if (field === 'title') {
+    // A written title is the reader's and stays; an empty one follows the variables again.
+    const title = t.value.trim();
+    update(i, title ? { title, ownTitle: true } : { ownTitle: false, title: autoTitle(chart.variables) });
+  }
 });
 list.addEventListener('click', async event => {
   const card = event.target.closest('[data-chart]');
   if (!card) return;
   const i = Number(card.dataset.chart), chart = charts[i];
   const removeVar = event.target.closest('[data-remove-var]');
-  if (removeVar) { update(i, { variables: chart.variables.filter(v => v !== removeVar.dataset.removeVar) }); return; }
+  if (removeVar) {
+    const { chart: changed, dropped } = changeVariables(chart, chart.variables.filter(v => v !== removeVar.dataset.removeVar), STARTERS);
+    update(i, changed);
+    if (dropped) say(droppedNotice(dropped, changed.title));
+    return;
+  }
   if (event.target.closest('[data-drop]')) { charts.splice(i, 1); keep(); render(); return; }
   if (event.target.closest('[data-copy]')) { charts.splice(i + 1, 0, { ...structuredClone(chart), title: `${chart.title} (copia)` }); keep(); render(); return; }
   if (event.target.closest('[data-export]')) {

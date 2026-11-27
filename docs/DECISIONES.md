@@ -2412,3 +2412,30 @@ La auditoría de la 1.89 (`docs/AUDITORIA-INFORME-1.89-2026-11-27.md`) la hicier
 **Código:** `decidingIndicators` y `riskVariable` pasan a `src/views/risk-strip.js`, junto a los umbrales, y los usan el informe y la consola.
 
 **Comprobado** en el navegador con Reparto a 1600 px: cinco gráficos del mismo ancho, umbral 15,95 y raya en 2050. **Sin cambios en el motor.**
+
+## 1.93.0 · En «Gráficos», el título dice lo que muestra (27/11/2026)
+
+**Motivo:** el autor enseñó un gráfico titulado «Deuda pública (copia)» que mostraba el PIB nominal. Al duplicar un gráfico y cambiarle la variable, el título se quedaba como estaba, en pantalla y en el SVG exportado.
+
+**Qué cambia:**
+- **El título sigue a las variables** mientras el lector no escriba uno: «PIB nominal», o «Deuda pública y PIB nominal» si hay dos.
+- **Un título escrito por el lector se respeta** aunque cambie las variables. Si lo borra, vuelve a seguir a las variables.
+- **Los gráficos guardados antes de la 1.93** no saben quién puso el título. Se toma como automático si está vacío o es el de un gráfico de inicio o el nombre de una variable, con o sin «(copia)». Si no corresponde a sus variables, se corrige al abrir la página.
+
+**Código:** `src/domain/chart-title.js`. Prueba: `tests/chart-title.test.mjs`. Comprobado en el navegador con el caso del autor: al duplicar, quitar la variable y añadir el PIB nominal, el título pasa a «PIB nominal», y un gráfico guardado con el título viejo se corrige al abrir.
+
+**Lo que no es un fallo:** en ese mismo gráfico, Reparto y «Si el mixto progresivo hubiera empezado en 1985» tienen casi el mismo PIB. El modelo no tiene función de producción con capital: el PIB es empleo por productividad, y ninguno de los dos depende del sistema de pensiones (`docs/modelo/01-estructura-poblacion-economia.md`). El contrafactual de 1985 se desvía un poco (en 2070, 8.023 frente a 8.066 miles de millones nominales) porque sigue otra senda de precios. Todos los demás sistemas tienen el mismo PIB.
+
+**Sin cambios en el motor.**
+
+## 1.94.0 · En «Gráficos», ni un título propio puede quedarse desfasado (27/11/2026)
+
+**Motivo:** el autor, sobre la 1.93: «Gráficos» es una herramienta de uso ocasional. Alguien puede escribir un título, cambiar después las variables sin fijarse, hacer una captura y publicarla.
+
+**Qué cambia:**
+- **Al cambiar las variables, el título siempre pasa a ser el de las variables**, también si lo escribió el lector. El aviso de arriba dice qué título se ha quitado: «Has cambiado las variables. El título «…» pasa a ser «…»; si quieres otro, escríbelo.» Se puede volver a escribir.
+- **El gráfico nombra sus variables cuando el título no las dice**, en la línea de debajo, antes de la unidad: «Deuda pública · % del PIB del mismo año». Sale en pantalla y en el SVG exportado, así que una captura siempre dice lo que muestra. Si el título ya es el de las variables, la línea no las repite.
+
+**Código:** `changeVariables` y `variablesLine` en `src/domain/chart-title.js`. Prueba: `tests/chart-title.test.mjs`. Comprobado en el navegador: el título «La deuda se dispara» con la deuda lleva la línea «Deuda pública · % del PIB del mismo año»; al cambiar al PIB nominal, el título pasa a «PIB nominal» y sale el aviso.
+
+**Sin cambios en el motor.**
