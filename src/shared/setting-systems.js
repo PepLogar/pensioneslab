@@ -16,7 +16,9 @@ export function settingActsOn(key, config) {
   // - in pay-as-you-go any mode other than «Ninguno» leaves today's law, so it switches the 2023 brake off whenever
   //   the brake is on and not already set for every system (src/shared/closing-clause.js);
   // - the Mixto progresivo's common fund caps the fee at 0,15 %, so below that the fee still acts: it stays listed.
-  if ((system === 'payg' || system === 'ndc') && (key === 'capitalizationStyle' || key === 'feeRate') && Number(config.fundedExtraContribution) > 0) return true;
+  if ((system === 'payg' || system === 'ndc') && ['capitalizationStyle', 'feeRate', 'realReturn'].includes(key) && Number(config.fundedExtraContribution) > 0) return true;
+  // - Cuentas nocionales with its entry by generations keeps a pay-as-you-go part for the older generations (1.88).
+  if (system === 'ndc' && Number(config.ndcPhaseIn) === 1 && ['replacementRate', 'exitPathNoExtraPension', 'pointsSystem', 'pointsSustainabilityFactor'].includes(key)) return true;
   if (key === 'transitionMode' && system === 'payg') {
     return (config.closingClause ?? CLOSING_CLAUSE_DEFAULTS.closingClause) !== 'off' && Number(config.closingClauseAnySystem ?? 0) !== 1;
   }
@@ -24,5 +26,5 @@ export function settingActsOn(key, config) {
 }
 
 /** The line over the settings of other systems, the same in the Laboratorio and in the panel of Ajustes. */
-export const otherSystemsNote = config => `No cambian nada con ${scenarioSystemName(config)}. Se conservan, y vuelven a la vista cuando eliges su sistema.`;
+export const otherSystemsNote = config => `No cambian nada con «${scenarioSystemName(config).replace(/^[^\p{L}]+/u, '')}». Se conservan, y vuelven a la vista cuando eliges su sistema.`;
 export const otherSystemsTitle = count => `Ajustes de otros sistemas (${count})`;

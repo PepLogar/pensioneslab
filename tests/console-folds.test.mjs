@@ -76,7 +76,7 @@ test('a folded value is kept and its change is still counted on the fold', () =>
 test('each fold says why its settings are there', () => {
   const config = withSystem('payg');
   const { otherSystems, waiting } = splitRows(ROWS, config);
-  assert.match(fold('otherSystems').note(otherSystems, config), /^No cambian nada con Reparto/);
+  assert.match(fold('otherSystems').note(otherSystems, config), /^No cambian nada con «Reparto»/);
   assert.match(fold('waiting').note(waiting, config), /Se conservan/);
 });
 

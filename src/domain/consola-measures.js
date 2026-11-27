@@ -169,7 +169,7 @@ export function calendarPatch(config, listKey, { index = -1, field = null, value
 export const LIMIT_FIELDS = Object.freeze([
   { key: 'maxDebtGDP', label: 'Deuda pública máxima', min: 0, max: 500, step: 5, unit: '% PIB', hint: 'Tu alarma: el año en que la deuda pasa de aquí. No es un impago ni el veredicto.' },
   { key: 'maxPensionGapGDP', label: 'Lo que puede faltar para pensiones', min: 0, max: 30, step: 0.5, unit: '% PIB', hint: 'Tu alarma: el año en que lo que falta, después de cotizaciones e impuestos ya asignados, pasa de aquí.' },
-  { key: 'minReplacementRate', label: 'Pensión media mínima', min: 0, max: 100, step: 1, unit: '% salario', hint: 'Tu alarma: el año en que la pensión media baja de este porcentaje del salario medio. Cuenta también el dividendo ciudadano, si el sistema lo paga: es la misma medida que la pensión suficiente.' }
+  { key: 'minReplacementRate', label: 'Pensión media mínima', min: 0, max: 100, step: 1, unit: '% salario', hint: 'Tu alarma: el año en que la pensión media baja de este porcentaje del salario medio. Cuenta también el dividendo ciudadano, si el régimen de IA lo paga. Es la misma medida que la pensión suficiente.' }
 ]);
 export { DEFAULT_LIMITS };
 

@@ -80,7 +80,7 @@
       </figure>
       <ol class="ay-parts">
         <li><b>La barra de arriba.</b> El <b>Sistema</b> de pensiones y el <b>Año</b> que miras. <b>Deshacer</b>, <b>Rehacer</b> y <b>Reglas de hoy</b>. <b>Guardados</b>, con Abrir, Borrar, Nombre y Guardar. Los botones para exportar e importar (CSV, Excel, JSON, Importar, Enlace). <b>Atajos</b> de teclado. Y los enlaces a Sensibilidad, Riesgo, Gráficos y Metodología.</li>
-        <li><b>Los ajustes</b>, a la izquierda. Un buscador (tecla <kbd>/</kbd>), siete capítulos (El sistema, Las pensiones, Los ingresos, La deuda y las crisis, El mundo, Cómo responde la economía, La vara de medir) y cuatro pestañas propias: Ricos y empresas, Partidas del Estado, Calendario, y Límites y mezcla. Cada fila tiene su valor, su unidad, el valor de hoy y su ayuda «?». Los ajustes que no cambian nada con tu escenario quedan plegados al final de cada capítulo: «Ajustes de otros sistemas» y «Sin efecto con tu escenario». Se abren con un clic, conservan su valor y el buscador también los encuentra.</li>
+        <li><b>Los ajustes</b>, a la izquierda. Un buscador (tecla <kbd>/</kbd>), siete capítulos (El sistema, Las pensiones, Los ingresos, La deuda y las crisis, El mundo, Cómo responde la economía, La vara de medir) y cuatro pestañas propias: Ricos y empresas, Partidas del Estado, Calendario, y Límites y mezcla. Cada fila tiene su valor, su unidad, el valor de hoy y su ayuda «?». Los ajustes que no cambian nada con tu escenario quedan plegados al final de cada capítulo: «Ajustes de otros sistemas» y «Sin efecto con tu escenario». Se abren con un clic, conservan su valor y el buscador también los encuentra. Un ajuste a la vista puede no mover nada en un escenario concreto si depende del resultado: la prima de riesgo, por ejemplo, mientras la deuda no pase de su umbral.</li>
         <li><b>El veredicto</b>, arriba a la derecha: «Aguanta» o «Se rompe en…», con la deuda de 2050 y 2070, la pensión, lo que falta para pagarla, el fondo y el año en que sales de tus límites.</li>
         <li><b>Los gráficos</b>: deuda, pensión frente al salario, lo que falta para pensiones e intereses. La línea continua es tu escenario; la discontinua, las reglas de hoy; la raya roja, el año en que se rompe.</li>
         <li><b>La tabla</b>: «Año a año» (pulsar una fila elige ese año) o «Todos los sistemas», que compara todos con tus mismos ajustes.</li>
@@ -89,11 +89,11 @@
 
     <section id="sistema" class="ay-sec ay-key">
       <h2>Cambiar de sistema de pensiones</h2>
-      <p>Elige el sistema en el desplegable <b class="ay-btn">Sistema</b> de la barra de arriba (es también el primer ajuste del capítulo «El sistema»). El cambio actúa desde 2027: lo ganado hasta 2026 se respeta en todos.</p>
+      <p>Elige el sistema en el desplegable <b class="ay-btn">Sistema</b> de la barra de arriba (es también el primer ajuste del capítulo «El sistema»). El cambio actúa desde 2027 y lo ganado hasta 2026 se respeta. Hay dos excepciones: el experimento desde 1985, que empieza en 1985, y las Cuentas nocionales, si pasas lo ganado a la cuenta.</p>
       <dl class="ay-systems">
         <div><dt>Reparto (hoy)</dt><dd>El sistema actual: las cotizaciones de cada año pagan las pensiones de ese año.</dd></div>
         <div><dt>Cuentas nocionales</dt><dd>Cada persona tiene una cuenta virtual con lo que cotiza. Su pensión depende de lo acumulado y de cuántos años vivirá. El dinero sigue pagando las pensiones del momento.</dd></div>
-        <div><dt>Mixto progresivo</dt><dd>Una parte de la cotización de los más jóvenes va, poco a poco, a un fondo común invertido; el resto sigue siendo público, sobre todo nocional.</dd></div>
+        <div><dt>Mixto progresivo</dt><dd>Una parte de la cotización va, poco a poco, a un fondo común invertido. Los más jóvenes en 2026 aportan la parte completa; los mayores, una parte menor. El resto sigue siendo público, sobre todo nocional.</dd></div>
         <div><dt>Mixto con ahorro propio</dt><dd>La cotización se reparte, poco a poco y igual a todas las edades, entre reparto, cuentas nocionales y una cuenta de ahorro propia invertida.</dd></div>
         <div><dt>Experimento desde 1985</dt><dd>Qué habría pasado si el mixto progresivo hubiera empezado en 1985. Es un contrafactual: llega a 2026 por otro camino.</dd></div>
       </dl>
@@ -109,12 +109,12 @@
       <p>Es lo primero que conviene mirar. La ficha completa de cada sistema, con tablas año a año y por edad, está en <a href="metodologia.html#sistemas">Metodología › Los sistemas y sus supuestos</a>.</p>
       <h3>Lo que comparten todos</h3>
       <ul>
-        <li><b>La misma España de 2026</b> y el mismo mundo: población, empleo, productividad, inflación y mercados.</li>
-        <li><b>Lo ganado se respeta:</b> las pensiones de hoy y los derechos hasta 2026 se pagan igual en todos. Un sistema nuevo solo cambia lo que se cotiza desde 2027.</li>
+        <li><b>La misma España de 2026</b> y el mismo mundo: población, empleo, productividad, inflación y mercados. El experimento desde 1985 es la excepción: llega a 2026 por otro camino.</li>
+        <li><b>Lo ganado se respeta:</b> las pensiones de hoy y los derechos hasta 2026 se pagan igual en todos. Un sistema nuevo solo cambia lo que se cotiza desde 2027. Hay dos excepciones: el experimento desde 1985, que empieza en 1985, y las Cuentas nocionales, si pasas lo ganado a la cuenta.</li>
         <li><b>Se cotiza lo mismo.</b> Lo que cambia es a dónde va la parte de jubilación: a reparto, a cuentas nocionales o a un fondo.</li>
         <li><b>Sin fondo puente:</b> si parte de la cotización deja de pagar las pensiones de hoy, lo que falta lo pagan los impuestos y la deuda.</li>
-        <li><b>La edad</b> sube igual en todos, como prevén el Ageing Report y la AIReF.</li>
-        <li><b>El freno de 2023</b> (subir el MEI si el gasto pasa del 13,3 % del PIB) solo actúa por defecto en Reparto, porque es la ley de hoy.</li>
+        <li><b>La edad</b> sube igual en todos, como prevén el Ageing Report y la AIReF. El experimento desde 1985 no sigue esa senda.</li>
+        <li><b>El freno de 2023</b> (subir el MEI si el gasto pasa del 13,3 % del PIB) solo está encendido por defecto en Reparto, porque es la ley de hoy. Con los supuestos de partida no llega a saltar.</li>
       </ul>
       <h3>Cómo los maneja cada uno</h3>
       <dl class="ay-systems">
@@ -124,7 +124,7 @@
         <div><dt>Mixto con ahorro propio</dt><dd>Un tercio de la cotización acaba en una cuenta propia invertida (cartera equilibrada), igual a todas las edades, subiendo poco a poco en 24 años; el resto, entre reparto y nocionales.</dd></div>
         <div><dt>Experimento desde 1985</dt><dd>Un contrafactual: el 65 % al fondo desde 1985. Llega a 2026 por otro camino, así que no parte de la misma foto.</dd></div>
       </dl>
-      <p class="ay-tip">Elegir un sistema fija algunos ajustes del capítulo «El sistema» (cómo se hace el cambio, qué parte va al fondo, dónde se invierte). Puedes cambiarlos después; la ficha de Metodología dice cuáles son.</p>
+      <p class="ay-tip">Elegir un sistema fija algunos ajustes del capítulo «El sistema» (cómo se hace el cambio, qué parte va al fondo, dónde se invierte). Puedes cambiarlos después, pero algunos cambios te llevan a otro sistema. Por ejemplo, otra parte pública convierte el Mixto con ahorro propio en Mixto progresivo. La ficha de Metodología dice cuáles son.</p>
     </section>
 
     <section id="guardados" class="ay-sec ay-key">

@@ -2246,3 +2246,43 @@ Una auditoría previa, con tres revisores y dos escépticos por hallazgo, encont
 **Enlace.** «Código fuente», en Metodología y en `LICENSE.md`, apunta ya al repositorio público. Una prueba comprueba que la página no nombra el privado.
 
 **Cómo se actualiza el público.** Se exporta el último commit del privado sin esas carpetas y se sube como un commit nuevo en el público.
+
+## 1.88.0 · La consola enseña solo los ajustes que actúan, medido con el motor (27/11/2026)
+
+**Origen.** El autor vio que la pestaña «Límites y mezcla» decía «Mezcla del Mixto «de golpe». Solo actúa en ese sistema», y dedujo que solo el Mixto de golpe, que no se puede elegir, deja repartir la cotización. Era falso, y pidió corregirlo y buscar más errores del mismo tipo.
+
+**Cómo se buscó.**
+1. **Medición de la regla de plegado.** Se movió cada uno de los 100 ajustes de la consola en los cinco sistemas que se pueden elegir. En Reparto y Cuentas nocionales se añadieron variantes con cotización adicional, con subida de impuestos y con IA. Fueron 909 cálculos.
+2. **Condiciones exactas.** Cinco agentes buscaron en el código cuándo actúa cada ajuste sospechoso, y lo comprobaron con cálculos dirigidos.
+3. **Textos.** Se reunieron 325 frases que dicen dónde o cuándo actúa un ajuste. Tres agentes marcaron 78 como falsas o engañosas, otros tres las corrigieron y otros tres revisaron la corrección.
+
+**Resultado de la medición.**
+- **Ningún ajuste que actúa estaba plegado.**
+- **Muchos ajustes a la vista no hacían nada.** Ejemplos:
+  - la mezcla en el Mixto progresivo;
+  - la edad de corte en el Mixto con ahorro propio, que va por rampa anual;
+  - los años del cambio en el Mixto progresivo, cuyo ritmo lo marca la muerte de los pensionistas;
+  - la parte nocional en el Mixto con ahorro propio;
+  - la tasa de sustitución en Cuentas nocionales;
+  - la rentabilidad sin fondo;
+  - los ajustes que dependen de un interruptor apagado: la entrada por generaciones, los años ya cotizados, los puntos y la edad por tramos;
+  - en el experimento de 1985, la senda de edad, la edad ligada, EUROPOP2023, el corto plazo de la AIReF, la prima por crisis y la pérdida de capital público por recortes.
+
+**Qué cambia.**
+- **Reglas** (`SETTING_SYSTEMS`, `SETTING_NEEDS`, `setting-systems.js`, `setting-needs.js`):
+  - el experimento de 1985 se mide como un sistema más;
+  - hay esperas nuevas por forma del cambio, tipo de parte pública e interruptor propio;
+  - la automatización espera a lo que de verdad la mueve.
+- **Medición tras el cambio:** los mismos 909 casos. Sigue sin haber ningún ajuste que actúa plegado. Los que se ven y no mueven nada dependen del resultado (crisis, freno, prima de riesgo), son de presentación, o llevan su condición en la ayuda: la IA con recolocación completa y la comisión por encima del tope del fondo común.
+- **«Límites y mezcla».** La nota dice, según el sistema, qué casillas cuentan y dónde se elige lo demás. Las casillas que no cuentan salen en gris.
+  - **Mixto con ahorro propio:** la mezcla reparte la parte pública entre reparto y nocionales. Cuánto va a la cuenta propia se elige en «parte de la cuota que acaba en el fondo».
+  - **Mixto progresivo:** se usan «parte de la cuota que acaba en el fondo» y «parte pública nocional o de reparto».
+- **Pliegue «Sin efecto con tu escenario».** Cada fila dice debajo a qué decisión responde.
+- **Textos corregidos** en la consola, el catálogo, la ayuda, Supuestos, los sistemas, Metodología y `docs/modelo/03`. Por ejemplo:
+  - el freno de 2023 está encendido en Reparto, pero con los supuestos de partida no salta;
+  - el tope de la comisión depende de dónde se invierte el fondo;
+  - el experimento de 1985 empieza en 1985 y no sigue la senda de edad.
+
+**Pruebas:** `tests/settings-act-measured.test.mjs` comprueba, en 15 casos, que el motor y la consola coinciden. Hay uno por cada tipo de arreglo.
+
+**Sin cambios en el motor:** la metodología sigue en la 1.79.0.

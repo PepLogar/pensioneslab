@@ -52,7 +52,7 @@ const sysCard = s => {
   const d = sysData.get(s.key);
   const row = (label, text) => text ? `<dt>${esc(label)}</dt><dd>${esc(text)}</dd>` : '';
   const fundLine = d?.fund ? `${s.fund} Rentabilidad real neta mientras se ahorra: ${sysPct1(d.fund.netActive)} al año; la renta se calcula al ${sysPct1(d.fund.annuityRate)} («${portfolioName(d.fund.style)}»).` : s.fund;
-  const fixed = s.fixed.length ? `<p class="mx-muted">Ajustes que fija este sistema al elegirlo (capítulo «El sistema»; se pueden cambiar después):</p>
+  const fixed = s.fixed.length ? `<p class="mx-muted">Se pueden cambiar después, pero algunos cambios lo convierten en otro sistema. Ajustes que fija al elegirlo (capítulo «El sistema»):</p>
     ${table(['Ajuste', 'Valor'], s.fixed.map(f => `<tr><td>${esc(f.name)}</td><td>${esc(f.value)}</td></tr>`))}` : '';
   const years = d ? `<p class="mx-muted">A dónde va la cotización de jubilación, año a año, como la mide el motor con los ajustes de partida:</p>
     ${table(['Año', 'Reparto', 'Nocionales', 'Fondo'], d.weights.map(w => `<tr><td class="key">${w.year}</td><td class="num">${sysPct(w.payg)}</td><td class="num">${sysPct(w.ndc)}</td><td class="num">${sysPct(w.funded)}</td></tr>`))}` : '';
@@ -64,7 +64,7 @@ const sysCard = s => {
   ${fixed}${years}${ages}${outcome}`;
 };
 section('sistemas', 'Los sistemas y sus supuestos', `
-  <p><strong>Lo primero que conviene mirar.</strong> Todos los sistemas parten de los mismos supuestos; lo que cambia es a dónde va la cotización de jubilación y cómo se calcula la pensión. Elegir un sistema en la consola fija algunos ajustes, que se pueden cambiar después; para comparar sistemas en limpio, pulsa antes «Reglas de hoy».</p>
+  <p><strong>Lo primero que conviene mirar.</strong> Todos los sistemas parten de los mismos supuestos, salvo el experimento desde 1985. Lo que cambia es a dónde va la cotización de jubilación y cómo se calcula la pensión. Elegir un sistema en la consola fija algunos ajustes, que se pueden cambiar después; para comparar sistemas en limpio, pulsa antes «Reglas de hoy».</p>
   <h3 id="sis-comun">Lo que comparten todos</h3>
   <dl class="mx-card mx-sys">${COMMON_ASSUMPTIONS.map(a => `<dt>${esc(a.title)}</dt><dd>${esc(a.text)}</dd>`).join('')}</dl>
   ${SYSTEM_ASSUMPTIONS.map(sysCard).join('')}`,

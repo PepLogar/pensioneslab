@@ -92,8 +92,10 @@ P ← P + 0,5 · w_t · TS(T_c) · (TS_cfg / 0,77) / 43 · ω^payg_{c,t} · e ·
 - TS(T) = `newAwardRate(T)`: tasa bruta de sustitución de las altas de jubilación contributiva (pensión de alta / salario anterior) del Ageing Report 2024, hoja ESb fila 24 (R). Va de 0,766 en 2026 a 0,646 en 2050 y 0,640 en 2070. Se lee para el año esperado de jubilación T_c (`src/current-cohorts-v10.js:154-158`, `src/current-simulation-core-v10.js:473-477`).
 - TS_cfg = `replacementRate`, 0,77, «Primera pensión frente al último sueldo». Con el valor por defecto el factor vale 1. El 0,77 es la tasa de sustitución bruta de las altas de jubilación de España en el Ageing Report 2024 («Gross replacement rate at retirement, earnings-related public pensions»; ficha de España, tabla 17), redondeada (O). Es el punto neutro de la escala: no es la promesa legal de una carrera de 43 años.
 - 43 = `CAREER_YEARS`. Es el divisor de un año corriente. Hay dos casos en que el motor usa otro, `paygAccrualYears` (`src/current-cohorts-v10.js:305-326`):
-  - con la senda de salida, el premio por demora;
+  - con la senda de salida, el premio por demora, o ningún devengo en los años que añade la senda si `exitPathNoExtraPension` = 1;
   - sin ella, 43 + R_c.
+
+  El contrafactual de 1985 no usa `paygAccrualYears`: divide siempre entre 43.
 
   Los dos se explican en `docs/modelo/01`.
 - ω^payg: peso de reparto de la célula (3.6–3.8). e: parte trabajada del semestre (`employmentShare`). hrs: horas relativas con la respuesta Laffer completa.
@@ -113,7 +115,7 @@ r^nom_t = max(0, π_{t−1}) + d    modo 'cpi-points' (d: puntos frente al IPC; 
 r^nom_t = r_manual              modo 'manual' (tasa nominal fija; escenarios anteriores al 24/11/2026)
 ```
 
-- π_t = `inflationRate`, 0,02 (S). π_{t−1} para 2027 = 0,039: es la previsión del IPCA medio de 2026 del Banco de España, no el dato legal de diciembre a noviembre (R). Con la opción por defecto de la AIReF para el corto plazo (`airefShortRunEmployment` = 1), π_t es 2,6 % en 2027, 2,3 % en 2028, 2,1 % en 2029 y 2,0 % en 2030 (`src/shared/short-run-employment.js`). Por eso:
+- π_t = `inflationRate`, 0,02 (S). π_{t−1} para 2027 = 0,039: es la previsión del IPCA medio de 2026 del Banco de España, no el dato legal de diciembre a noviembre (R). Con la opción por defecto de la AIReF para el corto plazo (`airefShortRunEmployment` = 1), π_t es 2,6 % en 2027, 2,3 % en 2028, 2,1 % en 2029 y 2,0 % en 2030 (`src/shared/short-run-employment.js`). El contrafactual de 1985 apaga esa opción (`src/retrospective-model-1985.js:280-285`). Por eso:
   - I_2027 = 1,039/1,026;
   - I_t es 1,0029 en 2028, 1,0020 en 2029 y 1,0010 en 2030;
   - desde 2031, π_{t−1} = π_t, así que I_t = 1 (`src/current-policy-v2.js:116-134`). La regla legal (media de 12 tasas interanuales del IPC, con suelo cero, art. 58 LGSS) está implementada (`:49-54`) pero el motor por defecto usa su aproximación anual (S).
@@ -285,7 +287,7 @@ entrants-only:      g_c
 linear-ramp:        clamp(e/T, 0,12, 1)                    (sin factor generacional)
 ```
 
-El resultado es ω^funded = clamp(M·p, 0, 1) y la parte pública es 1 − ω^funded. Esa parte se divide según `transitionPublicPillar` (por defecto 'ndc-bridge'; en el catálogo es fijo):
+El resultado es ω^funded = clamp(M·p, 0, 1) y la parte pública es 1 − ω^funded. Esa parte se divide según `transitionPublicPillar` (por defecto 'ndc-bridge'). Se cambia en la consola con «Cambio a un fondo: parte pública durante la transición»; 'ndc-bridge' y 'custom-split' hacen la misma cuenta:
 
 ```
 ndc-bridge, custom-split:  ω^ndc = (1−ω^funded)·s,   s = transitionNdcShare (0,85); en two-stage-relay s = max(s, 0,85)

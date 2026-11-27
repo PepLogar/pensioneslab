@@ -51,7 +51,7 @@ test('what the sheets say matches the systems\' constants and the engine', () =>
   for (const e of entries) {
     const acts = closingClauseApplies(validateConfig(e.config));
     assert.equal(acts, e.key === 'payg', e.key);
-    assert.equal(/^Actúa/.test(sheet(e.key).brake), acts, `${e.key} brake text`);
+    assert.equal(/^Encendido/.test(sheet(e.key).brake), acts, `${e.key} brake text`);
   }
 });
 

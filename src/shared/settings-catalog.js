@@ -34,21 +34,21 @@ const custom = { custom: true };
 // in Ajustar of «Simular año a año» and in ⚙ Ajustes. One place for the three; a test keeps one for every control.
 const SETTING_HELP = Object.freeze({
   // 1 · El sistema
-  system: 'Cómo se pagan las pensiones desde 2027. Lo ganado hasta 2026 se respeta.',
-  feeRate: 'Lo que cobra cada año quien gestiona el fondo. Se descuenta de lo que rinde. El fondo común del Mixto progresivo cobra como mucho 0,15 %.',
+  system: 'Cómo se pagan las pensiones desde 2027. Lo ganado hasta 2026 se respeta, salvo si pasas los años ya cotizados a la cuenta nocional. El experimento de 1985 cambia el sistema desde 1985.',
+  feeRate: 'Lo que cobra cada año quien gestiona el fondo. Se descuenta de lo que rinde. Su límite depende de dónde se invierte el fondo. El fondo común, la cartera de dividendos y la colectiva cobran como mucho 0,15 %. La de ciclo vital, como mucho 0,12 %. La de deuda pública cautiva, al menos 0,60 %. Fuera de esos límites, mover la comisión no cambia nada.',
   fundedExtraContribution: 'Puntos de salario que se pagan además de la cotización de hoy y van a una cuenta invertida a tu nombre. No pagan el reparto.',
   ndcPhaseIn: 'Encendido, las cuentas nocionales entran poco a poco, por año de nacimiento. Apagado, valen para todos desde 2027.',
-  ndcPhaseInFirstCohort: 'Año de nacimiento de la primera generación con parte nocional. La propuesta del Instituto de Actuarios empieza en 1971.',
-  ndcPhaseInYears: 'Cuántas generaciones tarda la cuenta nocional en ser completa. Con 20, cada generación tiene un 5 % más.',
+  ndcPhaseInFirstCohort: 'Año de nacimiento de la primera generación con parte nocional. Solo cuenta con la entrada por generaciones encendida. La propuesta del Instituto de Actuarios empieza en 1971.',
+  ndcPhaseInYears: 'Cuántas generaciones tarda la cuenta nocional en ser completa. Solo cuenta con la entrada por generaciones encendida. Con 20, cada generación tiene un 5 % más.',
   ndcAnnuityNorm: 'Con 0, la pensión empieza más baja y sube más cada año; con más, empieza más alta y sube menos.',
   ndcInheritanceGains: 'Encendido, el saldo de quien muere antes de jubilarse pasa a los demás de su generación, como en Suecia.',
-  ndcBalancing: 'Encendido, si un año se pagan más pensiones nocionales de lo que entra, las cuentas crecen menos. No actúa antes de 2070, salvo si conviertes los años ya cotizados.',
+  ndcBalancing: 'Encendido, si un año se pagan más pensiones nocionales de lo que entra, las cuentas crecen menos. Con los ajustes de partida no actúa antes de 2070. En el experimento de 1985 actúa desde 2034.',
   ndcPastRights: 'Encendido, lo que cada trabajador lleva ganado hasta 2026 pasa en 2027 a su cuenta nocional. Las pensiones que ya se cobran no cambian.',
-  ndcPastRightsValue: 'Con 0, la cuenta se abre con lo cotizado; con 1, con lo necesario para la pensión ya ganada.',
-  ndcPastRightsAgeFull: 'Quien tiene esta edad o menos en 2027 pasa toda su carrera a la cuenta nocional.',
-  ndcPastRightsAgeNone: 'Desde esta edad en 2027 no se convierte nada. Entre las dos edades se convierte una parte que baja.',
+  ndcPastRightsValue: 'Solo cuenta si pasas los años ya cotizados a la cuenta nocional. Con 0, la cuenta se abre con lo cotizado; con 1, con lo necesario para la pensión ya ganada.',
+  ndcPastRightsAgeFull: 'Solo cuenta si pasas los años ya cotizados a la cuenta nocional. Quien tiene esta edad o menos en 2027 pasa toda su carrera.',
+  ndcPastRightsAgeNone: 'Solo cuenta si pasas los años ya cotizados a la cuenta nocional. Desde esta edad en 2027 no se convierte nada. Entre las dos edades se convierte una parte que baja. Solo cuenta si es al menos dos años mayor que la edad hasta la que se convierte todo.',
   pointsSystem: 'Encendido, la pensión de reparto se gana en puntos, uno por cada año con el salario medio. Lo ganado antes de 2027 no cambia.',
-  pointsSustainabilityFactor: 'Cuánto frena el valor del punto cuando hay más pensionistas por cotizante. Con 0, nada; la ley alemana usa 0,25.',
+  pointsSustainabilityFactor: 'Solo cuenta con el sistema de puntos encendido. Cuánto frena el valor del punto cuando hay más pensionistas por cotizante. Con 0, nada; la ley alemana usa 0,25.',
   // 2 · Las pensiones
   retirementAge: 'Edad de jubilación desde 2027. Con 65, la gente parte de las edades de jubilación de 2026, que la senda del Ageing Report retrasa por defecto.',
   retirementAgeStepYears: 'Con 0, la edad nueva vale para todos desde 2027. Con 4, sube un año cada cuatro.',
@@ -56,7 +56,7 @@ const SETTING_HELP = Object.freeze({
   replacementRate: 'Primera pensión de reparto frente al último sueldo, para los derechos nuevos. Lo ya ganado no cambia.',
   pensionRevaluationRate: 'Cuánto suben cada año las pensiones que ya se cobran, frente a los precios (el IPC).',
   retirementAgeLinkHealthy: 'Encendido, la edad sube solo con los años de vida que se viven con salud, no con todos.',
-  exitPathNoExtraPension: 'Solo con la senda del Ageing Report. Apagado, cada año que la senda añade desde la edad legal suma el premio por demora (4 %), como en la ley y en la AIReF. Encendido, no suma nada, como en el Ageing Report: su pensión de entrada ya cuenta con esa edad.',
+  exitPathNoExtraPension: 'Solo cuenta con la senda del Ageing Report, y solo en la pensión de reparto. En Cuentas nocionales, solo con la entrada por generaciones. Apagado, cada año que la senda añade desde la edad legal suma el premio por demora (4 %), como en la ley y en la AIReF. Encendido, no suma nada, como en el Ageing Report: su pensión de entrada ya cuenta con esa edad.',
   retirementAgeExitPath: 'Encendido, el defecto desde la 1.68, la gente se jubila cada vez más tarde, como prevén el Ageing Report de 2024 y la AIReF. Quien cumple 65 desde 2040 se jubila de media 1,4 años más tarde que en 2026. Apagado, todos se jubilan a las edades de 2026. Esta subida no es un retraso forzoso: nadie se queda sin empleo por ella.',
   // 3 · Los ingresos
   contributionRate: 'Sube la cotización que va a pensiones, en puntos del salario.',
@@ -74,9 +74,9 @@ const SETTING_HELP = Object.freeze({
   riskDebtThreshold: 'Por encima de esta deuda, cada préstamo nuevo sale más caro. Es un supuesto, no un umbral oficial.',
   riskPremiumAt10pp: 'Cuánto sube el interés por cada 10 puntos de deuda sobre esa referencia. Con 0, la deuda no encarece el interés.',
   riskPremiumCap: 'Lo más que puede sumar esa subida del interés. No asegura que alguien preste.',
-  stressPremium: 'Encendida, la deuda nueva paga un recargo extra tras un año de riesgo alto. Se retira con el rescate.',
+  stressPremium: 'Encendida, la deuda nueva paga un recargo extra tras un año de riesgo alto. Se retira el año del rescate, si está encendido «Enseñar rescate, quita e impago».',
   stressPremiumRate: 'Puntos de interés de más que paga la deuda nueva en la crisis. España pagó unos 3,4 en 2011–2013.',
-  narrativeMilestones: 'Apagado, solo se ven el riesgo y si la pensión es suficiente.',
+  narrativeMilestones: 'Apagado, solo se ven el riesgo y si la pensión es suficiente. Con la prima por crisis encendida, también cambia la deuda: sin rescate en el relato, la prima no se retira.',
   narrativeBailoutYears: 'Años seguidos de riesgo alto, con la deuda sin estabilizarse, hasta pedir un rescate. Es un supuesto.',
   narrativeRestructuringYears: 'Años más de riesgo alto tras el rescate hasta una quita de la deuda. Es un supuesto.',
   narrativeNoRescue: 'Encendido, nadie rescata al Estado y al año siguiente deja de poder pagar.',
@@ -105,12 +105,12 @@ const SETTING_HELP = Object.freeze({
   paradigmSupportScale: 'Parte del subsidio a quien pierde el trabajo que no paga el Estado. Con 1, lo que prevé el régimen elegido; con 0, nada.',
   paradigmReturnScale: 'Rentabilidad extra de los fondos gracias a la IA. Con 1, lo que prevé el régimen elegido; con 0, nada.',
   paradigmOutputScale: 'Producción extra, o perdida, frente a una economía de nóminas. Con 1, lo que prevé el régimen elegido; con 0, nada.',
-  paradigmAdminScale: 'Ahorro por automatizar la Administración. Con 1, lo que prevé el régimen elegido; con 0, nada.',
+  paradigmAdminScale: 'Ahorro por automatizar la Administración. Con 1, lo que prevé el régimen elegido; con 0, nada. También cuenta con el régimen de hoy, si subes «IA: Administración pública automatizada».',
   paradigmDividendScale: 'Dividendo ciudadano que cuenta como renta de los jubilados. Con 1, lo que prevé el régimen elegido; con 0, nada.',
   // 6 · Cómo responde la economía
   lafferSelfFinancing: 'De cada 100 € que debería dar una subida de impuestos al trabajo, los que no llegan porque se trabaja y se declara menos.',
-  lafferFullResponse: 'Encendido, las horas que se dejan de trabajar por los impuestos bajan también cotizaciones, derechos y PIB. Apagado, solo se pierde recaudación.',
-  lafferVatResponse: 'Encendido, un IVA más alto también hace trabajar menos horas, como un impuesto al trabajo.',
+  lafferFullResponse: 'Encendido, las horas que se dejan de trabajar por los impuestos bajan también cotizaciones, derechos y PIB. Apagado, solo se pierde recaudación. En el experimento de 1985 solo cuenta al subir el IVA u otros tributos.',
+  lafferVatResponse: 'Encendido, un IVA más alto también hace trabajar menos horas, como un impuesto al trabajo. Solo cuenta con «Las horas perdidas bajan también cotizaciones, derechos y PIB» encendido.',
   unmodeledTaxesFollowGDP: 'Los impuestos sin modelo propio (patrimonio, transmisiones y otros, unos 57.000 M€ en 2026). Encendido, el defecto, crecen con el PIB, como supone la AIReF. Apagado, se quedan fijos en euros de 2026 y pierden peso en el PIB.',
   lafferAdjustYears: 'Años que tarda la respuesta a los impuestos en ser completa. Crece en línea recta desde 2027.',
   retirementDelayEmployment: 'De quienes se habrían jubilado, la parte que sigue con empleo. El resto cobra un subsidio hasta la edad nueva.',
@@ -124,7 +124,7 @@ const SETTING_HELP = Object.freeze({
   riskSustainYears: 'Años seguidos de riesgo alto que hacen falta para decir «se rompe». Es un supuesto.',
   riskStabilisationYears: 'Años seguidos en que la deuda sube sin que las cuentas la frenen, para decir que no se estabiliza.',
   pensionAdequacyFloor: 'Pensión media mínima, en % del salario medio, para llamarla suficiente. La OIT pide un 40 %.',
-  crisisFundBackingWeight: 'Parte del fondo que se resta de la deuda al medir el riesgo. No cambia la deuda.'
+  crisisFundBackingWeight: 'Parte del fondo que se resta de la deuda al medir el riesgo. Solo cuenta si hay un fondo. No cambia la deuda, salvo con la prima por crisis o un recorte del gasto, que dependen de ese riesgo.'
 });
 
 export const SETTINGS_CATALOG = Object.freeze([
@@ -259,12 +259,19 @@ export const SETTING_NEEDS = Object.freeze({
   retirementAgeLinkHealthy: 'ageLink',
   stressPremiumRate: 'stressPremium',
   marketShock: 'fund',
-  automationTargetYear: 'ai', automationWagePassThrough: 'ai', reemploymentWageLoss: 'ai', displacementSupportRate: 'ai',
-  paradigmRevenueScale: 'regime', paradigmSupportScale: 'regime', paradigmReturnScale: 'regimeFund', paradigmOutputScale: 'regime', paradigmAdminScale: 'regime', paradigmDividendScale: 'regime',
+  automationTargetYear: 'ai', automationWagePassThrough: 'productivity', reemploymentWageLoss: 'aiHours', displacementSupportRate: 'displaced', automationRedeployment: 'aiHours',
+  paradigmRevenueScale: 'regime', paradigmSupportScale: 'regime', paradigmReturnScale: 'regimeFund', paradigmOutputScale: 'regime', paradigmAdminScale: 'regimeOrAdmin', paradigmDividendScale: 'regime',
   lafferSelfFinancing: 'labourTax', lafferFullResponse: 'labourTax', lafferAdjustYears: 'labourTax',
-  lafferVatResponse: 'productTax',
+  lafferVatResponse: 'productTaxFull',
   retirementDelayEmployment: 'laterAge',
-  cutMultiplierCalm: 'cut', cutMultiplierStress: 'cut', publicCapitalElasticity: 'cut', cutInvestmentShare: 'cut'
+  cutMultiplierCalm: 'cut', cutMultiplierStress: 'cut', publicCapitalElasticity: 'cut', cutInvestmentShare: 'cut',
+  crisisFundBackingWeight: 'fund',
+  // What a setting of a system waits for inside that system (1.88, measured with the engine; docs/DECISIONES.md, 27/11/2026):
+  // a form of the move to a fund, a kind of public part, or a switch of its own.
+  transitionCutoffAge: 'ageMode', transitionYears: 'scheduleMode', transitionRelaySchedule: 'relayMode', transitionNdcShare: 'ndcPillar',
+  mix: 'mixPillar', ndcPhaseInFirstCohort: 'ndcPhaseIn', ndcPhaseInYears: 'ndcPhaseIn',
+  ndcPastRightsValue: 'pastRights', ndcPastRightsAgeFull: 'pastRights', ndcPastRightsAgeNone: 'pastRights',
+  pointsSustainabilityFactor: 'points', retirementAgeStepYears: 'ageStep', retirementAgeCap: 'ageLink'
 });
 
 /** The entry that places a key: its own, or the one that moves it with another. */
@@ -339,22 +346,35 @@ export function searchCatalog(query, limit = 12) {
 // Which systems an expert setting of «El sistema» acts on (docs/REVISION-AJUSTAR-LABORATORIO-2026-11-11.md, A): the
 // others are shown folded, since moving them changes nothing. Measured with the engine in pensiones_lab_2; here
 // tests/setting-systems.test.mjs checks that the fund settings change nothing in Reparto and Cuentas nocionales. A setting
-// with no list acts everywhere, and a system that is not measured (the 1985 experiment) shows them all. The brake
+// with no list is shown in every system, but that does not mean it acts in all of them: what it waits for inside a system
+// (a switch, an extra contribution, a tax rise) is a need, SETTING_NEEDS. A system outside MEASURED_SYSTEMS shows them all. The brake
 // stays with the notional accounts although it seldom fires: it is theirs. Read it through settingActsOn
 // (src/shared/setting-systems.js), which also knows what depends on the configuration (an extra contribution, the brake).
-const NOTIONAL_SYSTEMS = Object.freeze(['ndc', 'progressive', 'mixedGradual', 'mixed']);
-const POINTS_SYSTEMS = Object.freeze(['payg', 'progressive', 'mixedGradual', 'mixed']);
+const NOTIONAL_SYSTEMS = Object.freeze(['ndc', 'progressive', 'mixedGradual', 'mixed', 'retro1985']);
+const POINTS_SYSTEMS = Object.freeze(['payg', 'progressive', 'mixedGradual', 'mixed', 'retro1985']);
 const PAST_RIGHTS_SYSTEMS = Object.freeze(['ndc']);
 // The move to a fund and where it invests: nothing in pay-as-you-go or notional accounts, which have no fund (1.81).
-// The mix of the three parts acts where part goes to a fund and part stays public, not in all-funded.
-const FUND_SYSTEMS = Object.freeze(['progressive', 'mixedGradual', 'funded', 'mixed']);
-const MIX_SYSTEMS = Object.freeze(['progressive', 'mixedGradual', 'mixed']);
-export const MEASURED_SYSTEMS = Object.freeze(['payg', 'ndc', 'progressive', 'mixedGradual', 'funded', 'mixed']);
+// The mix of the three parts acts only where the public part is «La del sistema» (a need, 'mixPillar'), or in the
+// immediate mix, never in all-funded. With a move to a fund only its split between pay-as-you-go and notional counts:
+// the fund share comes from the target of the move (transitionTargetFunded).
+// Since 1.88 the 1985 experiment is measured too (docs/DECISIONES.md, 27/11/2026): its own model has no exit-age path, no
+// age link or steps, no EUROPOP2023 option, no AIReF short run, no crisis premium and no public-capital loss from cuts.
+const FUND_SYSTEMS = Object.freeze(['progressive', 'mixedGradual', 'funded', 'mixed', 'retro1985']);
+const MIX_SYSTEMS = Object.freeze(['progressive', 'mixedGradual', 'mixed', 'retro1985']);
+const NOT_1985 = Object.freeze(['payg', 'ndc', 'progressive', 'mixedGradual', 'funded', 'mixed']);
+// New pay-as-you-go rights: the replacement rate, the bonus of the exit path and the points act on them. Cuentas
+// nocionales has them only with its entry by generations (src/shared/setting-systems.js adds that case).
+const PAYG_RIGHTS_SYSTEMS = Object.freeze(['payg', 'progressive', 'mixedGradual', 'mixed', 'retro1985']);
+export const MEASURED_SYSTEMS = Object.freeze(['payg', 'ndc', 'progressive', 'mixedGradual', 'funded', 'mixed', 'retro1985']);
 export const SETTING_SYSTEMS = Object.freeze({
   transitionCutoffAge: FUND_SYSTEMS, transitionYears: FUND_SYSTEMS, transitionTargetFunded: FUND_SYSTEMS,
   capitalizationStyle: FUND_SYSTEMS, mix: MIX_SYSTEMS, transitionMode: FUND_SYSTEMS, transitionNdcShare: FUND_SYSTEMS,
   transitionRelaySchedule: FUND_SYSTEMS, transitionPublicPillar: FUND_SYSTEMS,
-  feeRate: Object.freeze(['progressive', 'mixedGradual', 'funded', 'mixed']),
+  feeRate: FUND_SYSTEMS, realReturn: FUND_SYSTEMS,
+  replacementRate: PAYG_RIGHTS_SYSTEMS, exitPathNoExtraPension: Object.freeze(['payg', 'progressive', 'mixedGradual', 'mixed']),
+  retirementAgeLink: NOT_1985, retirementAgeLinkHealthy: NOT_1985, retirementAgeExitPath: NOT_1985, retirementAgeStepYears: NOT_1985,
+  retirementAgeCap: NOT_1985, retirementDelayEmployment: NOT_1985, europop2023: NOT_1985, airefShortRunEmployment: NOT_1985,
+  stressPremium: NOT_1985, stressPremiumRate: NOT_1985, publicCapitalElasticity: NOT_1985, cutInvestmentShare: NOT_1985,
   ndcPhaseIn: NOTIONAL_SYSTEMS, ndcPhaseInFirstCohort: NOTIONAL_SYSTEMS, ndcPhaseInYears: NOTIONAL_SYSTEMS,
   ndcAnnuityNorm: NOTIONAL_SYSTEMS, ndcInheritanceGains: NOTIONAL_SYSTEMS, ndcBalancing: NOTIONAL_SYSTEMS,
   ndcPastRights: PAST_RIGHTS_SYSTEMS, ndcPastRightsValue: PAST_RIGHTS_SYSTEMS, ndcPastRightsAgeFull: PAST_RIGHTS_SYSTEMS, ndcPastRightsAgeNone: PAST_RIGHTS_SYSTEMS,

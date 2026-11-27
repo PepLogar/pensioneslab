@@ -18,6 +18,8 @@ import { riskPathOf } from '../views/risk-strip.js';
 import { num } from '../shared/number-format.js';
 import { loadComparison } from '../shared/comparison-systems.js';
 import { activeSystemKey, originWithSystem } from '../shared/scenario-labels.js';
+import { settingActsOn } from '../shared/setting-systems.js';
+import { settingWaits, settingAnswersLine } from '../shared/setting-needs.js';
 import { detectSqueezeFromConfig, loadSavedSqueezeParams, saveSqueezeParams } from '../shared/wealth-corporate-squeeze.js';
 import { SQUEEZE_FIELDS, SQUEEZE_DEFAULTS, squeezePatch, squeezeShownFor, squeezeIsOn, DEPARTMENTS, engineOtherCut, inferCuts, departmentsPatch, CALENDAR, CALENDAR_YEARS, calendarPatch,
   LIMIT_FIELDS, DEFAULT_LIMITS, firstOutsideYear, MIX_FIELDS, mixPatch, RECORTABLE_TEXT } from '../domain/consola-measures.js';
@@ -79,12 +81,12 @@ const isChanged = (row, config, baseline = originWithSystem(config, DEFAULT_CONF
 const tipButton = (text, name) => text ? `<button type="button" class="cx-tip" data-tip="${esc(text)}" aria-label="Qué es: ${esc(name)}">?</button>` : '';
 
 // A row inside a fold stays grey: it is there to be found, and it changes nothing with this scenario.
-function rowHtml(row, config, result, baseline, idle = false) {
+function rowHtml(row, config, result, baseline, idle = false, why = '') {
   const { entry } = row;
   const changed = isChanged(row, config, baseline);
   const error = errors.get(entry.key);
   return `<tr class="cx-row${changed ? ' is-changed' : ''}${idle ? ' is-idle' : ''}${error ? ' is-error' : ''}"${idle ? ' title="Con este sistema o estos ajustes, no cambia nada."' : ''}>
-    <th scope="row"><label${row.control ? ` for="cx-${entry.key}"` : ''}>${esc(entry.name)}</label>${error ? `<small class="cx-error">${esc(error)}</small>` : ''}</th>
+    <th scope="row"><label${row.control ? ` for="cx-${entry.key}"` : ''}>${esc(entry.name)}</label>${why ? `<small class="cx-why">${esc(why)}</small>` : ''}${error ? `<small class="cx-error">${esc(error)}</small>` : ''}</th>
     <td class="cx-value">${row.control ? inputHtml(row, config) : `<span class="cx-fixed">${esc(fixedText(entry, config))}</span>`}</td>
     <td class="cx-unit">${esc(row.unit)}</td>
     <td class="cx-today"${row.control ? ` title="${esc(shown(row, DEFAULT_CONFIG))}"` : ''}>${row.control ? esc(shown(row, DEFAULT_CONFIG)) : ''}</td>
@@ -96,7 +98,7 @@ const OWN_TABS = [['ricos', 'Ricos y empresas'], ['partidas', 'Partidas del Esta
 const TABLE_HEAD = '<thead><tr><th scope="col">Ajuste</th><th scope="col">Valor</th><th scope="col">Unidad</th><th scope="col">Hoy</th><th scope="col"></th></tr></thead>';
 const shownNumber = (v, step) => Number(Number(v).toFixed(decimals(step)));
 const boxHtml = (attrs, value, f) => `<input type="number" ${attrs} value="${shownNumber(value, f.step)}" min="${f.min}" max="${f.max}" step="${f.step}">`;
-const ownRow = ({ label, input, unit = '', today = '', hint = '', changed = false, error = null }) => `<tr class="cx-row${changed ? ' is-changed' : ''}${error ? ' is-error' : ''}">
+const ownRow = ({ label, input, unit = '', today = '', hint = '', changed = false, error = null, idle = false }) => `<tr class="cx-row${changed ? ' is-changed' : ''}${idle ? ' is-idle' : ''}${error ? ' is-error' : ''}">
     <th scope="row">${esc(label)}${error ? `<small class="cx-error">${esc(error)}</small>` : ''}</th>
     <td class="cx-value">${input}</td><td class="cx-unit">${esc(unit)}</td><td class="cx-today">${esc(today)}</td><td>${tipButton(hint, label)}</td></tr>`;
 const note = text => `<p class="cx-note">${esc(text)}</p>`;
@@ -107,7 +109,7 @@ function ricosHtml(config) {
   const p = squeezeShown(config);
   // Taxes or contributions raised elsewhere (the chapters, a link, a file) are not this tab's measures.
   const elsewhere = !squeezeIsOn(p) && detectSqueezeFromConfig(config)
-    ? note('Este escenario ya sube impuestos o cotizaciones con otros ajustes, que esta pestaña no muestra. Si cambias una medida aquí, sustituye la cotización y los recargos de los capítulos y la medida de 2027 del Calendario; las de otros años se quedan.') : '';
+    ? note('Este escenario ya sube impuestos o cotizaciones con otros ajustes, que esta pestaña no muestra. Si cambias una medida aquí, sustituye la cotización y los recargos de los capítulos. También sustituye la medida de 2027 del Calendario; las de otros años se quedan. Y sustituye tus valores de «Lo que se pierde al subir impuestos al trabajo» y de «Cotización que queda fuera de esa respuesta».') : '';
   const rows = SQUEEZE_FIELDS.map(f => {
     const input = f.type === 'choice'
       ? `<select data-x="ricos" data-field="${f.key}" aria-label="${esc(f.label)}">${f.options.map(([v, l]) => `<option value="${esc(JSON.stringify(v))}"${v === p[f.key] ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select>`
@@ -115,7 +117,7 @@ function ricosHtml(config) {
     const today = f.type === 'choice' ? f.options.find(([v]) => v === SQUEEZE_DEFAULTS[f.key])?.[1] : num(SQUEEZE_DEFAULTS[f.key] * f.scale);
     return ownRow({ label: f.label, input, unit: f.unit, today, hint: f.hint, changed: p[f.key] !== SQUEEZE_DEFAULTS[f.key], error: errors.get(`ricos:${f.key}`) });
   }).join('');
-  return note('Se traducen en ajustes del motor: recargos del IRPF, del IVA y de otros tributos, la cotización y el IRPF de 2027 del calendario. Sustituyen lo que haya en esos ajustes.')
+  return note('Se traducen en ajustes del motor: recargos del IRPF, del IVA y de otros tributos, la cotización y el IRPF de 2027 del calendario. También fijan «Lo que se pierde al subir impuestos al trabajo» y «Cotización que queda fuera de esa respuesta». Y recalculan la «Parte de los demás ingresos que va a pensiones». Sustituyen lo que haya en esos ajustes.')
     + elsewhere + `<table class="cx-table">${TABLE_HEAD}<tbody>${rows}</tbody></table><p class="cx-actions"><button type="button" data-ricos-reset>Quitar estas medidas</button></p>`;
 }
 
@@ -155,17 +157,28 @@ function calendarioHtml(config) {
   }).join('');
 }
 
+// The mix of the three parts (1.88, measured with the engine): with a move to a fund, the fund's part is «parte de la
+// cuota que acaba en el fondo», and the mix gives only the split of the public part, and only with «La del sistema».
+const mixActsOn = config => settingActsOn('mix', config) && !settingWaits('mix', config);
+const MIX_WHERE = 'Cuánto va al fondo se elige en «Cambio a un fondo: parte de la cuota que acaba en el fondo» (capítulo 1).';
+function mixNote(config, acts) {
+  if (acts && activeSystemKey(config) === 'mixed') return 'Mezcla de la cotización de jubilación entre reparto, cuentas nocionales y fondo. Actúa entera.';
+  if (['payg', 'ndc'].includes(activeSystemKey(config))) return 'Con tu sistema toda la cotización de jubilación es pública, así que esta mezcla no cambia nada. Cuenta en el Mixto con ahorro propio, donde reparte la parte pública entre reparto y nocionales.';
+  if (acts) return `Mezcla de la cotización de jubilación. Con tu sistema solo cuenta la proporción entre reparto y nocionales: así se reparte la parte pública. ${MIX_WHERE} Por eso la casilla de capitalización no cambia nada aquí.`;
+  return `Con tu sistema esta mezcla no cambia nada. ${MIX_WHERE} Cómo se reparte la parte pública se elige en «Cambio a un fondo: parte pública nocional o de reparto». La mezcla solo cuenta con la parte pública «La del sistema», la del Mixto con ahorro propio.`;
+}
 function limitesHtml(config) {
   const limits = getState().limits ?? DEFAULT_LIMITS;
   const lim = LIMIT_FIELDS.map(f => ownRow({ label: f.label, input: boxHtml(`data-x="limit" data-field="${f.key}" aria-label="${esc(f.label)}"`, limits[f.key], f),
     unit: f.unit, today: num(DEFAULT_LIMITS[f.key]), hint: f.hint, changed: limits[f.key] !== DEFAULT_LIMITS[f.key], error: errors.get(`limit:${f.key}`) })).join('');
   const mix = config.mix ?? DEFAULT_CONFIG.mix;
+  const mixActs = mixActsOn(config);
   const mixRows = MIX_FIELDS.map(([key, label]) => ownRow({ label, input: boxHtml(`data-x="mix" data-field="${key}" aria-label="${esc(label)}"`, mix[key] * 100, { min: 0, max: 100, step: 1 }),
-    unit: '%', today: num(DEFAULT_CONFIG.mix[key] * 100), changed: Math.abs(mix[key] - DEFAULT_CONFIG.mix[key]) > 1e-6,
-    hint: 'Reparto de la cotización de jubilación en el Mixto «de golpe». Los tres suman 100 %: al cambiar uno, los otros dos se ajustan.' })).join('');
+    unit: '%', today: num(DEFAULT_CONFIG.mix[key] * 100), changed: Math.abs(mix[key] - DEFAULT_CONFIG.mix[key]) > 1e-6, idle: !mixActs || key === 'funded',
+    hint: 'Parte de la cotización de jubilación que va a cada pilar. Los tres suman 100 %: al cambiar uno, los otros dos se ajustan.' })).join('');
   return note('Límites propios: no cambian el veredicto. Marcan el primer año en que el escenario se sale de ellos.')
     + `<table class="cx-table">${TABLE_HEAD}<tbody>${lim}</tbody></table>`
-    + note('Mezcla del Mixto «de golpe». Solo actúa en ese sistema, que no aguanta y no está en la lista de sistemas.')
+    + note(mixNote(config, mixActs))
     + `<table class="cx-table">${TABLE_HEAD}<tbody>${mixRows}</tbody></table>`;
 }
 const OWN_TAB_HTML = { ricos: ricosHtml, partidas: partidasHtml, calendario: calendarioHtml, limites: limitesHtml };
@@ -186,7 +199,7 @@ function foldHtml(fold, id, rows, config, result, baseline, open) {
   const head = open && query.trim() ? esc(title)
     : `<button type="button" data-cx-fold="${esc(id)}" aria-expanded="${open}">${open ? '▾' : '▸'} ${esc(title)}</button>`;
   return `<tbody class="cx-fold"><tr class="cx-fold-head${changed ? ' is-changed' : ''}"><th colspan="5" scope="rowgroup">${head}</th></tr>`
-    + (open ? `<tr class="cx-fold-note"><td colspan="5">${esc(fold.note(rows, config, result))}</td></tr>` + rows.map(r => rowHtml(r, config, result, baseline, true)).join('') : '')
+    + (open ? `<tr class="cx-fold-note"><td colspan="5">${esc(fold.note(rows, config, result))}</td></tr>` + rows.map(r => rowHtml(r, config, result, baseline, true, fold.kind === 'waiting' ? settingAnswersLine(r.entry.key) : '')).join('') : '')
     + '</tbody>';
 }
 function rowsHtml(rows, config, result, baseline) {
