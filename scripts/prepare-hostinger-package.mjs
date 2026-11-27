@@ -19,7 +19,7 @@ const { STATE_VERSION, CALIBRATION_ID } = await import(pathToFileURL(path.join(r
 const { CREDITS } = await import(pathToFileURL(path.join(root, 'src/shared/credits.js')));
 
 // The pages the build makes (vite.config.js), the fixed files of public/, and what each build must have.
-const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html'];
+const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html', 'informe.html'];
 const PUBLIC_FILES = ['favicon.svg', 'apple-touch-icon.png', 'og-image.png'];
 const REQUIRED = [/^assets\/sim-worker-.*\.js$/, /^assets\/simulation-.*\.js$/, /^assets\/.*\.css$/];
 

@@ -1,0 +1,74 @@
+/* Informe (informe.html): un documento para leer en pantalla e imprimir en A4. Sin adornos. */
+:root{--ink:#111;--muted:#555;--line:#c8c8c8;--soft:#f2f2f2;--bg:#fff;--accent:#0a5c45;--bad:#a5281d;--warn:#8a5308;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+button{font:inherit;color:inherit;padding:1px 7px;height:22px;border:1px solid var(--line);border-radius:2px;background:var(--soft);cursor:pointer}
+button:disabled{color:#999;cursor:default}
+.ix-bar{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:4px 8px;border-bottom:1px solid var(--line);background:var(--soft);font-size:12px}
+.ix-name{font-weight:700}
+.ix-status{margin-left:auto;color:var(--warn);font-weight:600}
+.ix-doc{max-width:800px;margin:0 auto;padding:16px 20px}
+.ix-head h1{margin:0 0 4px;font-size:22px}
+.ix-kicker{margin:0;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-size:11px}
+.ix-meta{margin:0 0 10px;color:var(--muted);font-size:12px}
+.ix-verdict{margin:0 0 10px;padding:6px 10px;border-left:4px solid var(--line);background:var(--soft)}
+.ix-verdict[data-state=breaks]{border-color:var(--bad)}
+.ix-verdict[data-state=breaks] strong{color:var(--bad)}
+.ix-verdict[data-state=weakens]{border-color:var(--warn)}
+.ix-verdict[data-state=holds]{border-color:var(--accent)}
+.ix-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 16px;margin:0}
+.ix-facts div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #e6e6e6}
+.ix-facts dt{color:var(--muted)}
+.ix-facts dd{margin:0;font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+.ix-section{margin-top:18px}
+.ix-section h2{margin:0 0 6px;font-size:16px;border-bottom:1px solid var(--line);padding-bottom:2px}
+.ix-section h3{margin:10px 0 4px;font-size:13px}
+.ix-table{width:100%;border-collapse:collapse;font-size:12px}
+.ix-table th,.ix-table td{padding:2px 5px;border-bottom:1px solid #e6e6e6;text-align:right}
+.ix-table th:first-child{text-align:left;font-weight:400}
+.ix-table thead th{font-size:11px;font-weight:600;color:var(--muted);vertical-align:bottom;text-align:right}
+.ix-table thead th:first-child{text-align:left}
+.ix-table td{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ix-table tr.is-year th,.ix-table tr.is-year td{font-weight:700}
+.ix-table tr[data-broken] td{color:var(--bad)}
+.ix-table tr.ix-group th{padding-top:6px;font-weight:700;text-align:left}
+.ix-note{margin:4px 0 0;color:var(--muted);font-size:11.5px}
+.ix-section p,.ix-note,.ix-list li{overflow-wrap:anywhere}
+.ix-table td.ix-text{text-align:left;white-space:normal}
+.ix-inert{color:var(--muted);font-size:11px}
+.ix-doc[data-busy]{opacity:.4}
+.ix-charts{display:grid;grid-template-columns:1fr;gap:10px}
+.ix-chart{margin:0}
+.ix-chart svg{display:block;width:100%;height:auto}
+.ix-system{margin:0}
+.ix-system div{margin-bottom:4px;break-inside:avoid}
+.ix-system dt{font-weight:700}
+.ix-system dd{margin:0}
+.ix-list{margin:0;padding-left:18px}
+.ix-error{color:var(--bad);font-weight:600}
+.ix-foot{max-width:800px;margin:0 auto;padding:6px 20px 16px;color:var(--muted);font-size:11px}
+.site-beta{padding:1px 7px;border:1px solid #b45309;border-radius:9px;background:#fff7ed;color:#7c2d12;font-size:11px;font-weight:700;white-space:nowrap}
+.site-feedback,.site-help{font-weight:600;white-space:nowrap}
+/* Impresión: A4, sin la barra; cada bloque entero en su página si cabe. */
+@page{size:A4;margin:14mm 14mm 18mm;
+  @bottom-right{content:counter(page) " / " counter(pages);font:7.5pt system-ui,sans-serif;color:#555}}
+@media print{
+  body{font-size:10pt}
+  .ix-table{font-size:8.5pt}
+  .ix-table thead th{font-size:7.5pt}
+  .ix-note,.ix-inert{font-size:8pt}
+  .ix-meta{font-size:8.5pt}
+  .ix-section h2{font-size:13pt}
+  .ix-doc[data-busy]{opacity:1}
+  .ix-doc[data-busy] > *{display:none}
+  .ix-doc[data-busy]::before{content:"El informe se estaba calculando. Espera a que termine y vuelve a imprimir."}
+  .ix-bar{display:none}
+  .ix-doc{max-width:none;padding:0}
+  .ix-section{break-inside:auto}
+  .ix-section h2,.ix-section h3{break-after:avoid}
+  .ix-chart,.ix-table tr,.ix-facts,.ix-verdict{break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+  .ix-foot{max-width:none;padding:6px 0 0}
+}

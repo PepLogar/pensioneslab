@@ -15,7 +15,7 @@ import { num } from '../src/shared/number-format.js';
 
 const text = path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const assumption = id => ASSUMPTIONS.find(a => a.id === id);
-const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html'];
+const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html', 'informe.html'];
 
 test('«Población y empleo» gives the debt without the AIReF short run that the engine stored (5, 6)', () => {
   const w = JSON.parse(text('data/external-contrast.json')).airefMediumTerm.withoutOption;

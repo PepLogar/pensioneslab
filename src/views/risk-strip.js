@@ -22,6 +22,26 @@ export function riskPathOf(verdict) {
 // financing needs exclude Treasury bills (docs/PROPUESTA-LETRAS-2026-11-09.md).
 const ENGINE_SCOPE = Object.freeze({ grossFinancingNeeds: 'sin letras' });
 
+/** A variable of the risk index, labelled as the engine measures it («…, sin letras»). */
+export function riskVariable(id) {
+  const v = VARIABLE[id];
+  return v ? { ...v, label: ENGINE_SCOPE[id] ? `${v.label}, ${ENGINE_SCOPE[id]}` : v.label } : null;
+}
+
+/** The indicators that make the risk high in the break year (1.91; the report and the console): those that fire
+ * then and were on the safe side of their threshold the year before, or had no value then (the starting year has
+ * no maturing debt). The index goes by steps, so these are what decide the year. */
+export function decidingIndicators(breakYear, path) {
+  const now = path.find(p => p.year === breakYear), before = path.find(p => p.year === breakYear - 1);
+  if (!now) return [];
+  const safeBefore = id => {
+    const v = VARIABLE[id], b = before?.vars?.[id];
+    return !v || !Number.isFinite(b) || (v.risky === 'above' ? b <= v.threshold : b >= v.threshold);
+  };
+  const fresh = now.firing.filter(safeBefore);
+  return fresh.length ? fresh : now.firing;
+}
+
 /** «Necesidades brutas de financiación, sin letras: 19,9 % del PIB (umbral 15,95)», one per firing variable. */
 export function firingDescriptions(entry) {
   return (entry?.firing ?? []).map(id => {

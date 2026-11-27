@@ -14,7 +14,7 @@ import { simulateAsync } from '../shared/sim-client.js';
 import { computeVerdict } from '../domain/verdict.js';
 import { payablePensionAnnual } from '../shared/payable-pension.js';
 import { sustainabilityLight } from '../domain/sustainability-light.js';
-import { riskPathOf } from '../views/risk-strip.js';
+import { riskPathOf, decidingIndicators, riskVariable } from '../views/risk-strip.js';
 import { num } from '../shared/number-format.js';
 import { loadComparison } from '../shared/comparison-systems.js';
 import { activeSystemKey, originWithSystem } from '../shared/scenario-labels.js';
@@ -296,12 +296,39 @@ const SERIES = [
   { id: 'interest', title: 'Intereses de la deuda, % PIB', pick: r => r.interest / r.gdp * 100 }
 ];
 
+// Since 1.92 the red line of the break only where the break shows (as the report since 1.91): the debt and the
+// indicator of the risk index that crosses its threshold that year, drawn as one more chart with that threshold;
+// in a pension break, the average pension against its floor.
+function breakSeries(verdict, light, state, reference) {
+  const breakYear = light.state === 'breaks' ? light.breakYear : null;
+  if (breakYear == null) return { breakYear, list: SERIES, cause: '' };
+  if (light.failure === 'pension') {
+    const floor = (state.config.pensionAdequacyFloor ?? 0.4) * 100;
+    return { breakYear, cause: `cuando la pensión media baja del ${num(floor)} % del salario medio`,
+      list: SERIES.map(s => s.id === 'ratio' ? { ...s, mark: true, threshold: floor } : s) };
+  }
+  const path = riskPathOf(verdict);
+  let refPath = [];
+  try { refPath = reference ? riskPathOf(computeVerdict(reference, { config: reference.config ?? DEFAULT_CONFIG })) : []; } catch { refPath = []; }
+  const values = (list, id) => new Map(list.map(p => [p.year, p.vars?.[id]]));
+  const deciding = decidingIndicators(breakYear, path).map(riskVariable).filter(Boolean).map(v => {
+    const mine = values(path, v.id), ref = values(refPath, v.id);
+    // A short caption in the narrow strip («Necesidades de financiación, % PIB»); the full name in its tooltip.
+    return { id: `risk-${v.id}`, title: `${v.label.split(',')[0].replace(' brutas', '')}, ${v.unit.replace('% del PIB', '% PIB')}`, full: `${v.label} (${v.unit}), umbral de la Comisión ${num(v.threshold, 2)}`, mark: true, threshold: v.threshold,
+      pick: r => mine.get(r.year), pickRef: r => ref.get(r.year) };
+  });
+  const list = SERIES.map(s => s.id === 'debt' ? { ...s, mark: true } : s);
+  list.splice(1, 0, ...deciding);
+  const names = deciding.map(d => `«${d.title.split(',')[0]}»`).join(' y ');
+  return { breakYear, list, cause: deciding.length ? `cuando ${names} ${deciding.length === 1 ? 'cruza' : 'cruzan'} su umbral` : '' };
+}
+
 function chartSvg(series, result, reference, breakYear) {
   const year = yearNow();
   const W = 320, H = 116, L = 34, R = 6, T = 8, B = 18;
-  const line = res => (res?.years ?? []).map(r => [r.year, series.pick(r)]).filter(([, v]) => Number.isFinite(v));
-  const mine = line(result), ref = line(reference);
-  const values = [...mine, ...ref].map(([, v]) => v);
+  const line = (res, pick) => (res?.years ?? []).map(r => [r.year, pick(r)]).filter(([, v]) => Number.isFinite(v));
+  const mine = line(result, series.pick), ref = line(reference, series.pickRef ?? series.pick);
+  const values = [...mine, ...ref].map(([, v]) => v).concat(Number.isFinite(series.threshold) ? [series.threshold] : []);
   if (!values.length) return '';
   let lo = Math.min(0, ...values), hi = Math.max(...values);
   if (hi - lo < 1e-9) hi = lo + 1;
@@ -315,6 +342,7 @@ function chartSvg(series, result, reference, breakYear) {
     <text x="${L - 4}" y="${yv(lo)}" class="cx-tick" text-anchor="end">${num(lo)}</text>
     <text x="${L}" y="${H - 4}" class="cx-tick">${BASE_YEAR}</text><text x="${W - R}" y="${H - 4}" class="cx-tick" text-anchor="end">${END_YEAR}</text>
     ${breakYear ? `<line x1="${x(breakYear)}" y1="${T}" x2="${x(breakYear)}" y2="${yv(lo)}" class="cx-break"/>` : ''}
+    ${Number.isFinite(series.threshold) ? `<line x1="${L}" y1="${yv(series.threshold)}" x2="${W - R}" y2="${yv(series.threshold)}" class="cx-threshold"/><text x="${L + 3}" y="${yv(series.threshold) - 3}" class="cx-tick cx-tick--threshold">umbral ${num(series.threshold, 2)}</text>` : ''}
     <line x1="${x(year)}" y1="${T}" x2="${x(year)}" y2="${yv(lo)}" class="cx-year"/>
     ${ref.length ? `<path d="${path(ref)}" class="cx-ref"/>` : ''}<path d="${path(mine)}" class="cx-mine"/>
     ${mark && Number.isFinite(series.pick(mark)) ? `<circle cx="${x(year)}" cy="${yv(series.pick(mark))}" r="2.5" class="cx-dot"/><text x="${Math.min(x(year) + 5, W - 40)}" y="${yv(series.pick(mark)) - 5}" class="cx-tick cx-tick--value">${num(series.pick(mark), 1)}</text>` : ''}
@@ -339,9 +367,11 @@ function renderRoad() {
   road.dataset.state = light.state;
   road.innerHTML = `<strong>${esc(light.headline)}</strong>${facts.map(([k, v]) => `<span><small>${esc(k)}</small> ${esc(v)}</span>`).join('')}`;
   road.title = light.why ?? '';
-  const breakYear = light.state === 'breaks' ? light.breakYear : null;
-  $('[data-cx-charts]').innerHTML = SERIES.map(s => `<figure><figcaption>${esc(s.title)}</figcaption>${chartSvg(s, result, reference, breakYear)}</figure>`).join('');
-  $('[data-cx-legend]').textContent = `Continua: este escenario. Discontinua: reglas de hoy.${breakYear ? ` Raya roja: se rompe en ${breakYear}.` : ''}`;
+  const { breakYear, list, cause } = breakSeries(verdict, light, state, reference);
+  const charts = $('[data-cx-charts]');
+  charts.style.setProperty('--cx-n', String(list.length));
+  charts.innerHTML = list.map(s => `<figure${s.full ? ` title="${esc(s.full)}"` : ''}><figcaption>${esc(s.title)}</figcaption>${chartSvg(s, result, reference, s.mark ? breakYear : null)}</figure>`).join('');
+  $('[data-cx-legend]').textContent = `Continua: este escenario. Discontinua: reglas de hoy.${breakYear ? ` Raya roja: se rompe en ${breakYear}${cause ? `, ${cause} (línea roja de puntos)` : ''}.` : ''}`;
   $('[data-cx-table]').innerHTML = result.years.map(r => `<tr data-year="${r.year}"${r.year === year ? ' class="is-year"' : ''}${breakYear && r.year >= breakYear ? ' data-broken' : ''}>
     <th scope="row">${r.year}</th><td>${fx(r.debtGDP, 1)}</td><td>${fx(r.averagePensionAnnual / 12)}</td><td>${fx(payablePensionAnnual(r, verdict, result.config ?? state.config) / 12)}</td><td>${fx(r.replacementRate * 100, 1)}</td>
     <td>${fx(r.pensionGapGDP, 2)}</td><td>${fx(r.interest / r.gdp * 100, 2)}</td><td>${r.fundedAssetsGDP > 0 ? fx(r.fundedAssetsGDP, 1) : '—'}</td>

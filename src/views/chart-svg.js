@@ -29,11 +29,11 @@ export function niceTicks(lo, hi, count = 6) {
  * @param {{ title: string, systemOrder: string[], zero?: boolean, stamp: string[], desc?: string, width?: number, height?: number }} o
  *   `stamp`: lines printed at the foot; `desc`: the full citation, kept in the file (<desc>), with the scenario link
  */
-export function chartSvg(data, { title, systemOrder, zero = true, stamp = [], desc = '', width = 960, height = 560 }) {
+export function chartSvg(data, { title, systemOrder, zero = true, stamp = [], desc = '', width = 960, height = 560, marks = [], legend: showLegend = true }) {
   const font = 'font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif"';
   const lines = data.lines;
   const variables = [...new Set(lines.map(l => l.variable))];
-  const legendRows = Math.ceil(lines.length / 3);
+  const legendRows = showLegend ? Math.ceil(lines.length / 3) : 0;
   const M = { left: 72, right: 24, top: 58, bottom: 52 + legendRows * 18 + stamp.length * 14 };
   const W = width - M.left - M.right, H = height - M.top - M.bottom;
   const all = lines.flatMap(l => l.points).filter(([, v]) => v !== null);
@@ -70,7 +70,10 @@ export function chartSvg(data, { title, systemOrder, zero = true, stamp = [], de
   }).join('\n');
   const legendTop = M.top + H + 36;
   const colW = W / 3;
-  const legend = lines.map((l, i) => {
+  // A year to mark (the break year of a report): a dashed red line with its label (1.90).
+  const markLines = marks.filter(m => m.year >= y0 && m.year <= y1).map(m => `<line x1="${sx(m.year).toFixed(1)}" x2="${sx(m.year).toFixed(1)}" y1="${M.top}" y2="${M.top + H}" stroke="#a5281d" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="${(sx(m.year) + (sx(m.year) > M.left + 0.75 * W ? -4 : 4)).toFixed(1)}" y="${M.top + 12}" font-size="11" fill="#a5281d"${sx(m.year) > M.left + 0.75 * W ? ' text-anchor="end"' : ''}>${esc(m.label)} en ${m.year}</text>`).join('\n');
+  const legend = (showLegend ? lines : []).map((l, i) => {
     const lx = M.left + (i % 3) * colW, ly = legendTop + Math.floor(i / 3) * 18;
     const text = variables.length > 1 ? `${l.systemLabel} · ${l.variableName}` : l.systemLabel;
     return `<line x1="${lx}" x2="${lx + 26}" y1="${ly}" y2="${ly}" stroke="${colour(l)}" stroke-width="2"${dash(l) ? ` stroke-dasharray="${dash(l)}"` : ''}/>
@@ -83,7 +86,7 @@ export function chartSvg(data, { title, systemOrder, zero = true, stamp = [], de
 <line x1="${M.left}" x2="${M.left + W}" y1="${M.top + H}" y2="${M.top + H}" stroke="#333"/>
 ${grid}
 ${xAxis}
-${paths}
+${markLines ? `${markLines}\n` : ''}${paths}
 ${legend}
 ${foot}
 </svg>`;

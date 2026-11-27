@@ -10,7 +10,7 @@ const { APP_VERSION } = await import('../src/shared/app-version.js');
 const { DEFAULT_CONFIG } = await import('../src/shared/default-config.js');
 const { CREDITS } = await import('../src/shared/credits.js');
 
-const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html'];
+const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html', 'informe.html'];
 const read = path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const body = href => decodeURIComponent(href.split('body=')[1]);
 
@@ -20,7 +20,7 @@ test('every header says «Beta» and links the comments by e-mail, even without 
     assert.match(html, /<span class="site-beta" data-site-version[^>]*>Beta<\/span>/, page);
     assert.match(html, new RegExp(`<a class="site-feedback" data-site-feedback href="mailto:${CREDITS.email}\\?subject=`), page);
   }
-  for (const script of ['consola', 'metodologia', 'graficos', 'sensibilidad', 'riesgo']) {
+  for (const script of ['consola', 'metodologia', 'graficos', 'sensibilidad', 'riesgo', 'informe']) {
     assert.match(read(`src/pages/${script}.js`), /^mountSiteHeader\(\);$/m, script);
   }
   assert.equal(versionLabel(), `Beta · versión ${APP_VERSION}`);

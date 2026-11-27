@@ -9,7 +9,7 @@ import { exportStamp } from '../src/shared/citation.js';
 import { REFERENCE_PROFILES } from '../src/domain/reference-profiles.js';
 
 const text = path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
-const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html'];
+const PAGES = ['index.html', 'ayuda.html', 'consola.html', 'metodologia.html', 'graficos.html', 'sensibilidad.html', 'riesgo.html', 'informe.html'];
 const creditLine = page => /<p class="[\w-]+ site-credits" data-site-credits>(.*?)<\/p>/.exec(text(page))?.[1];
 
 test('every page carries the same credit line: developer, contact, both licences, no advice and the legal notice', () => {

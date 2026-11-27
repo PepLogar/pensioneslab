@@ -2286,3 +2286,129 @@ Una auditoría previa, con tres revisores y dos escépticos por hallazgo, encont
 **Pruebas:** `tests/settings-act-measured.test.mjs` comprueba, en 15 casos, que el motor y la consola coinciden. Hay uno por cada tipo de arreglo.
 
 **Sin cambios en el motor:** la metodología sigue en la 1.79.0.
+
+## 1.89.0 · Informe del escenario, para imprimir o guardar en PDF (27/11/2026)
+
+**Origen.** El autor echaba de menos los informes del primer laboratorio, como `informe-cuatro-sistemas-2027-revisado.pdf`: 11 páginas que comparaban los sistemas. Al pasar a esta consola no se trajeron, porque `AGENTS.md` pide no traer herramientas del sitio anterior. Esta es una herramienta nueva, por decisión del autor.
+
+**Solo el escenario abierto.** El autor: «que permita exportar solo el escenario que estás trabajando». Si los ajustes están afinados para un sistema, los demás sistemas con esos mismos ajustes no están optimizados: solo meterían ruido y resultarían tramposos. Por eso el informe no calcula ni muestra otros sistemas, y una prueba lo comprueba.
+
+**Cómo es.** Un enlace «Informe» en la barra de la consola abre `informe.html` en otra pestaña. La página sigue al escenario: si cambia en la consola, se dibuja de nuevo. El botón «Imprimir o guardar en PDF» abre el diálogo del navegador. No hay biblioteca de PDF: las cifras, los gráficos (`src/views/chart-svg.js`, los de «Gráficos») y los textos son los de la consola.
+
+**Contenido** (`src/domain/scenario-report.js`, sin DOM):
+1. **Cabecera:** el nombre con que está guardado, o el del sistema; el año consultado; versión, metodología, datos y fecha.
+2. **Veredicto y cinco cifras clave.**
+3. **Cifras por años:** cada diez años, más el año consultado y el de ruptura. Son las columnas de la tabla de la consola.
+4. **Gráficos de 2026 a 2070:** deuda, pensión frente al salario, pensión media y pagable, lo que falta, gasto en pensiones y, si hay fondo, el fondo.
+5. **Qué cambia frente a las reglas de hoy:** los ajustes movidos, con su valor de partida (el del sistema elegido en su forma estándar), las medidas con fecha, tus límites y el enlace para reabrirlo.
+6. **El sistema y los supuestos comunes.**
+7. **Cómo citarlo y el aviso.**
+
+**Impresión.** A4, sin la barra, con los gráficos a una columna para que se lean. El escenario de partida ocupa tres páginas, comprobado con Chrome sin ventana.
+
+**Pruebas:** `tests/scenario-report.test.mjs`.
+
+**Sin cambios en el motor.**
+
+## 1.90.0 · El informe, rehecho tras su auditoría (27/11/2026)
+
+La auditoría de la 1.89 (`docs/AUDITORIA-INFORME-1.89-2026-11-27.md`) la hicieron tres revisores: cifras, impresión y contenido. Encontró 9 errores y propuso contenidos y mejoras. El autor pidió aplicarlo todo: «Sí, todo eso». Un cuarto revisor comprobó el resultado y encontró 8 problemas más, también arreglados.
+
+**Errores arreglados.**
+- **Cambios que faltaban:** la mezcla de «Límites y mezcla» ya sale entre los cambios.
+- **«Nada cambiado» solo cuando es cierto:** el informe lo dice únicamente si no hay ajustes, mezcla, medidas con fecha ni límites propios.
+- **La pensión pagable:** ya no dice «si el sistema se rompe», porque solo baja desde el rescate. El rescate y la quita salen con sus años, en el texto y en las tablas.
+- **El enlace:** es «enlace del escenario», y su dirección no se imprime. Antes, un enlace de hasta 1.650 caracteres encogía todo el informe.
+- **Valores como en la consola:**
+  - los límites conservan sus decimales;
+  - los recortes de gasto salen en palabras («Un plan propio»);
+  - un valor sin opción sale como «Otro valor (1,5)»;
+  - el calendario guarda dos decimales.
+- **Ajustes sin efecto:** un ajuste cambiado que no hace nada en este escenario lo dice.
+- **Supuestos de este escenario:**
+  - salen con sus propios valores (cotización, inflación, rentabilidad, comisión, freno de 2023, edad, población) y no con los de partida;
+  - no comparan con otros sistemas;
+  - las reglas del veredicto usan los años de riesgo, el suelo de pensión, la congelación y el recorte de este escenario.
+- **Corrección del revisor: la cotización que va al fondo no es parte de lo que falta.** Lo que falta es neto de impuestos, y la cotización al fondo es bruta. Por eso sale como columna aparte, fuera de la suma.
+- **Corrección del revisor: dos hitos decían otra cosa.** El primer año con deuda nueva es cualquier déficit, no un préstamo «para pagar las pensiones». La bola de nieve es el interés medio por encima del crecimiento, no «los intereses».
+- **Ruptura por la pensión:** cuando se rompe porque la pensión baja del suelo, el informe lo dice así, sin listar indicadores fiscales.
+
+**Contenidos nuevos** (los datos ya estaban en el motor):
+1. **Por qué se rompe, o qué vigilar:** los indicadores del índice de riesgo que pasan de su umbral, el que quedó más cerca, la regla aplicada y lo que el simulador supone después.
+2. **Cuándo hace falta ayuda:** los hitos con fecha, ordenados:
+   - la primera falta;
+   - la primera deuda nueva;
+   - el interés por encima del crecimiento;
+   - la prima de riesgo;
+   - el riesgo;
+   - la ruptura;
+   - el rescate, la quita o el impago;
+   - el freno de 2023;
+   - el suelo de la pensión;
+   - la salida de los límites y cuál.
+3. **Cómo se pagan las pensiones públicas:** el coste, las cotizaciones y mutuas, los impuestos asignados, lo que falta y la cotización que va al fondo. Y qué pensiones se pagan:
+   - las ganadas hasta 2026;
+   - el reparto ganado desde 2027;
+   - las nocionales;
+   - las otras pensiones públicas;
+   - las rentas del fondo, que son privadas.
+4. **Cuentas del Estado:** ingresos, gasto, saldo primario, intereses, saldo, necesidades de financiación, deuda y la parte que añade la prima de riesgo.
+5. **Supuestos del veredicto, con su tipo:** observación, reconstrucción o supuesto.
+6. **Cómo leerlo, fuentes principales, y reproducir y citar.**
+
+**Orden y forma.**
+- **Orden:**
+  1. Veredicto.
+  2. Lo que has cambiado.
+  3. Por qué.
+  4. Cuándo.
+  5. Quién paga.
+  6. Cifras.
+  7. Evolución.
+  8. Supuestos.
+  9. Lectura.
+  10. Fuentes.
+  11. Cita.
+- **Gráficos:**
+  - llevan marcado el año de ruptura;
+  - el segundo de pensión se cambia por «lo que falta y cotización que va al fondo»;
+  - leyenda solo cuando hay dos líneas.
+  - Las opciones nuevas de `src/views/chart-svg.js` no cambian la página Gráficos: sin ellas, el SVG sale idéntico.
+- **Impresión:**
+  - pie con versión, aviso y número de página en cada hoja;
+  - † en los años rotos, para que se vea sin color;
+  - calendarios en tabla;
+  - tipos de letra en puntos;
+  - si se imprime mientras calcula, sale un aviso en vez de cifras viejas.
+- **Accesibilidad:** cada gráfico lleva `role="img"` con una descripción corta, hay un `tbody` por capítulo, se avisa con «Informe listo.» y los errores con `role="alert"`.
+
+**Comprobado:** se imprimieron a PDF Reparto, el Mixto progresivo y un Mixto con ahorro propio con mezcla, medidas y límites, que ocupa 6 páginas A4. Las sumas cuadran: cotizaciones + impuestos + falta = coste, y ingresos − gasto = saldo. Pruebas: `tests/scenario-report.test.mjs`.
+
+**Sin cambios en el motor.**
+
+## 1.91.0 · El informe dibuja la ruptura donde ocurre (27/11/2026)
+
+**Motivo:** el autor, al ver los gráficos del informe de Reparto: «Lo que es curioso es que se rompa todo en 2050». La raya roja salía en los cuatro gráficos, pero ninguna de esas curvas cambia en 2050. La ruptura la decide el índice de riesgo S0, que va a saltos: cuenta cuántos indicadores pasan de su umbral. En Reparto, el saldo primario y la deuda pasan de su umbral desde antes de 2040, y el índice sigue bajo (0,26). Las necesidades brutas de financiación, sin letras, se quedan entre 15,5 y 15,7 % del PIB de 2047 a 2049, y en 2050 llegan a 16,5, por encima del umbral de 15,95. Ese año el índice salta a 0,53 (riesgo alto) y sigue alto en 2051. No es casualidad del año consultado: cada sistema se rompe en un año distinto (nocionales 2060, Mixto progresivo 2043, capitalización de golpe 2027).
+
+**Qué cambia:**
+- **Un gráfico nuevo** con el indicador que decide la ruptura, con su umbral de la Comisión como línea discontinua. Va justo después de la deuda. Decide un indicador que pasa de su umbral el año de la ruptura y estaba en el lado seguro el año anterior, o sin valor (2026 no tiene deuda que vence). En los cuatro sistemas probados es siempre el de las necesidades de financiación. Las cifras son las del veredicto (`verdict.journey`), no una serie aparte.
+- **La raya roja solo en la deuda y en ese gráfico.** Si se rompe por la pensión, la raya va solo en «Pensión media frente al salario medio», con su mínimo del 40 % como línea discontinua.
+- **Una frase sobre los gráficos** dice qué marca la raya y por qué solo está ahí.
+
+**Pendiente de decidir:** la consola dibuja la raya en todos sus gráficos. No se ha tocado (hecho en la 1.92.0).
+
+**Sin cambios en el motor.** Prueba: `tests/scenario-report.test.mjs` (el indicador cruza su umbral el año de la ruptura; la raya no sale en los gráficos de pensiones; nada marcado si aguanta).
+
+## 1.92.0 · La consola también dibuja la ruptura donde ocurre (27/11/2026)
+
+**Motivo:** el autor pidió llevar a la consola lo de la 1.91.0.
+
+**Qué cambia en la consola:**
+- **Un quinto gráfico** cuando se rompe por la deuda: el indicador que decide el año, con su umbral como línea roja de puntos. Va después de la deuda y es corto, «Necesidades de financiación, % PIB»; el nombre completo y el umbral salen al pasar el ratón. La línea discontinua es el mismo indicador con las reglas de hoy, como en los demás gráficos.
+- **La raya roja solo en la deuda y en ese gráfico.** Si se rompe por la pensión, la raya y el mínimo del 40 % van en «Pensión media, % salario medio».
+- **La leyenda dice qué la causa:** «Raya roja: se rompe en 2050, cuando «Necesidades brutas de financiación» cruza su umbral (línea roja de puntos).»
+- Los gráficos se reparten en tantas columnas como haya (`--cx-n`).
+
+**Código:** `decidingIndicators` y `riskVariable` pasan a `src/views/risk-strip.js`, junto a los umbrales, y los usan el informe y la consola.
+
+**Comprobado** en el navegador con Reparto a 1600 px: cinco gráficos del mismo ancho, umbral 15,95 y raya en 2050. **Sin cambios en el motor.**
